@@ -139,9 +139,8 @@ export function Recognition() {
                     <p
                       className="text-ink-muted"
                       style={{ fontSize: "0.88rem", lineHeight: 1.5 }}
-                    >
-                      {item.desc}
-                    </p>
+                      dangerouslySetInnerHTML={{ __html: item.desc }}
+                    />
                   </div>
                 </article>
               </Reveal>

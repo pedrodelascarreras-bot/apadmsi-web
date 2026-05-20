@@ -614,7 +614,7 @@ export const recognition = {
       kind: "msi",
       abbr: "Municipalidad de San Isidro",
       name: "Más de 40 años de apoyo",
-      desc: "Relación íntima y continua. Delfín Beccar Varela, actual director de discapacidad, mantiene contacto permanente con el Centro.",
+      desc: "Relación íntima y continua. <strong>Delfín Beccar Varela</strong>, actual director de discapacidad, mantiene contacto permanente con el Centro.",
       color: "#0E7C5A",
       logoSlug: "msi",
     },
