@@ -471,6 +471,12 @@ export const reviews = {
       text: "APADMSI es un espacio de contención para nuestros hijos y para nosotros, donde sobra la cordialidad y el cariño. El personal brinda un gran cariño a los concurrentes, que tienen distintas patologías y problemáticas. En resumen, es un lugar que nos da mucha seguridad y tranquilidad.",
     },
     {
+      author: "Cecilia Lanusse",
+      rating: 5,
+      date: "Hermana de una concurrente",
+      text: "Quiero agradecer la existencia de APADMSI. Para Deborah es su segundo HOGAR, así con mayúscula, donde recibe cada día todo el amor, los cuidados y la atención que necesita. Es donde comparte lo cotidiano con sus pares, es el lugar donde puedo dejarla con la total tranquilidad de que va a estar tan bien atendida, o mejor, que en casa. Para mí significa descanso físico y mental y la seguridad de que no estoy sola con el cuidado de Deborah de cada día. Gracias.",
+    },
+    {
       author: "Familia de Natalia",
       rating: 5,
       date: "Familia de una concurrente",
@@ -511,12 +517,6 @@ export const reviews = {
       rating: 5,
       date: "Hace 6 años",
       text: "Me pareció un lindo lugar! Cálido y bien cuidado.",
-    },
-    {
-      author: "Cecilia Lanusse",
-      rating: 5,
-      date: "Hermana de una concurrente",
-      text: "Quiero agradecer la existencia de APADMSI. Para Deborah es su segundo HOGAR, así con mayúscula, donde recibe cada día todo el amor, los cuidados y la atención que necesita. Es donde comparte lo cotidiano con sus pares, es el lugar donde puedo dejarla con la total tranquilidad de que va a estar tan bien atendida, o mejor, que en casa. Para mí significa descanso físico y mental y la seguridad de que no estoy sola con el cuidado de Deborah de cada día. Gracias.",
     },
   ] as Array<{
     author: string;
