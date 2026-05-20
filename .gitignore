@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# internal dev files
+_referencia/
+PENDIENTES.md
+design-system.md
+.claude/
