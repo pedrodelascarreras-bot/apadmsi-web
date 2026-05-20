@@ -95,8 +95,11 @@ function ReviewModal({
   );
 }
 
+const MOBILE_LIMIT = 3;
+
 export function Reviews() {
   const [selected, setSelected] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
   const hasReviews = reviews.items.length > 0;
 
   return (
@@ -148,44 +151,63 @@ export function Reviews() {
         </Reveal>
 
         {hasReviews ? (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {reviews.items.map((r, i) => (
-              <Reveal key={i} delay={i * 90}>
+          <>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {reviews.items.map((r, i) => (
+                <Reveal key={i} delay={i * 90}>
+                  <button
+                    type="button"
+                    onClick={() => setSelected(i)}
+                    className={`h-full w-full cursor-pointer rounded-[12px] bg-paper text-left transition-all hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(31,22,17,0.08)]${
+                      !showAll && i >= MOBILE_LIMIT ? " hidden sm:block" : ""
+                    }`}
+                    style={{
+                      border: "1px solid rgba(31,22,17,0.08)",
+                      boxShadow: "0 2px 12px rgba(31,22,17,0.04)",
+                      padding: "1.5rem 1.75rem",
+                    }}
+                  >
+                    <div className="mb-3 flex text-burgundy">
+                      {Array.from({ length: 5 }).map((_, idx) => (
+                        <span
+                          key={idx}
+                          className="star-pop"
+                          style={{ animationDelay: `${idx * 90 + 200}ms` }}
+                        >
+                          <Star filled={idx < r.rating} />
+                        </span>
+                      ))}
+                    </div>
+                    <p
+                      className="text-ink"
+                      style={{ fontSize: "0.98rem", lineHeight: 1.6 }}
+                    >
+                      &ldquo;{r.text}&rdquo;
+                    </p>
+                    <div className="mt-4 flex items-baseline justify-between gap-3 text-sm">
+                      <span className="font-semibold text-ink">{r.author}</span>
+                      <span className="text-ink-soft">{r.date}</span>
+                    </div>
+                  </button>
+                </Reveal>
+              ))}
+            </div>
+            {!showAll && reviews.items.length > MOBILE_LIMIT && (
+              <div className="mt-6 flex justify-center sm:hidden">
                 <button
                   type="button"
-                  onClick={() => setSelected(i)}
-                  className="h-full w-full cursor-pointer rounded-[12px] bg-paper text-left transition-all hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(31,22,17,0.08)]"
-                  style={{
-                    border: "1px solid rgba(31,22,17,0.08)",
-                    boxShadow: "0 2px 12px rgba(31,22,17,0.04)",
-                    padding: "1.5rem 1.75rem",
-                  }}
+                  onClick={() => setShowAll(true)}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-cream-warm px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-burgundy hover:text-burgundy"
                 >
-                  <div className="mb-3 flex text-burgundy">
-                    {Array.from({ length: 5 }).map((_, idx) => (
-                      <span
-                        key={idx}
-                        className="star-pop"
-                        style={{ animationDelay: `${idx * 90 + 200}ms` }}
-                      >
-                        <Star filled={idx < r.rating} />
-                      </span>
-                    ))}
-                  </div>
-                  <p
-                    className="text-ink"
-                    style={{ fontSize: "0.98rem", lineHeight: 1.6 }}
-                  >
-                    &ldquo;{r.text}&rdquo;
-                  </p>
-                  <div className="mt-4 flex items-baseline justify-between gap-3 text-sm">
-                    <span className="font-semibold text-ink">{r.author}</span>
-                    <span className="text-ink-soft">{r.date}</span>
-                  </div>
+                  Ver las {reviews.items.length - MOBILE_LIMIT} reseñas restantes
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </button>
-              </Reveal>
-            ))}
-          </div>
+              </div>
+            )}
+          </>
+
         ) : (
           <div className="mx-auto max-w-[640px] rounded-[12px] border border-dashed border-border bg-cream px-8 py-10 text-center">
             <p

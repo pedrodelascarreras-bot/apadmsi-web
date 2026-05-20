@@ -13,7 +13,7 @@ function heroImageExists() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden py-16 sm:py-16 lg:py-20">
       {/* Blob decorativo cálido */}
       <div
         aria-hidden="true"
@@ -25,9 +25,9 @@ export function Hero() {
       />
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-[1.05fr_1fr]">
+        <div className="grid items-center gap-12 sm:gap-10 lg:gap-16 lg:grid-cols-[1.05fr_1fr]">
           {/* Columna izquierda — copy */}
-          <div>
+          <div className="text-center sm:text-left">
             <p
               className="fade-up font-script text-2xl font-medium leading-none text-burgundy"
               style={{ display: "inline-block" }}
@@ -49,7 +49,7 @@ export function Hero() {
             />
 
             <p
-              className="fade-up mt-6 max-w-[540px] text-ink-muted"
+              className="fade-up mx-auto mt-6 max-w-[540px] text-ink-muted sm:mx-0"
               style={{
                 fontSize: "clamp(1.05rem, 1.4vw, 1.18rem)",
                 lineHeight: 1.65,
@@ -60,7 +60,7 @@ export function Hero() {
             </p>
 
             <div
-              className="fade-up mt-8 flex flex-wrap items-center gap-4"
+              className="fade-up mt-8 flex flex-wrap items-center justify-center gap-4 sm:justify-start"
               style={{ animationDelay: "0.3s" }}
             >
               <Link

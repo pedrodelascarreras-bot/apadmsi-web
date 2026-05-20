@@ -52,12 +52,15 @@ export function Header() {
               className="object-contain"
             />
           </span>
-          <span className="hidden flex-col leading-[1.15] sm:flex">
-            <strong className="font-display text-xl font-bold tracking-wide">
-              {site.brandShort}
+          <span className="flex flex-col leading-[1.15]">
+            <strong className="font-display text-base font-bold tracking-wide sm:text-xl">
+              {site.name}
             </strong>
-            <span className="whitespace-nowrap text-sm text-ink-muted tracking-wide">
+            <span className="hidden whitespace-nowrap text-sm text-ink-muted tracking-wide sm:block">
               {site.tagline}
+            </span>
+            <span className="whitespace-nowrap text-[0.7rem] text-ink-muted tracking-wide sm:hidden">
+              Centro de Día
             </span>
           </span>
         </Link>

@@ -43,7 +43,9 @@ export function ActivitiesClient({
   officialIntro,
   activityImages,
 }: Props) {
+  const MOBILE_LIMIT = 4;
   const [openSet, setOpenSet] = useState<Set<number>>(new Set());
+  const [showAll, setShowAll] = useState(false);
 
   function toggle(i: number) {
     setOpenSet((prev) => {
@@ -129,6 +131,7 @@ export function ActivitiesClient({
             const previewImage =
               (slug ? activityImages[slug]?.[0] : undefined) ?? item.image;
             const isOpen = openSet.has(i);
+            const hiddenOnMobile = !showAll && i >= MOBILE_LIMIT;
 
             return (
               <Reveal key={item.title} delay={(i % 6) * 60}>
@@ -137,7 +140,7 @@ export function ActivitiesClient({
                     isOpen
                       ? "border-burgundy/30 bg-cream/50 shadow-[0_8px_24px_rgba(31,22,17,0.06)]"
                       : "border-border"
-                  }`}
+                  }${hiddenOnMobile ? " hidden md:block" : ""}`}
                 >
                   <button
                     type="button"
@@ -248,6 +251,21 @@ export function ActivitiesClient({
             );
           })}
         </div>
+
+        {!showAll && items.length > MOBILE_LIMIT && (
+          <div className="mt-4 flex justify-center md:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-paper px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-burgundy hover:text-burgundy"
+            >
+              Ver las {items.length - MOBILE_LIMIT} actividades restantes
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+        )}
 
         {/* CTA card */}
         <Reveal delay={300}>

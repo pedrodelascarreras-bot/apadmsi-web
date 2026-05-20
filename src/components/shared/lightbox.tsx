@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 type Props = {
   images: string[];
@@ -12,23 +12,41 @@ type Props = {
 };
 
 export function Lightbox({ images, index, alt, onClose, onChange }: Props) {
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
+  const closeLightbox = useCallback(() => {
+    onCloseRef.current();
+  }, []);
+
   useEffect(() => {
     if (index === null) return;
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
+    history.pushState({ lightbox: true }, "");
+
+    function onPopState() {
+      closeLightbox();
+    }
+
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        history.back();
+      }
       if (e.key === "ArrowRight") next();
       if (e.key === "ArrowLeft") prev();
     }
     window.addEventListener("keydown", onKey);
+    window.addEventListener("popstate", onPopState);
     return () => {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
+      window.removeEventListener("popstate", onPopState);
+      if (history.state?.lightbox) history.back();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index]);
+  }, [index !== null]);
 
   if (index === null || images.length === 0) return null;
 
@@ -54,13 +72,13 @@ export function Lightbox({ images, index, alt, onClose, onChange }: Props) {
         animation: "modal-fade 0.2s ease-out both",
       }}
       onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
+        if (e.target === e.currentTarget) history.back();
       }}
     >
       {/* Cerrar */}
       <button
         type="button"
-        onClick={onClose}
+        onClick={() => history.back()}
         aria-label="Cerrar galería"
         className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/25"
       >

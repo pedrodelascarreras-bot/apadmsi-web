@@ -34,11 +34,11 @@ export function Team() {
         </Reveal>
 
         {/* Autoridades — cards compactas sin avatar */}
-        <div className="mx-auto grid max-w-[1080px] gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <div className="mx-auto grid max-w-[1080px] grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6">
           {team.members.map((member, idx) => (
             <Reveal key={member.name} delay={idx * 100}>
               <article
-                className="group flex h-full flex-col rounded-[16px] bg-paper px-6 pt-6 pb-5 transition-all hover:-translate-y-[2px] hover:shadow-[0_12px_32px_rgba(31,22,17,0.08)]"
+                className="group flex h-full flex-col rounded-[16px] bg-paper px-4 pt-4 pb-4 transition-all hover:-translate-y-[2px] hover:shadow-[0_12px_32px_rgba(31,22,17,0.08)] sm:px-6 sm:pt-6 sm:pb-5"
                 style={{
                   borderLeft: "3px solid var(--color-burgundy)",
                   border: "1px solid var(--color-border)",
@@ -46,28 +46,23 @@ export function Team() {
                   borderLeftColor: "var(--color-burgundy)",
                 }}
               >
-                {/* Rol — chip */}
-                <span className="mb-3 inline-block self-start rounded-full bg-cream-warm px-3 py-1 text-[0.66rem] font-bold uppercase tracking-[0.16em] text-burgundy">
+                <span className="mb-2 inline-block self-start rounded-full bg-cream-warm px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-burgundy sm:mb-3 sm:px-3 sm:py-1 sm:text-[0.66rem] sm:tracking-[0.16em]">
                   {member.role}
                 </span>
-
-                {/* Nombre */}
                 <h3
                   className="font-display text-ink"
                   style={{
-                    fontSize: "1.12rem",
+                    fontSize: "1rem",
                     fontWeight: 600,
                     lineHeight: 1.25,
-                    marginBottom: "0.6rem",
+                    marginBottom: "0.4rem",
                     fontVariationSettings: '"opsz" 144, "SOFT" 80',
                   }}
                 >
                   {member.name}
                 </h3>
-
-                {/* Descripción */}
                 <p
-                  className="text-ink-muted"
+                  className="hidden text-ink-muted sm:block"
                   style={{
                     fontSize: "0.88rem",
                     lineHeight: 1.6,
