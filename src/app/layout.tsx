@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     template: "%s · APADMSI",
   },
   description:
-    "APADMSI es un Centro de Día sin fines de lucro fundado en 1982. Acompañamos a 34 jóvenes y adultos con discapacidad mental severa en San Isidro, Buenos Aires.",
+    "APADMSI es un Centro de Día sin fines de lucro fundado en 1982. Acompañamos a más de 30 jóvenes y adultos con discapacidad mental severa en San Isidro, Buenos Aires.",
   applicationName: "APADMSI",
   authors: [{ name: "APADMSI" }],
   keywords: [
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     siteName: "APADMSI",
     title: "APADMSI · Centro de Día · San Isidro",
     description:
-      "Una casa con más de 40 años. Acompañamos a 34 personas con discapacidad mental severa y a sus familias.",
+      "Una casa con más de 40 años. Acompañamos a más de 30 personas con discapacidad mental severa y a sus familias.",
     images: [
       {
         url: `${siteUrl}/images/fotodeportadaFUNDACION.PNG`,
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "APADMSI · Centro de Día · San Isidro",
     description:
-      "Una casa con más de 40 años. Acompañamos a 34 personas con discapacidad mental severa y a sus familias.",
+      "Una casa con más de 40 años. Acompañamos a más de 30 personas con discapacidad mental severa y a sus familias.",
     images: [`${siteUrl}/images/fotodeportadaFUNDACION.PNG`],
   },
   icons: {

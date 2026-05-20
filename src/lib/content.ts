@@ -462,7 +462,7 @@ export const reviews = {
     "Combinamos dos voces: los testimonios que nos comparten las familias de los concurrentes y las reseñas publicadas en Google Maps por vecinos, profesionales y quienes pasaron por el Centro.",
   googleMapsUrl:
     "https://www.google.com/maps/place/Apadmsi/@-34.4735,-58.538446,17z/",
-  summary: { average: 4.6, count: 29 } as { average: number; count: number } | null,
+  summary: { average: 4.6, count: 30 } as { average: number; count: number } | null,
   items: [
     {
       author: "Roberto Sánchez",
@@ -511,6 +511,12 @@ export const reviews = {
       rating: 5,
       date: "Hace 6 años",
       text: "Me pareció un lindo lugar! Cálido y bien cuidado.",
+    },
+    {
+      author: "Cecilia Lanusse",
+      rating: 5,
+      date: "Hermana de una concurrente",
+      text: "Quiero agradecer la existencia de APADMSI. Para Deborah es su segundo HOGAR, así con mayúscula, donde recibe cada día todo el amor, los cuidados y la atención que necesita. Es donde comparte lo cotidiano con sus pares, es el lugar donde puedo dejarla con la total tranquilidad de que va a estar tan bien atendida, o mejor, que en casa. Para mí significa descanso físico y mental y la seguridad de que no estoy sola con el cuidado de Deborah de cada día. Gracias.",
     },
   ] as Array<{
     author: string;
