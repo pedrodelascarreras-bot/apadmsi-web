@@ -9,9 +9,10 @@ type Props = {
   alt?: string;
   onClose: () => void;
   onChange: (next: number) => void;
+  mobileDisabled?: boolean;
 };
 
-export function Lightbox({ images, index, alt, onClose, onChange }: Props) {
+export function Lightbox({ images, index, alt, onClose, onChange, mobileDisabled }: Props) {
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
 
@@ -49,6 +50,10 @@ export function Lightbox({ images, index, alt, onClose, onChange }: Props) {
   }, [index !== null]);
 
   if (index === null || images.length === 0) return null;
+  if (mobileDisabled && typeof window !== "undefined" && window.innerWidth < 768) {
+    onClose();
+    return null;
+  }
 
   function next() {
     if (index === null) return;

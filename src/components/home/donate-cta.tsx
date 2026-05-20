@@ -238,8 +238,8 @@ export function DonateCta() {
           </div>
         </Reveal>
 
-        {/* Otras formas de sumarte (socio / voluntario / empresa) */}
-        <div className="mt-12">
+        {/* Otras formas de sumarte (socio / voluntario / empresa) — hidden on mobile */}
+        <div className="mt-12 hidden sm:block">
           <Reveal>
             <p
               className="mb-5 font-script text-center"

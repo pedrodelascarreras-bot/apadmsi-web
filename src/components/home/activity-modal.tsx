@@ -205,6 +205,7 @@ export function ActivityModal({ activity, images, onClose }: Props) {
       </div>
 
       <Lightbox
+        mobileDisabled
         images={images}
         index={lightboxIndex}
         alt={activity.title}

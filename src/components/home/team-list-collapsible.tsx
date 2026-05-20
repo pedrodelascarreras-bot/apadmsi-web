@@ -45,7 +45,7 @@ export function TeamListCollapsible({
             {label}
           </p>
           <p
-            className="text-ink-muted"
+            className="hidden text-ink-muted sm:block"
             style={{ fontSize: "0.98rem", lineHeight: 1.65, maxWidth: "680px" }}
           >
             {intro}
@@ -84,8 +84,13 @@ export function TeamListCollapsible({
         style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          {/* Espaciador generoso + divisor sutil entre intro y lista */}
-          <div className="mt-10 mb-8 flex items-center gap-4">
+          <p
+            className="mt-6 text-ink-muted sm:hidden"
+            style={{ fontSize: "0.92rem", lineHeight: 1.6 }}
+          >
+            {intro}
+          </p>
+          <div className="mt-6 mb-8 flex items-center gap-4 sm:mt-10">
             <span
               aria-hidden="true"
               className="h-px flex-1"
