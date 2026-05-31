@@ -1,43 +1,18 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-
-const PRESET_AMOUNTS = [
-  { value: 1000, label: "$1.000", desc: "Un día de materiales" },
-  { value: 2500, label: "$2.500", desc: "Una semana de meriendas" },
-  { value: 5000, label: "$5.000", desc: "Un taller completo" },
-  { value: 10000, label: "$10.000", desc: "Medio mes de transporte" },
-];
-
-function formatARS(n: number) {
-  return new Intl.NumberFormat("es-AR", {
-    style: "currency",
-    currency: "ARS",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(n);
-}
+import { useState, useRef } from "react";
 
 export function MercadoPagoButton() {
-  const [selected, setSelected] = useState<number>(2500);
-  const [custom, setCustom] = useState("");
-  const [isCustom, setIsCustom] = useState(false);
+  const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [pulse, setPulse] = useState(false);
+  const [focused, setFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const amount = isCustom ? Number(custom) || 0 : selected;
-
-  // Pulse animation on amount change
-  useEffect(() => {
-    setPulse(true);
-    const t = setTimeout(() => setPulse(false), 300);
-    return () => clearTimeout(t);
-  }, [amount]);
+  const numericAmount = Number(amount) || 0;
 
   async function handleDonate() {
-    if (amount <= 0) return;
+    if (numericAmount <= 0) return;
 
     setLoading(true);
     setError(null);
@@ -46,7 +21,7 @@ export function MercadoPagoButton() {
       const res = await fetch("/api/mercadopago", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount }),
+        body: JSON.stringify({ amount: numericAmount }),
       });
 
       const data = await res.json();
@@ -75,262 +50,257 @@ export function MercadoPagoButton() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[520px]">
+    <div className="mx-auto w-full max-w-[560px]">
       {/* ── Donation card ── */}
       <div
-        className="relative overflow-hidden rounded-[20px] border border-border"
+        className="relative overflow-hidden rounded-[24px]"
         style={{
-          background:
-            "linear-gradient(170deg, #FFFFFF 0%, var(--color-cream) 50%, var(--color-cream-warm) 100%)",
+          background: "#FEFCF9",
           boxShadow:
-            "0 1px 2px rgba(42,31,24,0.04), 0 8px 32px rgba(42,31,24,0.08), 0 20px 48px rgba(185,28,44,0.06)",
+            "0 1px 3px rgba(42,31,24,0.04), 0 6px 24px rgba(42,31,24,0.06), 0 16px 48px rgba(42,31,24,0.04)",
+          border: "1px solid #EDE3D8",
         }}
       >
-        {/* Decorative top stripe */}
-        <div
-          className="h-[4px] w-full"
-          style={{
-            background:
-              "linear-gradient(90deg, var(--color-burgundy), var(--color-peach), var(--color-burgundy))",
-          }}
-        />
-
-        <div className="px-5 pb-7 pt-6 sm:px-8 sm:pb-8 sm:pt-7">
-          {/* Header with heart badge */}
-          <div className="mb-6 text-center">
+        <div className="px-7 pb-8 pt-8 sm:px-10 sm:pb-10 sm:pt-10">
+          {/* ── Heart badge ── */}
+          <div className="mb-6 flex justify-center">
             <div
-              className="mx-auto mb-3 flex h-[52px] w-[52px] items-center justify-center rounded-full"
+              className="flex h-[64px] w-[64px] items-center justify-center rounded-full"
               style={{
-                background:
-                  "linear-gradient(135deg, var(--color-burgundy), var(--color-burgundy-deep))",
-                boxShadow: "0 4px 16px rgba(185,28,44,0.3)",
+                background: "#FDF5F0",
+                border: "1.5px solid #EADDD3",
               }}
             >
+              {/* Hand-drawn scribble heart */}
               <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
+                width="32"
+                height="30"
+                viewBox="0 0 32 30"
                 fill="none"
                 aria-hidden="true"
               >
                 <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  fill="white"
+                  d="M16 28C16 28 3 20 3 10.5C3 6 6.5 3 10 3C12.5 3 14.5 4.5 16 6.5C17.5 4.5 19.5 3 22 3C25.5 3 29 6 29 10.5C29 20 16 28 16 28Z"
+                  fill="#C61F32"
+                  opacity="0.12"
+                />
+                <path
+                  d="M16 26S4.5 19 4.5 10.5C4.5 6.8 7.2 4.2 10.2 4.2c2 0 3.8 1 5 2.8.4.6.5.6.8.1 1.2-1.8 3-2.9 5-2.9 3 0 5.7 2.6 5.7 6.3C27.2 19 16 26 16 26Z"
+                  stroke="#C61F32"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                {/* Scribble lines inside heart for hand-drawn feel */}
+                <path
+                  d="M10 11c1.5-1 3.5-.5 4.5 1s.5 3.5-1 4.5"
+                  stroke="#C61F32"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  opacity="0.5"
+                />
+                <path
+                  d="M13 9.5c2-1 4.5 0 5.5 2s0 4-2 5"
+                  stroke="#C61F32"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  opacity="0.35"
+                />
+                <path
+                  d="M18 10c1.5-.5 3.5.5 4 2s-.5 3-2 3.5"
+                  stroke="#C61F32"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  opacity="0.4"
                 />
               </svg>
             </div>
+          </div>
+
+          {/* ── Headline ── */}
+          <div className="mb-5 text-center">
             <h3
-              className="font-display text-ink"
+              className="font-display"
               style={{
-                fontSize: "1.3rem",
-                fontWeight: 600,
+                fontSize: "1.55rem",
+                fontWeight: 700,
                 lineHeight: 1.25,
-                marginBottom: "0.35rem",
+                color: "#2B2B2B",
+                marginBottom: "0.5rem",
+                letterSpacing: "-0.01em",
               }}
             >
-              Elegí cuánto donar
+              Doná lo que quieras,{" "}
+              <em
+                style={{
+                  fontStyle: "italic",
+                  color: "#C61F32",
+                }}
+              >
+                cambiá realidades
+              </em>
+              .
             </h3>
             <p
-              className="text-ink-muted"
-              style={{ fontSize: "0.88rem", lineHeight: 1.5 }}
+              style={{
+                fontSize: "0.95rem",
+                color: "#7B716A",
+                lineHeight: 1.55,
+              }}
             >
-              Cada aporte sostiene el día a día del Centro
+              Vos elegís el monto, nosotros lo convertimos en oportunidades.
             </p>
           </div>
 
-          {/* ── Amount grid ── */}
-          <div className="mb-2 grid grid-cols-2 gap-2.5">
-            {PRESET_AMOUNTS.map((item) => {
-              const active = !isCustom && selected === item.value;
-              return (
-                <button
-                  key={item.value}
-                  type="button"
-                  onClick={() => {
-                    setSelected(item.value);
-                    setIsCustom(false);
-                    setError(null);
-                  }}
-                  className="group relative rounded-[14px] border-[1.5px] px-4 py-3.5 text-left transition-all duration-200"
-                  style={{
-                    borderColor: active
-                      ? "var(--color-burgundy)"
-                      : "var(--color-border)",
-                    background: active
-                      ? "linear-gradient(135deg, rgba(185,28,44,0.06), rgba(232,168,124,0.08))"
-                      : "var(--color-paper)",
-                    boxShadow: active
-                      ? "0 0 0 1px var(--color-burgundy), 0 4px 12px rgba(185,28,44,0.1)"
-                      : "none",
-                    transform: active ? "translateY(-1px)" : "none",
-                  }}
-                >
-                  {/* Check indicator */}
-                  {active && (
-                    <div
-                      className="absolute right-2.5 top-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full"
-                      style={{
-                        background: "var(--color-burgundy)",
-                      }}
-                    >
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 10 10"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M2 5.5L4 7.5L8 3"
-                          stroke="white"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                  <span
-                    className="font-display block"
-                    style={{
-                      fontSize: "1.35rem",
-                      fontWeight: 700,
-                      color: active
-                        ? "var(--color-burgundy)"
-                        : "var(--color-ink)",
-                      lineHeight: 1.2,
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {item.label}
-                  </span>
-                  <span
-                    className="mt-0.5 block"
-                    style={{
-                      fontSize: "0.78rem",
-                      color: active
-                        ? "var(--color-burgundy-soft)"
-                        : "var(--color-ink-muted)",
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {item.desc}
-                  </span>
-                </button>
-              );
-            })}
+          {/* ── Decorative dashed line with heart ── */}
+          <div
+            className="relative mx-auto mb-6"
+            style={{ height: "24px", maxWidth: "100%" }}
+          >
+            <svg
+              width="100%"
+              height="24"
+              viewBox="0 0 400 24"
+              preserveAspectRatio="none"
+              fill="none"
+              aria-hidden="true"
+              style={{ overflow: "visible" }}
+            >
+              <path
+                d="M0 12 C80 12, 100 4, 180 8 S280 18, 340 10 S380 6, 400 12"
+                stroke="#C61F32"
+                strokeWidth="1.2"
+                strokeDasharray="6 4"
+                strokeLinecap="round"
+                opacity="0.35"
+              />
+            </svg>
+            {/* Small heart at end of line */}
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+              className="absolute -top-[2px] right-0"
+              style={{ opacity: 0.4 }}
+            >
+              <path
+                d="M10 17l-1-1C5 12.5 3 10.5 3 8.2 3 6.4 4.4 5 6.2 5c1 0 2 .5 2.6 1.2L10 7.5l1.2-1.3C11.8 5.5 12.8 5 13.8 5 15.6 5 17 6.4 17 8.2c0 2.3-2 4.3-6 8L10 17z"
+                stroke="#C61F32"
+                strokeWidth="1"
+                strokeLinecap="round"
+                fill="none"
+              />
+            </svg>
           </div>
 
-          {/* Custom amount toggle */}
-          <button
-            type="button"
-            onClick={() => {
-              setIsCustom(true);
-              setError(null);
-              setTimeout(() => inputRef.current?.focus(), 50);
-            }}
-            className="mb-5 w-full rounded-[14px] border-[1.5px] px-4 py-3 text-center transition-all duration-200"
-            style={{
-              borderColor: isCustom
-                ? "var(--color-burgundy)"
-                : "var(--color-border)",
-              background: isCustom
-                ? "linear-gradient(135deg, rgba(185,28,44,0.06), rgba(232,168,124,0.08))"
-                : "var(--color-paper)",
-              borderStyle: isCustom ? "solid" : "dashed",
-              boxShadow: isCustom
-                ? "0 0 0 1px var(--color-burgundy)"
-                : "none",
-            }}
-          >
-            {isCustom ? (
-              <div className="flex items-center justify-center gap-1">
+          {/* ── Input field ── */}
+          <div className="mb-5">
+            <div
+              className="flex items-center overflow-hidden rounded-[14px] transition-all duration-200"
+              style={{
+                border: focused
+                  ? "1.5px solid #C61F32"
+                  : "1.5px solid #E2D7CC",
+                background: "#FFFFFF",
+                boxShadow: focused
+                  ? "0 0 0 3px rgba(198,31,50,0.08)"
+                  : "0 1px 3px rgba(42,31,24,0.03)",
+                height: "56px",
+              }}
+            >
+              <div
+                className="flex h-full items-center justify-center shrink-0"
+                style={{
+                  width: "56px",
+                  color: focused ? "#C61F32" : "#A09488",
+                }}
+              >
                 <span
                   className="font-display"
                   style={{
-                    fontSize: "1.35rem",
-                    fontWeight: 700,
-                    color: "var(--color-burgundy)",
+                    fontSize: "1.25rem",
+                    fontWeight: 600,
+                    transition: "color 0.2s",
                   }}
                 >
                   $
                 </span>
-                <input
-                  ref={inputRef}
-                  type="number"
-                  inputMode="numeric"
-                  min={1}
-                  placeholder="Tu monto"
-                  value={custom}
-                  onChange={(e) => {
-                    setCustom(e.target.value);
-                    setError(null);
-                  }}
-                  onClick={(e) => e.stopPropagation()}
-                  className="font-display w-[140px] bg-transparent text-center outline-none placeholder:text-ink-soft"
-                  style={{
-                    fontSize: "1.35rem",
-                    fontWeight: 700,
-                    color: "var(--color-burgundy)",
-                  }}
-                />
               </div>
-            ) : (
-              <span
-                className="font-semibold"
-                style={{
-                  fontSize: "0.88rem",
-                  color: "var(--color-ink-muted)",
+              <input
+                ref={inputRef}
+                type="number"
+                inputMode="numeric"
+                min={1}
+                placeholder="Ingresá el monto que deseás"
+                value={amount}
+                onChange={(e) => {
+                  setAmount(e.target.value);
+                  setError(null);
                 }}
-              >
-                Otro monto →
-              </span>
-            )}
-          </button>
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                className="h-full flex-1 bg-transparent pr-5 outline-none"
+                style={{
+                  fontSize: "1rem",
+                  color: "#2B2B2B",
+                  fontWeight: 400,
+                  letterSpacing: "0.01em",
+                }}
+              />
+            </div>
+          </div>
 
           {/* Error message */}
           {error && (
             <div
-              className="mb-4 rounded-[12px] border px-4 py-3 text-center"
+              className="mb-4 rounded-[12px] px-4 py-3 text-center"
               style={{
-                borderColor: "var(--color-peach)",
-                background: "rgba(232,168,124,0.1)",
+                background: "rgba(198,31,50,0.06)",
+                border: "1px solid rgba(198,31,50,0.12)",
               }}
             >
-              <p
-                className="text-ink-muted"
-                style={{ fontSize: "0.85rem", lineHeight: 1.5 }}
-              >
+              <p style={{ fontSize: "0.85rem", lineHeight: 1.5, color: "#7B716A" }}>
                 {error}
               </p>
             </div>
           )}
 
-          {/* ── Main CTA button ── */}
+          {/* ── CTA Button ── */}
           <button
             type="button"
             onClick={handleDonate}
-            disabled={loading || amount <= 0}
-            className="group relative w-full overflow-hidden rounded-[14px] px-6 py-4 font-semibold text-white transition-all duration-200 hover:-translate-y-[1px] disabled:pointer-events-none disabled:opacity-40"
+            disabled={loading || numericAmount <= 0}
+            className="group relative w-full cursor-pointer overflow-hidden transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 disabled:pointer-events-none disabled:opacity-40"
             style={{
-              background:
-                "linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-burgundy-deep) 100%)",
+              background: "linear-gradient(180deg, #D93045 0%, #B91C2C 50%, #A01726 100%)",
+              borderRadius: "999px",
+              height: "56px",
               boxShadow:
-                "0 2px 0 0 var(--color-burgundy-deep), 0 4px 16px rgba(185,28,44,0.25)",
-              fontSize: "1rem",
-              letterSpacing: "0.01em",
+                "0 4px 12px rgba(185,28,44,0.3), 0 1px 3px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.15)",
             }}
           >
-            {/* Shimmer effect */}
+            {/* Shimmer on hover */}
             <div
-              className="pointer-events-none absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_ease-in-out]"
+              className="pointer-events-none absolute inset-0 -translate-x-full group-hover:animate-[mp-shimmer_1.2s_ease-in-out]"
               style={{
                 background:
-                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)",
+                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)",
+                borderRadius: "inherit",
               }}
             />
 
-            <span className="relative z-10 flex items-center justify-center gap-2.5">
+            <span
+              className="relative z-10 flex items-center justify-center gap-2.5"
+              style={{
+                color: "#FFFFFF",
+                fontSize: "1.05rem",
+                fontWeight: 600,
+                letterSpacing: "0.02em",
+              }}
+            >
               {loading ? (
                 <>
                   <LoadingSpinner />
@@ -338,51 +308,38 @@ export function MercadoPagoButton() {
                 </>
               ) : (
                 <>
-                  <span>Donar</span>
-                  {amount > 0 && (
-                    <span
-                      className="inline-block transition-transform duration-200"
-                      style={{
-                        transform: pulse ? "scale(1.1)" : "scale(1)",
-                      }}
-                    >
-                      {formatARS(amount)}
-                    </span>
-                  )}
+                  <span>Quiero donar</span>
+                  {/* Heart icon */}
                   <svg
                     width="18"
                     height="18"
                     viewBox="0 0 24 24"
-                    fill="none"
+                    fill="currentColor"
                     aria-hidden="true"
-                    className="transition-transform duration-200 group-hover:translate-x-0.5"
+                    className="transition-transform duration-300 group-hover:scale-110"
                   >
-                    <path
-                      d="M5 12h14M13 6l6 6-6 6"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                   </svg>
                 </>
               )}
             </span>
           </button>
 
-          {/* Trust signals */}
+          {/* ── Trust signals ── */}
           <div
-            className="mt-4 flex items-center justify-center gap-4"
-            style={{ color: "var(--color-ink-soft)", fontSize: "0.75rem" }}
+            className="mt-5 flex items-center justify-center gap-3 sm:gap-4"
+            style={{ color: "#9B9189", fontSize: "0.78rem" }}
           >
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1.5">
               <svg
-                width="12"
-                height="12"
+                width="13"
+                height="13"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 aria-hidden="true"
               >
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
@@ -391,49 +348,78 @@ export function MercadoPagoButton() {
               Pago seguro
             </span>
             <span
+              aria-hidden="true"
               style={{
-                width: "3px",
-                height: "3px",
-                borderRadius: "50%",
-                background: "var(--color-border)",
+                width: "1px",
+                height: "14px",
+                background: "#DDD3C8",
                 display: "inline-block",
               }}
             />
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1.5">
               <svg
-                width="12"
-                height="12"
+                width="13"
+                height="13"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 aria-hidden="true"
               >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
               MercadoPago
             </span>
             <span
+              aria-hidden="true"
               style={{
-                width: "3px",
-                height: "3px",
-                borderRadius: "50%",
-                background: "var(--color-border)",
+                width: "1px",
+                height: "14px",
+                background: "#DDD3C8",
                 display: "inline-block",
               }}
             />
-            <span>Débito · Crédito</span>
+            <span className="flex items-center gap-1.5">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+              </svg>
+              Débito · Crédito
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Shimmer keyframe (injected once) */}
+      {/* Shimmer keyframe */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
-            @keyframes shimmer {
+            @keyframes mp-shimmer {
               0% { transform: translateX(-100%); }
               100% { transform: translateX(100%); }
+            }
+            /* Remove number input spinners */
+            input[type="number"]::-webkit-inner-spin-button,
+            input[type="number"]::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+            input[type="number"] {
+              -moz-appearance: textfield;
             }
           `,
         }}
