@@ -50,10 +50,10 @@ export function MercadoPagoButton() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[560px]">
-      {/* ── Donation card ── */}
+    <div className="mx-auto w-full max-w-[720px]">
+      {/* ── Donation card — wide horizontal rectangle ── */}
       <div
-        className="relative overflow-hidden rounded-[24px]"
+        className="relative overflow-hidden rounded-[22px]"
         style={{
           background: "#FEFCF9",
           boxShadow:
@@ -61,59 +61,47 @@ export function MercadoPagoButton() {
           border: "1px solid #EDE3D8",
         }}
       >
-        <div className="px-7 pb-8 pt-8 sm:px-10 sm:pb-10 sm:pt-10">
+        <div className="px-8 pb-9 pt-9 sm:px-14 sm:pb-11 sm:pt-11">
           {/* ── Heart badge ── */}
-          <div className="mb-6 flex justify-center">
+          <div className="mb-7 flex justify-center">
             <div
-              className="flex h-[64px] w-[64px] items-center justify-center rounded-full"
+              className="flex h-[72px] w-[72px] items-center justify-center rounded-full"
               style={{
                 background: "#FDF5F0",
                 border: "1.5px solid #EADDD3",
               }}
             >
-              {/* Hand-drawn scribble heart */}
+              {/* Scribble heart — clean symmetric shape with cross-hatch fill */}
               <svg
-                width="32"
-                height="30"
-                viewBox="0 0 32 30"
+                width="36"
+                height="34"
+                viewBox="0 0 36 34"
                 fill="none"
                 aria-hidden="true"
               >
+                {/* Soft fill */}
                 <path
-                  d="M16 28C16 28 3 20 3 10.5C3 6 6.5 3 10 3C12.5 3 14.5 4.5 16 6.5C17.5 4.5 19.5 3 22 3C25.5 3 29 6 29 10.5C29 20 16 28 16 28Z"
+                  d="M18 30C18 30 4 21 4 12C4 7.5 7.5 4 11 4C13.5 4 15.5 5.2 17 7L18 8.5L19 7C20.5 5.2 22.5 4 25 4C28.5 4 32 7.5 32 12C32 21 18 30 18 30Z"
                   fill="#C61F32"
-                  opacity="0.12"
+                  opacity="0.15"
                 />
+                {/* Main outline — clean, symmetric heart */}
                 <path
-                  d="M16 26S4.5 19 4.5 10.5C4.5 6.8 7.2 4.2 10.2 4.2c2 0 3.8 1 5 2.8.4.6.5.6.8.1 1.2-1.8 3-2.9 5-2.9 3 0 5.7 2.6 5.7 6.3C27.2 19 16 26 16 26Z"
+                  d="M18 29C18 29 4.5 20.5 4.5 11.8C4.5 7.8 7.5 4.8 11 4.8C13.3 4.8 15.3 6 17 8L18 9.5L19 8C20.7 6 22.7 4.8 25 4.8C28.5 4.8 31.5 7.8 31.5 11.8C31.5 20.5 18 29 18 29Z"
                   stroke="#C61F32"
-                  strokeWidth="1.8"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  fill="none"
                 />
-                {/* Scribble lines inside heart for hand-drawn feel */}
-                <path
-                  d="M10 11c1.5-1 3.5-.5 4.5 1s.5 3.5-1 4.5"
-                  stroke="#C61F32"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  opacity="0.5"
-                />
-                <path
-                  d="M13 9.5c2-1 4.5 0 5.5 2s0 4-2 5"
-                  stroke="#C61F32"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  opacity="0.35"
-                />
-                <path
-                  d="M18 10c1.5-.5 3.5.5 4 2s-.5 3-2 3.5"
-                  stroke="#C61F32"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  opacity="0.4"
-                />
+                {/* Cross-hatch scribble lines inside */}
+                <path d="M10 12C12 10 15 10 17 12" stroke="#C61F32" strokeWidth="1.3" strokeLinecap="round" opacity="0.5" />
+                <path d="M12 10.5C14 9 17 9.5 18.5 11.5" stroke="#C61F32" strokeWidth="1.1" strokeLinecap="round" opacity="0.4" />
+                <path d="M19 10C21 8.5 24 9 25.5 11" stroke="#C61F32" strokeWidth="1.3" strokeLinecap="round" opacity="0.5" />
+                <path d="M20.5 9C22.5 8 25 8.5 26 10.5" stroke="#C61F32" strokeWidth="1.1" strokeLinecap="round" opacity="0.35" />
+                <path d="M11 14C14 13 17 14 18 16" stroke="#C61F32" strokeWidth="1.1" strokeLinecap="round" opacity="0.35" />
+                <path d="M20 13C22 12.5 24.5 13 25 15" stroke="#C61F32" strokeWidth="1.1" strokeLinecap="round" opacity="0.3" />
+                <path d="M14 16C16 15.5 18 16.5 18 18" stroke="#C61F32" strokeWidth="1" strokeLinecap="round" opacity="0.3" />
+                <path d="M20 16C21.5 15.5 23 16 23 17.5" stroke="#C61F32" strokeWidth="1" strokeLinecap="round" opacity="0.25" />
               </svg>
             </div>
           </div>
@@ -123,7 +111,7 @@ export function MercadoPagoButton() {
             <h3
               className="font-display"
               style={{
-                fontSize: "1.55rem",
+                fontSize: "clamp(1.5rem, 3vw, 1.75rem)",
                 fontWeight: 700,
                 lineHeight: 1.25,
                 color: "#2B2B2B",
@@ -132,99 +120,84 @@ export function MercadoPagoButton() {
               }}
             >
               Doná lo que quieras,{" "}
-              <em
-                style={{
-                  fontStyle: "italic",
-                  color: "#C61F32",
-                }}
-              >
+              <em style={{ fontStyle: "italic", color: "#C61F32" }}>
                 cambiá realidades
               </em>
               .
             </h3>
-            <p
-              style={{
-                fontSize: "0.95rem",
-                color: "#7B716A",
-                lineHeight: 1.55,
-              }}
-            >
+            <p style={{ fontSize: "0.95rem", color: "#7B716A", lineHeight: 1.55 }}>
               Vos elegís el monto, nosotros lo convertimos en oportunidades.
             </p>
           </div>
 
-          {/* ── Decorative dashed line with heart ── */}
+          {/* ── Decorative dashed path with heart — STRONG RED ── */}
           <div
-            className="relative mx-auto mb-6"
-            style={{ height: "24px", maxWidth: "100%" }}
+            className="relative mx-auto mb-7"
+            style={{ height: "30px", maxWidth: "100%" }}
           >
             <svg
               width="100%"
-              height="24"
-              viewBox="0 0 400 24"
+              height="30"
+              viewBox="0 0 600 30"
               preserveAspectRatio="none"
               fill="none"
               aria-hidden="true"
               style={{ overflow: "visible" }}
             >
               <path
-                d="M0 12 C80 12, 100 4, 180 8 S280 18, 340 10 S380 6, 400 12"
+                d="M0 18 C60 18, 80 6, 140 10 S220 22, 300 14 S400 6, 460 16 S540 10, 570 14"
                 stroke="#C61F32"
-                strokeWidth="1.2"
-                strokeDasharray="6 4"
+                strokeWidth="1.6"
+                strokeDasharray="7 5"
                 strokeLinecap="round"
-                opacity="0.35"
+                opacity="0.55"
               />
             </svg>
-            {/* Small heart at end of line */}
+            {/* Heart at end of path — clean symmetric outline */}
             <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
               fill="none"
               aria-hidden="true"
-              className="absolute -top-[2px] right-0"
-              style={{ opacity: 0.4 }}
+              className="absolute -top-[1px]"
+              style={{ right: "-2px", opacity: 0.55 }}
             >
               <path
-                d="M10 17l-1-1C5 12.5 3 10.5 3 8.2 3 6.4 4.4 5 6.2 5c1 0 2 .5 2.6 1.2L10 7.5l1.2-1.3C11.8 5.5 12.8 5 13.8 5 15.6 5 17 6.4 17 8.2c0 2.3-2 4.3-6 8L10 17z"
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
                 stroke="#C61F32"
-                strokeWidth="1"
+                strokeWidth="1.5"
                 strokeLinecap="round"
+                strokeLinejoin="round"
                 fill="none"
               />
             </svg>
           </div>
 
           {/* ── Input field ── */}
-          <div className="mb-5">
+          <div className="mb-6">
             <div
               className="flex items-center overflow-hidden rounded-[14px] transition-all duration-200"
               style={{
-                border: focused
-                  ? "1.5px solid #C61F32"
-                  : "1.5px solid #E2D7CC",
+                border: focused ? "1.5px solid #C61F32" : "1.5px solid #E2D7CC",
                 background: "#FFFFFF",
                 boxShadow: focused
                   ? "0 0 0 3px rgba(198,31,50,0.08)"
                   : "0 1px 3px rgba(42,31,24,0.03)",
-                height: "56px",
+                height: "58px",
               }}
             >
               <div
                 className="flex h-full items-center justify-center shrink-0"
                 style={{
-                  width: "56px",
+                  width: "58px",
                   color: focused ? "#C61F32" : "#A09488",
+                  transition: "color 0.2s",
                 }}
               >
                 <span
                   className="font-display"
-                  style={{
-                    fontSize: "1.25rem",
-                    fontWeight: 600,
-                    transition: "color 0.2s",
-                  }}
+                  style={{ fontSize: "1.4rem", fontWeight: 700 }}
                 >
                   $
                 </span>
@@ -242,12 +215,12 @@ export function MercadoPagoButton() {
                 }}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
-                className="h-full flex-1 bg-transparent pr-5 outline-none"
+                className="font-display h-full flex-1 bg-transparent pr-6 outline-none"
                 style={{
-                  fontSize: "1rem",
+                  fontSize: "1.2rem",
                   color: "#2B2B2B",
-                  fontWeight: 400,
-                  letterSpacing: "0.01em",
+                  fontWeight: 600,
+                  letterSpacing: "-0.01em",
                 }}
               />
             </div>
@@ -256,7 +229,7 @@ export function MercadoPagoButton() {
           {/* Error message */}
           {error && (
             <div
-              className="mb-4 rounded-[12px] px-4 py-3 text-center"
+              className="mb-5 rounded-[12px] px-4 py-3 text-center"
               style={{
                 background: "rgba(198,31,50,0.06)",
                 border: "1px solid rgba(198,31,50,0.12)",
@@ -275,11 +248,12 @@ export function MercadoPagoButton() {
             disabled={loading || numericAmount <= 0}
             className="group relative w-full cursor-pointer overflow-hidden transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 disabled:pointer-events-none disabled:opacity-40"
             style={{
-              background: "linear-gradient(180deg, #D93045 0%, #B91C2C 50%, #A01726 100%)",
+              background:
+                "linear-gradient(180deg, #D93045 0%, #B91C2C 50%, #A01726 100%)",
               borderRadius: "999px",
-              height: "56px",
+              height: "58px",
               boxShadow:
-                "0 4px 12px rgba(185,28,44,0.3), 0 1px 3px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.15)",
+                "0 4px 14px rgba(185,28,44,0.3), 0 1px 3px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.15)",
             }}
           >
             {/* Shimmer on hover */}
@@ -296,7 +270,7 @@ export function MercadoPagoButton() {
               className="relative z-10 flex items-center justify-center gap-2.5"
               style={{
                 color: "#FFFFFF",
-                fontSize: "1.05rem",
+                fontSize: "1.1rem",
                 fontWeight: 600,
                 letterSpacing: "0.02em",
               }}
@@ -309,10 +283,9 @@ export function MercadoPagoButton() {
               ) : (
                 <>
                   <span>Quiero donar</span>
-                  {/* Heart icon */}
                   <svg
-                    width="18"
-                    height="18"
+                    width="19"
+                    height="19"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true"
@@ -327,8 +300,8 @@ export function MercadoPagoButton() {
 
           {/* ── Trust signals ── */}
           <div
-            className="mt-5 flex items-center justify-center gap-3 sm:gap-4"
-            style={{ color: "#9B9189", fontSize: "0.78rem" }}
+            className="mt-6 flex items-center justify-center gap-4 sm:gap-5"
+            style={{ color: "#9B9189", fontSize: "0.8rem" }}
           >
             <span className="flex items-center gap-1.5">
               <svg
@@ -404,7 +377,7 @@ export function MercadoPagoButton() {
         </div>
       </div>
 
-      {/* Shimmer keyframe */}
+      {/* Keyframes + input cleanup */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -412,7 +385,6 @@ export function MercadoPagoButton() {
               0% { transform: translateX(-100%); }
               100% { transform: translateX(100%); }
             }
-            /* Remove number input spinners */
             input[type="number"]::-webkit-inner-spin-button,
             input[type="number"]::-webkit-outer-spin-button {
               -webkit-appearance: none;
@@ -420,6 +392,12 @@ export function MercadoPagoButton() {
             }
             input[type="number"] {
               -moz-appearance: textfield;
+            }
+            input[type="number"]::placeholder {
+              font-weight: 400;
+              font-size: 0.95rem;
+              color: #B5ADA5;
+              letter-spacing: 0.01em;
             }
           `,
         }}
