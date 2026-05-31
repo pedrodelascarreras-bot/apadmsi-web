@@ -16,7 +16,7 @@ export function StructuredData() {
     name: site.longName,
     alternateName: [site.name, site.brandShort],
     description:
-      "Centro de Día sin fines de lucro fundado en 1982. Acompañamos a jóvenes y adultos con discapacidad mental severa en San Isidro, y a sus familias.",
+      "Centro de Día sin fines de lucro fundado en 1982. Acompañamos a jóvenes y adultos con discapacidad intelectual en San Isidro, y a sus familias.",
     url,
     logo: `${url}/logo.png`,
     foundingDate: `${site.foundedYear}`,
@@ -47,7 +47,7 @@ export function StructuredData() {
       name: "San Isidro, Garín, Tigre y San Fernando",
     },
     knowsAbout: [
-      "discapacidad mental",
+      "discapacidad intelectual",
       "centro de día",
       "asistencia integral",
       "integración social",

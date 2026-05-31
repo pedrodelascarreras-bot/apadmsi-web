@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/shared/container";
 import { Copyable } from "@/components/shared/copyable";
 import { Heart } from "@/components/shared/heart";
+import { MercadoPagoButton } from "@/components/shared/mercadopago-button";
 import { donate } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -138,8 +139,37 @@ export default function DonarPage() {
         </Container>
       </section>
 
-      {/* Donaciones en efectivo */}
+      {/* MercadoPago */}
       <section className="bg-cream-warm py-14 sm:py-16">
+        <Container className="max-w-[860px] text-center">
+          <p className="section-label">con MercadoPago</p>
+          <h2
+            style={{
+              fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+              marginBottom: "0.75rem",
+              lineHeight: 1.2,
+              textWrap: "balance",
+            }}
+          >
+            Doná online, rápido y seguro.
+          </h2>
+          <p
+            className="mb-8 text-ink-muted"
+            style={{
+              fontSize: "1rem",
+              lineHeight: 1.65,
+              textWrap: "balance",
+            }}
+          >
+            Podés donar con tarjeta de débito, crédito o saldo de
+            MercadoPago. Es instantáneo y seguro.
+          </p>
+          <MercadoPagoButton />
+        </Container>
+      </section>
+
+      {/* Donaciones en efectivo */}
+      <section className="bg-cream py-14 sm:py-16">
         <Container className="max-w-[860px] text-center">
           <p className="section-label">en efectivo</p>
           <h2
@@ -173,7 +203,7 @@ export default function DonarPage() {
       </section>
 
       {/* Otras formas de sumarte */}
-      <section className="bg-cream py-14 sm:py-16">
+      <section className="bg-cream-warm py-14 sm:py-16">
         <Container className="max-w-[920px]">
           <p className="section-label text-center">{donate.ways.label}</p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -211,7 +241,7 @@ export default function DonarPage() {
       </section>
 
       {/* FAQ chico */}
-      <section className="bg-cream-warm py-14 sm:py-16">
+      <section className="bg-cream py-14 sm:py-16">
         <Container className="max-w-[760px]">
           <h2
             className="mb-6"

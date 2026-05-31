@@ -17,7 +17,7 @@ export function HeroImage({ src, alt }: Props) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="absolute inset-0 cursor-zoom-in md:cursor-zoom-in"
+        className="absolute inset-0 cursor-zoom-in"
         aria-label="Ver imagen en grande"
       >
         <Image
@@ -38,7 +38,6 @@ export function HeroImage({ src, alt }: Props) {
           alt={alt}
           onClose={() => setOpen(false)}
           onChange={() => {}}
-          mobileDisabled
         />
       )}
     </>

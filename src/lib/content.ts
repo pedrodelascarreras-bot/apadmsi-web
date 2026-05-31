@@ -67,7 +67,7 @@ export const hero = {
   // <em> recibe subrayado peach
   headlineHtml:
     "Una casa donde cada persona puede <em>ser cuidada</em> como merece.",
-  lede: "APADMSI es un Centro de Día en San Isidro. Hace más de cuatro décadas acompañamos a jóvenes y adultos con discapacidad mental severa — y a sus familias. Con tres comidas diarias, un equipo profesional vocacional, y la convicción de que cada vida importa hasta el final.",
+  lede: "APADMSI es un Centro de Día en San Isidro. Hace más de cuatro décadas acompañamos a jóvenes y adultos con discapacidad intelectual — y a sus familias. Con tres comidas diarias, un equipo profesional vocacional, y la convicción de que cada vida importa hasta el final.",
   ctaPrimary: { label: "Quiero ayudar", href: "/donar" },
   ctaSecondary: { label: "Conocé la casa", href: "#nosotros" },
   badge: {
@@ -138,7 +138,7 @@ export const about = {
   headlineHtml: "Una <em>casa</em>, no una institución.",
   paragraphsHtml: [
     "Somos la <strong>Asociación de Padres y Amigos de Discapacitados Mentales de San Isidro</strong> — una asociación civil sin fines de lucro fundada en 1982 por un grupo de padres y amigos que necesitaban un lugar donde sus hijos pudieran ser cuidados con dignidad. Cuatro décadas después, seguimos siendo lo que fuimos en el origen: una casa pensada para personas que el sistema dejaba sin respuesta.",
-    "Atendemos a jóvenes y adultos con discapacidad mental, ofreciéndoles un espacio para el desarrollo de sus habilidades en un <strong>ambiente creativo, alegre y contenido</strong>. Nos definimos como una estructura que brinda una estancia favorable para la integración social, garantizando la contención, protección y asistencia integral de cada concurrente.",
+    "Atendemos a jóvenes y adultos con discapacidad intelectual, ofreciéndoles un espacio para el desarrollo de sus habilidades en un <strong>ambiente creativo, alegre y contenido</strong>. Nos definimos como una estructura que brinda una estancia favorable para la integración social, garantizando la contención, protección y asistencia integral de cada concurrente.",
     "Lo que nos distingue no es lo que enseñamos sino <strong>cómo cuidamos</strong>. Miramos lo que cada persona <strong>puede hacer</strong>, no lo que no puede. Cada día, un equipo profesional acompaña a los concurrentes con vocación, paciencia y conocimiento técnico. Sostenemos las tres comidas, las actividades, las salidas, y la posibilidad de que cada persona conserve su autonomía dentro de lo posible.",
     "Trabajamos especialmente con familias que el sistema deja afuera — concurrentes con <strong>PAMI, Incluir Salud o Pensiones No Contributivas</strong> — porque sabemos que otras instituciones no los toman al depender de obras sociales del Estado. Hoy acompañamos a concurrentes de <strong>San Isidro, Garín, Tigre y San Fernando</strong>, y orientamos a sus familias para que puedan defender los derechos de sus hijos.",
     "APADMSI es una <strong>institución de puertas abiertas en serio</strong>. Cualquier familiar puede venir sin avisar a ver a su concurrente trabajando — sin función armada, sin performance. Esa transparencia es uno de los pilares fundacionales.",
@@ -293,7 +293,7 @@ export const history = {
     {
       year: "1982",
       title: "Fundación.",
-      desc: "Un grupo de padres y amigos del partido de San Isidro crea la asociación para responder a una necesidad que el sistema dejaba sin atender: jóvenes y adultos con discapacidad mental severa, sin acceso al trabajo protegido ni a la educación tradicional. El Centro nace en Billinghurst 1260, donde sigue funcionando hoy.",
+      desc: "Un grupo de padres y amigos del partido de San Isidro crea la asociación para responder a una necesidad que el sistema dejaba sin atender: jóvenes y adultos con discapacidad intelectual, sin acceso al trabajo protegido ni a la educación tradicional. El Centro nace en Billinghurst 1260, donde sigue funcionando hoy.",
     },
     {
       year: "Década del '90",
@@ -332,7 +332,7 @@ export const team = {
     {
       role: "Presidenta",
       name: "Nélida Sastre de Ehrhardt",
-      desc: "Conocida como Lala. Ingresó en 1992 después de haber fundado la primera escuela especial de mentales profundos de San Fernando. Lidera la institución desde entonces con una premisa firme: trabajar para los que menos tienen.",
+      desc: "Conocida como Lala. Ingresó en 1992 después de haber fundado la primera escuela especial para personas con discapacidad intelectual de San Fernando. Lidera la institución desde entonces con una premisa firme: trabajar para los que menos tienen.",
       imageSlug: "nelida-sastre",
     },
     {
@@ -471,12 +471,6 @@ export const reviews = {
       text: "APADMSI es un espacio de contención para nuestros hijos y para nosotros, donde sobra la cordialidad y el cariño. El personal brinda un gran cariño a los concurrentes, que tienen distintas patologías y problemáticas. En resumen, es un lugar que nos da mucha seguridad y tranquilidad.",
     },
     {
-      author: "Cecilia Lanusse",
-      rating: 5,
-      date: "Hermana de una concurrente",
-      text: "Quiero agradecer la existencia de APADMSI. Para Deborah es su segundo HOGAR, así con mayúscula, donde recibe cada día todo el amor, los cuidados y la atención que necesita. Es donde comparte lo cotidiano con sus pares, es el lugar donde puedo dejarla con la total tranquilidad de que va a estar tan bien atendida, o mejor, que en casa. Para mí significa descanso físico y mental y la seguridad de que no estoy sola con el cuidado de Deborah de cada día. Gracias.",
-    },
-    {
       author: "Familia de Natalia",
       rating: 5,
       date: "Familia de una concurrente",
@@ -517,6 +511,12 @@ export const reviews = {
       rating: 5,
       date: "Hace 6 años",
       text: "Me pareció un lindo lugar! Cálido y bien cuidado.",
+    },
+    {
+      author: "Cecilia Lanusse",
+      rating: 5,
+      date: "Hermana de una concurrente",
+      text: "Quiero agradecer la existencia de APADMSI. Para Deborah es su segundo HOGAR, así con mayúscula, donde recibe cada día todo el amor, los cuidados y la atención que necesita. Es donde comparte lo cotidiano con sus pares, es el lugar donde puedo dejarla con la total tranquilidad de que va a estar tan bien atendida, o mejor, que en casa. Para mí significa descanso físico y mental y la seguridad de que no estoy sola con el cuidado de Deborah de cada día. Gracias.",
     },
   ] as Array<{
     author: string;
@@ -573,7 +573,7 @@ export const recognition = {
   eyebrow: "reconocimiento institucional",
   heading: "No estamos solos en esta tarea.",
   intro:
-    "Operar como Centro de Día para personas con discapacidad mental severa exige cumplir requisitos exigentes en infraestructura, equipo profesional y protocolos de atención. APADMSI cuenta con la habilitación oficial en los tres niveles del Estado y es prestadora reconocida por los principales organismos públicos del sistema.",
+    "Operar como Centro de Día para personas con discapacidad intelectual exige cumplir requisitos exigentes en infraestructura, equipo profesional y protocolos de atención. APADMSI cuenta con la habilitación oficial en los tres niveles del Estado y es prestadora reconocida por los principales organismos públicos del sistema.",
   // logoSlug: si existe `public/images/orgs/{slug}.png|svg|jpg|webp` se
   // muestra el logo real; si no, se usa un sello tipográfico estilizado
   // con los colores institucionales del organismo.
@@ -614,7 +614,7 @@ export const recognition = {
       kind: "msi",
       abbr: "Municipalidad de San Isidro",
       name: "Más de 40 años de apoyo",
-      desc: "Relación íntima y continua. <strong>Delfín Beccar Varela</strong>, actual director de discapacidad, mantiene contacto permanente con el Centro.",
+      desc: "Relación íntima y continua. Delfín Beccar Varela, actual director de discapacidad, mantiene contacto permanente con el Centro.",
       color: "#0E7C5A",
       logoSlug: "msi",
     },
@@ -687,7 +687,7 @@ export const contact = {
 export const share = {
   label: "Compartí esta página",
   message:
-    "Conocé APADMSI — un Centro de Día para personas con discapacidad mental en San Isidro, sostenido con donaciones.",
+    "Conocé APADMSI — un Centro de Día para personas con discapacidad intelectual en San Isidro, sostenido con donaciones.",
 } as const;
 
 export const newsletter = {
@@ -807,7 +807,7 @@ export const cocinaPage: ActivityDetail = {
   headlineHtml:
     "La cocina como un acto de <em>autonomía</em>.",
   paragraphsHtml: [
-    "El taller de cocina es uno de los espacios más concretos del programa. Manipular ingredientes, oler especias, mezclar harina y agua, esperar que la masa leve. Cada acción tiene un sentido y un resultado tangible — y eso, para una persona con discapacidad mental severa, es una conquista enorme.",
+    "El taller de cocina es uno de los espacios más concretos del programa. Manipular ingredientes, oler especias, mezclar harina y agua, esperar que la masa leve. Cada acción tiene un sentido y un resultado tangible — y eso, para una persona con discapacidad intelectual, es una conquista enorme.",
     "Trabajamos con todas las medidas de higiene: cofia, barbijo, delantal. No son solo medidas sanitarias — son un ritual que ordena la actividad y le da seriedad. Cada concurrente entiende que el taller de cocina es algo importante, y se prepara como tal.",
     "Hacemos pan, tartas, masa de pizza, galletitas. Lo que se cocina se comparte: a veces es la merienda del día, otras veces se lleva a casa. Pocas cosas resumen mejor el espíritu del Centro que un grupo de concurrentes amasando juntos alrededor de una mesa.",
   ],
@@ -828,7 +828,7 @@ export const huertaPage: ActivityDetail = {
   paragraphsHtml: [
     "El taller de huerta es uno de los espacios más nobles del programa. Sembrar una semilla, regar todos los días, ver crecer la planta a lo largo de las semanas, cosechar un morrón, una albahaca, un tomate. Es un proceso largo, paciente, que tiene su propio ritmo — y eso, justamente, es parte del valor terapéutico.",
     "Trabajamos con plantas aromáticas (orégano, albahaca, romero, tomillo), hortalizas de estación (morrón, lechuga, tomate, cebolla de verdeo) y flores. Lo que se cosecha pasa después al taller de cocina o se reparte entre los concurrentes y sus familias. Cada cosecha es una pequeña fiesta colectiva.",
-    "El contacto con la tierra es algo que muchas personas con discapacidad mental no tuvieron oportunidad de experimentar. Tocar la tierra húmeda, oler las hojas frescas, ver una flor abrirse al sol. Son experiencias sensoriales completas, que ordenan internamente y conectan con algo más grande.",
+    "El contacto con la tierra es algo que muchas personas con discapacidad intelectual no tuvieron oportunidad de experimentar. Tocar la tierra húmeda, oler las hojas frescas, ver una flor abrirse al sol. Son experiencias sensoriales completas, que ordenan internamente y conectan con algo más grande.",
   ],
   galleryEyebrow: "del jardín al plato",
   galleryHeading: "Cosechar lo que sembramos juntos.",

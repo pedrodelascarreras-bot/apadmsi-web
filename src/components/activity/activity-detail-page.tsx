@@ -211,7 +211,6 @@ export function ActivityDetailPage({ activity, images }: Props) {
       </section>
 
       <Lightbox
-        mobileDisabled
         images={images}
         index={lightboxIndex}
         alt={activity.title}

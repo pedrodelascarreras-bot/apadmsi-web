@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "APADMSI · Centro de Día · San Isidro",
     short_name: "APADMSI",
     description:
-      "Centro de Día sin fines de lucro fundado en 1982. Acompañamos a personas con discapacidad mental en San Isidro.",
+      "Centro de Día sin fines de lucro fundado en 1982. Acompañamos a personas con discapacidad intelectual en San Isidro.",
     start_url: "/",
     display: "standalone",
     background_color: "#FBF6EE",
