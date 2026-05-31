@@ -139,32 +139,82 @@ export default function DonarPage() {
         </Container>
       </section>
 
-      {/* MercadoPago */}
-      <section className="bg-cream-warm py-14 sm:py-16">
-        <Container className="max-w-[860px] text-center">
-          <p className="section-label">con MercadoPago</p>
-          <h2
-            style={{
-              fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-              marginBottom: "0.75rem",
-              lineHeight: 1.2,
-              textWrap: "balance",
-            }}
-          >
-            Doná online, rápido y seguro.
-          </h2>
-          <p
-            className="mb-8 text-ink-muted"
-            style={{
-              fontSize: "1rem",
-              lineHeight: 1.65,
-              textWrap: "balance",
-            }}
-          >
-            Podés donar con tarjeta de débito, crédito o saldo de
-            MercadoPago. Es instantáneo y seguro.
-          </p>
+      {/* MercadoPago — bloque destacado */}
+      <section
+        className="relative overflow-hidden py-16 sm:py-20"
+        style={{
+          background:
+            "linear-gradient(170deg, var(--color-cream-warm) 0%, var(--color-cream) 40%, var(--color-cream-warm) 100%)",
+        }}
+      >
+        {/* Decorative radials */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-28 -top-28 h-[400px] w-[400px]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(185,28,44,0.06), transparent 70%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-20 -right-20 h-[350px] w-[350px]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(232,168,124,0.15), transparent 70%)",
+          }}
+        />
+
+        <Container className="relative z-10 max-w-[860px]">
+          <div className="mx-auto mb-8 max-w-[580px] text-center sm:mb-10">
+            <p className="section-label">doná online</p>
+            <h2
+              className="font-display"
+              style={{
+                fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)",
+                marginBottom: "0.75rem",
+                lineHeight: 1.15,
+                textWrap: "balance",
+              }}
+            >
+              Tu aporte{" "}
+              <em
+                style={{
+                  fontStyle: "italic",
+                  color: "var(--color-burgundy)",
+                  background:
+                    "linear-gradient(180deg, transparent 65%, rgba(232,168,124,0.35) 65%)",
+                }}
+              >
+                transforma vidas
+              </em>
+              .
+            </h2>
+            <p
+              className="text-ink-muted"
+              style={{
+                fontSize: "1rem",
+                lineHeight: 1.65,
+                textWrap: "balance",
+              }}
+            >
+              Con tarjeta de débito, crédito o saldo de MercadoPago.
+              Instantáneo, seguro, y 100% destinado al Centro.
+            </p>
+          </div>
+
           <MercadoPagoButton />
+
+          <p
+            className="mx-auto mt-6 max-w-[400px] text-center font-script"
+            style={{
+              fontSize: "1.15rem",
+              color: "var(--color-ink-soft)",
+              lineHeight: 1.4,
+            }}
+          >
+            Más de 30 personas cuentan con tu generosidad ♥
+          </p>
         </Container>
       </section>
 
