@@ -57,7 +57,20 @@ export default function DonarPage() {
         </Container>
       </section>
 
-      {/* Transferencia bancaria — bloque principal */}
+      {/* MercadoPago */}
+      <section
+        className="py-14 sm:py-18"
+        style={{ background: "#F7F2EC" }}
+      >
+        <Container className="max-w-[860px]">
+          <div className="mx-auto mb-8 max-w-[580px] text-center">
+            <p className="section-label">doná online</p>
+          </div>
+          <MercadoPagoButton />
+        </Container>
+      </section>
+
+      {/* Transferencia bancaria */}
       <section className="bg-cream py-14 sm:py-18">
         <Container className="max-w-[920px]">
           <div className="mx-auto mb-8 max-w-[860px] text-center">
@@ -136,19 +149,6 @@ export default function DonarPage() {
             </Link>{" "}
             con el comprobante para emitir el recibo.
           </p>
-        </Container>
-      </section>
-
-      {/* MercadoPago */}
-      <section
-        className="py-14 sm:py-18"
-        style={{ background: "#F7F2EC" }}
-      >
-        <Container className="max-w-[860px]">
-          <div className="mx-auto mb-8 max-w-[580px] text-center">
-            <p className="section-label">doná online</p>
-          </div>
-          <MercadoPagoButton />
         </Container>
       </section>
 
