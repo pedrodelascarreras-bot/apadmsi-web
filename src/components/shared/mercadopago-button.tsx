@@ -298,81 +298,166 @@ export function MercadoPagoButton() {
             </span>
           </button>
 
-          {/* ── Trust signals ── */}
+          {/* ── Trust bar ── */}
           <div
-            className="mt-6 flex items-center justify-center gap-4 sm:gap-5"
-            style={{ color: "#9B9189", fontSize: "0.8rem" }}
+            className="mt-7 rounded-[12px] px-5 py-4 sm:px-6"
+            style={{
+              background: "#F7F2EC",
+              border: "1px solid #EBE1D6",
+            }}
           >
-            <span className="flex items-center gap-1.5">
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0110 0v4" />
-              </svg>
-              Pago seguro
-            </span>
-            <span
-              aria-hidden="true"
-              style={{
-                width: "1px",
-                height: "14px",
-                background: "#DDD3C8",
-                display: "inline-block",
-              }}
-            />
-            <span className="flex items-center gap-1.5">
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M2 12h20" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-              MercadoPago
-            </span>
-            <span
-              aria-hidden="true"
-              style={{
-                width: "1px",
-                height: "14px",
-                background: "#DDD3C8",
-                display: "inline-block",
-              }}
-            />
-            <span className="flex items-center gap-1.5">
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
-                <line x1="1" y1="10" x2="23" y2="10" />
-              </svg>
-              Débito · Crédito
-            </span>
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between sm:gap-4">
+              {/* MercadoPago logo + brand */}
+              <div className="flex items-center gap-2.5">
+                {/* MP official logo — the handshake icon */}
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  aria-label="MercadoPago"
+                >
+                  <rect width="32" height="32" rx="8" fill="#00AEEF" />
+                  <path
+                    d="M8.5 18.5C8.5 18.5 10 15 13 15C14.5 15 15.5 15.8 16 16.5C16.5 15.8 17.5 15 19 15C22 15 23.5 18.5 23.5 18.5"
+                    stroke="white"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M7 20C7 20 9.5 14 13 14C14.8 14 15.8 15.2 16 15.8C16.2 15.2 17.2 14 19 14C22.5 14 25 20 25 20"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    opacity="0.5"
+                  />
+                  <ellipse cx="16" cy="21" rx="7" ry="1.5" fill="white" opacity="0.15" />
+                </svg>
+                <div className="flex flex-col">
+                  <span
+                    style={{
+                      fontSize: "0.82rem",
+                      fontWeight: 700,
+                      color: "#2B2B2B",
+                      lineHeight: 1.2,
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    MercadoPago
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "0.7rem",
+                      color: "#9B9189",
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    Plataforma de pago segura
+                  </span>
+                </div>
+              </div>
+
+              {/* Separator — only on desktop */}
+              <div
+                className="hidden sm:block"
+                style={{
+                  width: "1px",
+                  height: "28px",
+                  background: "#DDD3C8",
+                  flexShrink: 0,
+                }}
+              />
+
+              {/* Payment methods */}
+              <div className="flex items-center gap-3">
+                {/* Visa */}
+                <div
+                  className="flex items-center justify-center rounded-[6px]"
+                  style={{
+                    width: "42px",
+                    height: "28px",
+                    background: "#FFFFFF",
+                    border: "1px solid #E2D7CC",
+                  }}
+                >
+                  <span style={{ fontSize: "0.65rem", fontWeight: 800, color: "#1A1F71", letterSpacing: "0.03em" }}>
+                    VISA
+                  </span>
+                </div>
+                {/* Mastercard */}
+                <div
+                  className="flex items-center justify-center rounded-[6px]"
+                  style={{
+                    width: "42px",
+                    height: "28px",
+                    background: "#FFFFFF",
+                    border: "1px solid #E2D7CC",
+                  }}
+                >
+                  <svg width="24" height="15" viewBox="0 0 24 15" fill="none" aria-label="Mastercard">
+                    <circle cx="9" cy="7.5" r="7" fill="#EB001B" opacity="0.85" />
+                    <circle cx="15" cy="7.5" r="7" fill="#F79E1B" opacity="0.85" />
+                    <path d="M12 2.2a7 7 0 010 10.6 7 7 0 000-10.6z" fill="#FF5F00" opacity="0.9" />
+                  </svg>
+                </div>
+                {/* Debit card */}
+                <div
+                  className="flex items-center justify-center rounded-[6px]"
+                  style={{
+                    width: "42px",
+                    height: "28px",
+                    background: "#FFFFFF",
+                    border: "1px solid #E2D7CC",
+                  }}
+                >
+                  <svg width="18" height="14" viewBox="0 0 24 18" fill="none" aria-label="Débito">
+                    <rect x="1" y="1" width="22" height="16" rx="2.5" stroke="#9B9189" strokeWidth="1.5" />
+                    <line x1="1" y1="6.5" x2="23" y2="6.5" stroke="#9B9189" strokeWidth="1.5" />
+                    <rect x="3.5" y="10" width="6" height="2" rx="0.5" fill="#9B9189" opacity="0.5" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Separator — only on desktop */}
+              <div
+                className="hidden sm:block"
+                style={{
+                  width: "1px",
+                  height: "28px",
+                  background: "#DDD3C8",
+                  flexShrink: 0,
+                }}
+              />
+
+              {/* Secure badge */}
+              <div className="flex items-center gap-1.5">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#5AA469"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <polyline points="9 12 11 14 15 10" />
+                </svg>
+                <span
+                  style={{
+                    fontSize: "0.78rem",
+                    fontWeight: 600,
+                    color: "#5AA469",
+                    letterSpacing: "0.01em",
+                  }}
+                >
+                  Pago seguro
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
