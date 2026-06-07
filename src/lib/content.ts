@@ -657,6 +657,40 @@ export const contact = {
   lede: "Si querés saber más, ver cómo trabajamos o sumarte como socio, voluntario o donante, escribinos o llamanos. Coordinamos una visita en el horario que te convenga.",
 } as const;
 
+export const collaborators = {
+  eyebrow: "quienes nos acompañan",
+  heading: "Colaboradores.",
+  intro:
+    "Instituciones y personas que sostienen el Centro con su compromiso permanente.",
+  items: [
+    {
+      name: "Municipalidad de San Isidro",
+      desc: "Colaborador permanente. Subsidió la compra de la sede en 1990, participa del colectivo de discapacidad y mantiene contacto continuo con el Centro.",
+      logoSlug: "msi",
+    },
+    {
+      name: "Frizma Frigoríficos",
+      desc: "Federico Vilariño y Frizma acompañan al Centro con donaciones regulares de alimentos y apoyo logístico.",
+      logoSlug: "frizma",
+    },
+    {
+      name: "Banco Superville",
+      desc: "Apoya a la Institución a través de programas de responsabilidad social empresaria.",
+      logoSlug: "superville",
+    },
+    {
+      name: "Fundación Banco Provincia",
+      desc: "Periodistas de la Fundación visitaron el Centro y lo reconocieron como referencia por la alegría y el amor del equipo de trabajo.",
+      logoSlug: "fbp",
+    },
+    {
+      name: "Y muchas personas más",
+      desc: "Vecinos, familias, voluntarios y donantes anónimos que acompañan con lo que pueden. Cada aporte — grande o pequeño — sostiene esta casa.",
+      logoSlug: null,
+    },
+  ],
+} as const;
+
 export const share = {
   label: "Compartí esta página",
   message:
