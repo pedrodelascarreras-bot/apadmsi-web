@@ -227,25 +227,27 @@ export function ActivitiesClient({
                   </button>
 
                   {/* Panel expandible — uniforme para todas */}
-                  <div
-                    id={`act-panel-${i}`}
-                    className="grid transition-all duration-300 ease-out"
-                    style={{
-                      gridTemplateRows: isOpen ? "1fr" : "0fr",
-                    }}
-                  >
-                    <div className="overflow-hidden">
-                      <div
-                        className="px-4 pb-4 pl-[calc(2.75rem+0.75rem)] text-ink-muted sm:px-5 sm:pl-[calc(3rem+0.75rem)]"
-                        style={{
-                          fontSize: "0.88rem",
-                          lineHeight: 1.55,
-                        }}
-                      >
-                        {item.desc}
+                  {item.desc && (
+                    <div
+                      id={`act-panel-${i}`}
+                      className="grid transition-all duration-300 ease-out"
+                      style={{
+                        gridTemplateRows: isOpen ? "1fr" : "0fr",
+                      }}
+                    >
+                      <div className="overflow-hidden">
+                        <div
+                          className="px-4 pb-4 pl-[calc(2.75rem+0.75rem)] text-ink-muted sm:px-5 sm:pl-[calc(3rem+0.75rem)]"
+                          style={{
+                            fontSize: "0.88rem",
+                            lineHeight: 1.55,
+                          }}
+                        >
+                          {item.desc}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </Reveal>
             );

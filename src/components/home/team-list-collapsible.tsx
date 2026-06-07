@@ -44,12 +44,14 @@ export function TeamListCollapsible({
           <p className="section-label" style={{ marginBottom: "0.75rem" }}>
             {label}
           </p>
-          <p
-            className="text-ink-muted"
-            style={{ fontSize: "0.98rem", lineHeight: 1.65, maxWidth: "680px" }}
-          >
-            {intro}
-          </p>
+          {intro && (
+            <p
+              className="text-ink-muted"
+              style={{ fontSize: "0.98rem", lineHeight: 1.65, maxWidth: "680px" }}
+            >
+              {intro}
+            </p>
+          )}
         </div>
         <span
           aria-hidden="true"
@@ -107,7 +109,7 @@ export function TeamListCollapsible({
           <ul className="grid gap-x-10 gap-y-6 list-none sm:grid-cols-2 lg:grid-cols-2">
             {members.map((p) => (
               <li
-                key={p.name}
+                key={p.name || p.role}
                 className="flex items-baseline gap-3 border-b border-border/60 pb-4"
               >
                 <span
@@ -118,18 +120,20 @@ export function TeamListCollapsible({
                   ✦
                 </span>
                 <span className="flex flex-1 flex-col gap-1 min-w-0">
+                  {p.name && (
+                    <span
+                      className="font-display text-ink"
+                      style={{
+                        fontSize: "1.02rem",
+                        fontWeight: 600,
+                        lineHeight: 1.25,
+                      }}
+                    >
+                      {p.name}
+                    </span>
+                  )}
                   <span
-                    className="font-display text-ink"
-                    style={{
-                      fontSize: "1.02rem",
-                      fontWeight: 600,
-                      lineHeight: 1.25,
-                    }}
-                  >
-                    {p.name}
-                  </span>
-                  <span
-                    className="text-xs uppercase tracking-[0.1em] text-ink-muted"
+                    className={`uppercase tracking-[0.1em] text-ink-muted ${p.name ? "text-xs" : "text-sm font-medium"}`}
                     style={{ lineHeight: 1.3 }}
                   >
                     {p.role}
