@@ -112,8 +112,25 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-cream/75 hover:text-cream transition-colors"
+                    className="inline-flex items-center gap-2 text-sm text-cream/75 hover:text-cream transition-colors"
                   >
+                    {link.label === "Instagram" && (
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                      </svg>
+                    )}
                     {link.label}
                   </a>
                 </li>
@@ -124,15 +141,17 @@ export function Footer() {
 
         {/* Boletín + compartir */}
         <div className="grid gap-8 border-t border-cream/10 pt-10 mb-8 md:grid-cols-[1.2fr_1fr] md:gap-12">
-          <div>
-            <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] text-peach mb-3">
-              {newsletter.label}
-            </h4>
-            <p className="mb-4 text-sm text-cream/70" style={{ lineHeight: 1.55, maxWidth: "420px" }}>
-              {newsletter.intro}
-            </p>
-            <NewsletterForm />
-          </div>
+          {newsletter.label && (
+            <div>
+              <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] text-peach mb-3">
+                {newsletter.label}
+              </h4>
+              <p className="mb-4 text-sm text-cream/70" style={{ lineHeight: 1.55, maxWidth: "420px" }}>
+                {newsletter.intro}
+              </p>
+              <NewsletterForm />
+            </div>
+          )}
           <div className="md:flex md:flex-col md:items-end md:justify-end">
             <ShareButtons variant="dark" />
           </div>

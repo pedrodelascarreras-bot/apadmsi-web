@@ -112,7 +112,7 @@ export function DonateCta() {
                 lineHeight: 1.6,
               }}
             >
-              Podés donar con MercadoPago, transferencia bancaria o en efectivo.
+              Podés donar con MercadoPago o transferencia bancaria.
             </p>
           </div>
         </Reveal>

@@ -33,7 +33,7 @@ function escape(s: string) {
  *
  * Requiere las variables de entorno:
  *  - RESEND_API_KEY (se obtiene en https://resend.com)
- *  - CONTACT_EMAIL (destinatario, default: apadmsi@fibertel.com.ar)
+ *  - CONTACT_EMAIL (destinatario, default: apadmsisanisidro@gmail.com)
  *  - RESEND_FROM (remitente, debe ser de un dominio verificado en Resend)
  */
 export async function POST(request: Request) {
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const to = process.env.CONTACT_EMAIL ?? "apadmsi@fibertel.com.ar";
+  const to = process.env.CONTACT_EMAIL ?? "apadmsisanisidro@gmail.com";
   // Por defecto se usa el sandbox de Resend; para producción reemplazar por
   // un remitente del dominio verificado (ej. web@apadmsi.com.ar).
   const from = process.env.RESEND_FROM ?? "APADMSI Web <onboarding@resend.dev>";

@@ -28,7 +28,7 @@ export const site = {
   hours: "Lunes a viernes · 8:30 a 16:30 hs",
   phone: "(011) 4723 8951",
   phoneTel: "01147238951",
-  email: "apadmsi@fibertel.com.ar",
+  email: "apadmsisanisidro@gmail.com",
   facebook: {
     url: "https://www.facebook.com/apadmsi.sanisidro",
   },
@@ -67,7 +67,7 @@ export const hero = {
   // <em> recibe subrayado peach
   headlineHtml:
     "Una casa donde cada persona puede <em>ser cuidada</em> como merece.",
-  lede: "APADMSI es un Centro de Día en San Isidro. Hace más de cuatro décadas acompañamos a jóvenes y adultos con discapacidad intelectual — y a sus familias. Con tres comidas diarias, un equipo profesional vocacional, y la convicción de que cada vida importa hasta el final.",
+  lede: "APADMSI es un Centro de Día en San Isidro. Hace más de cuatro décadas acompañamos a jóvenes y adultos con discapacidad intelectual — y a sus familias. Con un equipo profesional comprometido y la convicción de que cada vida importa.",
   ctaPrimary: { label: "Quiero ayudar", href: "/donar" },
   ctaSecondary: { label: "Conocé la casa", href: "#nosotros" },
   badge: {
@@ -121,10 +121,6 @@ export const stats = {
       label: "jóvenes y adultos asisten cada día",
     },
     {
-      number: "3",
-      label: "comidas diarias: desayuno, almuerzo y merienda",
-    },
-    {
       number: "20",
       suffix: "+",
       label: "profesionales y trabajadores en el equipo",
@@ -137,18 +133,18 @@ export const about = {
   // <em> recibe highlight peach
   headlineHtml: "Una <em>casa</em>, no una institución.",
   paragraphsHtml: [
-    "Somos la <strong>Asociación de Padres y Amigos de Discapacitados Mentales de San Isidro</strong> — una asociación civil sin fines de lucro fundada en 1982 por un grupo de padres y amigos que necesitaban un lugar donde sus hijos pudieran ser cuidados con dignidad. Cuatro décadas después, seguimos siendo lo que fuimos en el origen: una casa pensada para personas que el sistema dejaba sin respuesta.",
-    "Atendemos a jóvenes y adultos con discapacidad intelectual, ofreciéndoles un espacio para el desarrollo de sus habilidades en un <strong>ambiente creativo, alegre y contenido</strong>. Nos definimos como una estructura que brinda una estancia favorable para la integración social, garantizando la contención, protección y asistencia integral de cada concurrente.",
-    "Lo que nos distingue no es lo que enseñamos sino <strong>cómo cuidamos</strong>. Miramos lo que cada persona <strong>puede hacer</strong>, no lo que no puede. Cada día, un equipo profesional acompaña a los concurrentes con vocación, paciencia y conocimiento técnico. Sostenemos las tres comidas, las actividades, las salidas, y la posibilidad de que cada persona conserve su autonomía dentro de lo posible.",
-    "Trabajamos especialmente con familias que el sistema deja afuera — concurrentes con <strong>PAMI, Incluir Salud o Pensiones No Contributivas</strong> — porque sabemos que otras instituciones no los toman al depender de obras sociales del Estado. Hoy acompañamos a concurrentes de <strong>San Isidro, Garín, Tigre y San Fernando</strong>, y orientamos a sus familias para que puedan defender los derechos de sus hijos.",
-    "APADMSI es una <strong>institución de puertas abiertas en serio</strong>. Cualquier familiar puede venir sin avisar a ver a su concurrente trabajando — sin función armada, sin performance. Esa transparencia es uno de los pilares fundacionales.",
+    "Somos la <strong>Asociación de Padres y Amigos de Discapacitados Mentales de San Isidro</strong> — una Asociación Civil sin fines de lucro fundada el 14 de julio de 1982 por un grupo de padres y amigos de personas con discapacidad intelectual. En febrero de 1990, con un subsidio de la Municipalidad de San Isidro, adquirimos nuestra propia sede en Billinghurst 1260, donde seguimos funcionando.",
+    "El Centro de Día surge como respuesta a la necesidad de ofrecer un espacio integral destinado a personas jóvenes y adultas con discapacidad intelectual que finalizaron su trayecto en la Educación Especial y que no se insertan en el ámbito laboral protegido. Es una alternativa a la institucionalización, promoviendo la permanencia en sus entornos familiares y comunitarios.",
+    "Recibimos concurrentes a través de <strong>obras sociales y prepagas</strong> — incluyendo <strong>PAMI, Incluir Salud y Pensiones No Contributivas</strong> — y trabajamos con todas las coberturas. Acompañamos a personas de <strong>San Isidro, Garín, Tigre y San Fernando</strong>.",
+    "APADMSI es una Institución de puertas abiertas. Cualquier familiar puede venir a ver cómo trabajamos, sin necesidad de avisar.",
   ],
   // Bloque destacado con la misión institucional declarada.
   mission: {
     label: "Nuestra misión",
     statements: [
-      "Brindar un espacio donde jóvenes y adultos con discapacidad puedan afianzar, desarrollar y enriquecer sus habilidades para que obtengan la mayor independencia.",
-      "Acompañar y orientar a las familias para que puedan defender los derechos de sus hijos.",
+      "Brindar un espacio de acompañamiento integral que promueva el desarrollo personal, emocional y social de las personas con discapacidad intelectual.",
+      "Fomentar la participación activa, la inclusión social y el ejercicio pleno de los derechos de los concurrentes.",
+      "Contribuir a la mejora de la calidad de vida de los concurrentes y sus familias mediante propuestas terapéuticas, recreativas y educativas adecuadas a sus necesidades.",
     ],
   },
   cta: { label: "Conocé nuestras actividades", href: "/#actividades" },
@@ -158,88 +154,87 @@ export const objectives = {
   eyebrow: "nuestros objetivos",
   heading: "Tres compromisos que no negociamos.",
   intro:
-    "Estos son los pilares fundacionales declarados desde el origen de la institución. Cada actividad, cada decisión, cada profesional que se suma al equipo se mide por su contribución a estos tres compromisos.",
+    "Estos son los pilares fundacionales de la Institución. Cada actividad, cada decisión, cada profesional que se suma al equipo se mide por su contribución a estos compromisos.",
   items: [
     {
       number: "01",
-      title: "Vida cotidiana",
-      headline: "Lograr en los jóvenes el desenvolvimiento activo en la vida cotidiana.",
-      desc: "Trabajamos con cada concurrente para que pueda realizar las acciones del día a día con la mayor autonomía posible — alimentarse, moverse, comunicarse, decidir. Cada pequeño avance es una conquista.",
+      title: "Desarrollo personal",
+      headline: "Promover el desarrollo personal, emocional y social.",
+      desc: "Estimulamos las capacidades cognitivas, motrices, comunicacionales y socioemocionales a través de actividades planificadas e interdisciplinarias.",
     },
     {
       number: "02",
-      title: "Calidad de vida",
-      headline: "Atender y asistir las necesidades básicas para una mejor calidad de vida.",
-      desc: "Garantizamos las tres comidas diarias, el espacio físico cuidado, el seguimiento profesional, y un entorno donde cada concurrente se sienta respetado y querido. La calidad de vida no es solo salud: es también dignidad y pertenencia.",
+      title: "Autonomía",
+      headline: "Fortalecer habilidades de la vida diaria y autonomía personal.",
+      desc: "Trabajamos con cada concurrente para que pueda realizar las acciones del día a día con la mayor independencia posible.",
     },
     {
       number: "03",
-      title: "Integración social",
-      headline: "Implementar actividades que favorezcan la integración al medio social.",
-      desc: "Las actividades terapéuticas, ocupacionales y recreativas no son un fin en sí mismas — son herramientas para que los concurrentes participen activamente del mundo. Las salidas, los encuentros con otras instituciones, el viaje anual: todo apunta a lo mismo.",
+      title: "Inclusión",
+      headline: "Fomentar la participación activa y la inclusión en la comunidad.",
+      desc: "Salidas, talleres compartidos e integración con otras instituciones. La participación activa en la comunidad es parte central del programa.",
     },
   ],
   // Frase de cierre institucional, declarada por la propia organización.
-  closing: "Somos tu mejor alternativa en todo lo relacionado con integración social.",
+  closing: "Somos tu mejor alternativa en integración social.",
 } as const;
 
 export const activities = {
   eyebrow: "qué hacemos",
   heading: "Un programa completo. Una sola intención: cuidar.",
   intro:
-    "Más allá de las tres comidas diarias, sostenemos un programa de actividades pensadas para que cada persona mantenga sus capacidades, se exprese y se divierta. Cada actividad tiene su tiempo, su ritmo, y un equipo profesional que la acompaña — porque acá la prioridad no es lo que se logra sino el camino que se hace.",
+    "Desarrollamos un programa amplio de actividades terapéuticas, recreativas y ocupacionales con el objetivo de enriquecer las diversas habilidades de cada concurrente.",
   // Frase institucional declarada en la web vigente.
   officialIntro: {
     label: "Actividades de todo tipo",
     text: "En A.P.A.D.M.S.I. desarrollamos un programa amplio con el objetivo de enriquecer las diversas habilidades de cada concurrente.",
   },
-  // Lista oficial extraída de la web vigente.
+  // Lista oficial de actividades.
   items: [
-    { icon: "i", title: "Integración en la vida diaria", desc: "Acompañamiento en hábitos y rutinas que sostienen la autonomía cotidiana.", image: "/images/recreativas/recreativas-6.jpg" },
-    { icon: "l", title: "Actividades laborales no productivas", desc: "Tareas con sentido y rutina que fortalecen la organización personal.", image: "/images/cocina/cocina-9.jpg" },
-    { icon: "e", title: "Expresión y lenguaje corporal", desc: "Trabajo sobre la comunicación no verbal y la expresividad del cuerpo.", image: "/images/recreativas/recreativas-8.jpg" },
-    { icon: "f", title: "Educación física y kinesiología", desc: "Movimiento adaptado y abordaje kinesiológico individualizado.", image: "/images/huerta/huerta-6.jpg" },
-    { icon: "t", title: "Terapia asistida con animales", desc: "El vínculo con el animal como puente terapéutico — confianza, ternura, respuesta.", image: "/images/viaje-institucional/viaje-institucional-3.jpg" },
+    { icon: "v", title: "Actividades de la vida diaria", desc: "", image: "/images/recreativas/recreativas-6.jpg" },
+    { icon: "o", title: "Actividades ocupacionales", desc: "", image: "/images/cocina/cocina-9.jpg" },
+    { icon: "s", title: "Socialización", desc: "", image: "/images/recreativas/recreativas-8.jpg" },
     {
       icon: "a",
       title: "Arte Terapia",
-      desc: "El efecto sanador de la expresión artística. Un puente entre lo terapéutico y las artes visuales.",
+      desc: "",
       href: "/actividades/arte-terapia",
     },
     {
       icon: "r",
-      title: "Actividades recreativas",
-      desc: "Espectáculos, festejos, salidas culturales, encuentros. La recreación como derecho y como puente.",
+      title: "Actividades recreativas y deportivas",
+      desc: "",
       href: "/actividades/recreativas",
     },
     {
       icon: "m",
       title: "Musicoterapia",
-      desc: "La música como puente. Tocar, escuchar, moverse. Un canal directo cuando las palabras no alcanzan.",
+      desc: "",
       href: "/actividades/musicoterapia",
     },
-    { icon: "p", title: "Apoyo psicológico individual y familiar", desc: "Espacios de escucha y orientación tanto para los concurrentes como para sus familias.", image: "/images/recreativas/recreativas-7.jpg" },
-    { icon: "fo", title: "Fonoaudiología", desc: "Trabajo profesional sobre la comunicación, el lenguaje y la deglución.", image: "/images/recreativas/recreativas-9.jpg" },
-    { icon: "co", title: "Computación", desc: "Acercamiento gradual a herramientas digitales y rutinas de uso.", image: "/images/recreativas/recreativas-10.jpg" },
+    { icon: "p", title: "Taller de padres y clases abiertas", desc: "", image: "/images/recreativas/recreativas-7.jpg" },
+    { icon: "fo", title: "Fonoaudiología", desc: "", image: "/images/recreativas/recreativas-9.jpg" },
     {
       icon: "h",
-      title: "Taller de Huerta",
-      desc: "Sembrar, regar, ver crecer. El contacto con la tierra calma, ordena y conecta.",
+      title: "Taller de Huerta y Jardinería",
+      desc: "",
       href: "/actividades/huerta",
     },
     {
       icon: "c",
       title: "Taller de Cocina",
-      desc: "Manipular, oler, mezclar, esperar. La cocina como ejercicio de autonomía y rutina.",
+      desc: "",
       href: "/actividades/cocina",
     },
     {
       icon: "ma",
       title: "Taller de Manualidades",
-      desc: "Trabajo fino y creativo con materiales diversos. Pintar, recortar, ensamblar, transformar.",
+      desc: "",
       href: "/actividades/manualidades",
     },
-    { icon: "n", title: "Natación", desc: "Actividad acuática terapéutica y recreativa.", image: "/images/recreativas/recreativas-14.jpg" },
+    { icon: "ef", title: "Educación Física", desc: "", image: "/images/huerta/huerta-6.jpg" },
+    { icon: "hs", title: "Taller de habilidades sociales e integración", desc: "", image: "/images/recreativas/recreativas-10.jpg" },
+    { icon: "sc", title: "Salidas a la comunidad", desc: "", image: "/images/viaje-institucional/viaje-institucional-3.jpg" },
   ],
   cta: {
     title: "¿Querés conocernos?",
@@ -288,17 +283,17 @@ export const history = {
   eyebrow: "nuestra historia",
   heading: "Cuarenta y tantos años. Sin pausa, sin ruido.",
   intro:
-    "APADMSI nació en 1982 como respuesta a una necesidad que el sistema dejaba sin atender. Un grupo de padres y amigos que veían a sus hijos quedar afuera del trabajo protegido, sin escuela posible y sin un lugar adonde ir, decidió crear esa casa que no existía. Cuatro décadas después, la misma casa sigue de pie en Billinghurst 1260, ampliada y mejorada — pero idéntica en espíritu. Cambió la comisión, cambiaron las generaciones de concurrentes, cambiaron las directoras, cambiaron los gobiernos. No cambió la premisa: trabajar para los que menos tienen, con un equipo profesional que cuida con amor.",
+    "APADMSI nació el 14 de julio de 1982 como respuesta a la necesidad de ofrecer un espacio integral para personas con discapacidad intelectual. Un grupo de padres y amigos que veían a sus hijos sin un lugar adonde ir decidió crear esa casa que no existía. Cuatro décadas después, la misma casa sigue de pie en Billinghurst 1260, ampliada y mejorada — pero idéntica en espíritu.",
   timeline: [
     {
       year: "1982",
       title: "Fundación.",
-      desc: "Un grupo de padres y amigos del partido de San Isidro crea la asociación para responder a una necesidad que el sistema dejaba sin atender: jóvenes y adultos con discapacidad intelectual, sin acceso al trabajo protegido ni a la educación tradicional. El Centro nace en Billinghurst 1260, donde sigue funcionando hoy.",
+      desc: "Un grupo de padres y amigos del partido de San Isidro crea la Asociación el 14 de julio de 1982, con el objetivo de brindar un espacio integral para jóvenes y adultos con discapacidad intelectual que finalizaron la Educación Especial y no se insertan en el ámbito laboral protegido.",
     },
     {
       year: "Década del '90",
       title: "Nueva comisión, nuevo impulso.",
-      desc: "A lo largo de los '90, los hijos de los fundadores fueron creciendo y muchas familias originales se retiraron a buscar otras opciones. Llegaron padres nuevos, entre ellos la actual presidenta, y se reactivó la comisión de trabajo. Se amplió el programa de actividades, se profesionalizó el equipo, y APADMSI empezó a recibir derivaciones de PAMI, Incluir Salud y PNC — convirtiéndose en uno de los pocos centros de la zona que toma esos casos.",
+      desc: "Llegan padres nuevos y se renueva la Comisión de trabajo. Se amplía el programa de actividades y APADMSI comienza a recibir concurrentes a través de PAMI, Incluir Salud y PNC. En esta década, Nélida Sastre de Ehrhardt — conocida como Lala — ingresa a la Institución después de haber fundado la primera escuela especial para personas con discapacidad intelectual de San Fernando. Desde entonces lidera la Comisión Directiva con una premisa firme: trabajar para los que menos tienen.",
     },
     {
       year: "Años 2000",
@@ -308,12 +303,12 @@ export const history = {
     {
       year: "2016",
       title: "Bailando por un Sueño.",
-      desc: "Por iniciativa de la Municipalidad de San Isidro, la institución participa en el programa de televisión con la bailarina María del Cerro, que tiene un hermano con síndrome de Down. Llegan a la final. En la última gala, María le pide en vivo a Gustavo Posse que les haga el techo, y el intendente cumple: poco después, los arquitectos de la Municipalidad construyen el techo de chapa que tienen hoy. La exposición trae nuevos donantes — entre ellos el Sindicato del Caucho, que aporta mobiliario y pintura.",
+      desc: "Por iniciativa de la Municipalidad de San Isidro, la Institución participa en el programa de televisión Bailando por un Sueño. La experiencia le da una visibilidad sin precedentes al Centro, atrae nuevos donantes y fortalece el vínculo con la comunidad.",
     },
     {
       year: "Hoy",
       title: "Una casa con cuarenta años en pie.",
-      desc: "Más de 30 jóvenes y adultos asisten diariamente al Centro. El equipo profesional alcanzó su mayor profesionalización histórica. La Fundación Banco Provincia visitó la institución y la reconoció como referencia por la alegría y el amor del equipo de trabajo. El proyecto continúa: sostener lo construido y abrir, algún día, un hogar permanente para quienes ya no tengan familia que los cuide.",
+      desc: "Más de 30 jóvenes y adultos asisten diariamente al Centro. La Fundación Banco Provincia visitó la Institución y la reconoció como referencia por la alegría y el amor del equipo de trabajo. El proyecto continúa: sostener lo construido y abrir, algún día, un hogar permanente para quienes ya no tengan familia que los cuide.",
     },
   ],
   pendingNote: "Más hitos institucionales en proceso de carga.",
@@ -324,73 +319,57 @@ export const team = {
   // <em> recibe highlight peach
   headlineHtml: "Cuidar <em>no se improvisa</em>.",
   intro:
-    "Detrás de cada actividad hay alguien que la sostiene. La conducción la lleva un grupo de cuatro pilares — Lala, Zulma y las dos Marías Fernandas — con décadas de experiencia. El cuidado diario lo hacen las orientadoras y auxiliares. Y el seguimiento profesional especializado lo aportan psicólogos, médicos, fonoaudiólogos y terapeutas que vienen por horas a lo largo de la semana.",
+    "La Institución está conformada por una Comisión Directiva que conduce la Asociación Civil, y un equipo profesional interdisciplinario que lleva adelante el trabajo diario del Centro.",
   // Autoridades y dirección actuales de la institución.
   // imageSlug: si existe `public/images/equipo/{slug}.jpg|png|webp` se usa
   // como avatar; si no, se muestra placeholder con iniciales.
   members: [
     {
-      role: "Presidenta",
+      role: "Presidenta · Fundadora",
       name: "Nélida Sastre de Ehrhardt",
-      desc: "Conocida como Lala. Ingresó en 1992 después de haber fundado la primera escuela especial para personas con discapacidad intelectual de San Fernando. Lidera la institución desde entonces con una premisa firme: trabajar para los que menos tienen.",
+      desc: "Conocida como Lala. Ingresó en los años 90 después de haber fundado la primera escuela especial para personas con discapacidad intelectual de San Fernando. Lidera la Institución con una premisa firme: trabajar para los que menos tienen.",
       imageSlug: "nelida-sastre",
-    },
-    {
-      role: "Vicepresidenta",
-      name: "Zulma Azuaga",
-      desc: "Acompaña la dirección institucional desde hace más de dos décadas. Representa a la institución ante la comunidad y articula los apoyos legales.",
-      imageSlug: "zulma-azuaga",
-    },
-    {
-      role: "Directora",
-      name: "María Fernanda Castrillo",
-      desc: "Coordinación profesional del Centro. Junto a Aguyaro lidera el equipo técnico y la operación diaria.",
-      imageSlug: "maria-fernanda-castrillo",
-    },
-    {
-      role: "Directora",
-      name: "María Fernanda Aguyaro",
-      desc: "Coordinación pedagógica del Centro. Acompaña al equipo de orientadoras y supervisa el seguimiento de cada concurrente.",
-      imageSlug: "maria-fernanda-aguyaro",
     },
   ],
   // Equipo profesional especializado (sin foto individual).
   professionals: [
-    { name: "Judith Bellizzia", role: "Psicóloga" },
-    { name: "Maxi Baioni", role: "Médico Psiquiatra" },
-    { name: "Liliana Touceda", role: "Fonoaudióloga" },
-    { name: "Lucila Avila Ritta", role: "Terapista Ocupacional" },
-    { name: "Daniela Cabassi", role: "Trabajadora Social" },
-    { name: "Claudia Guedes", role: "Nutricionista" },
-    { name: "Sofia Sosa", role: "Profesora de Educación Física" },
+    { name: "", role: "Directoras" },
+    { name: "", role: "Orientadoras" },
+    { name: "", role: "Psicóloga" },
+    { name: "", role: "Auxiliares" },
+    { name: "", role: "Médico Psiquiatra" },
+    { name: "", role: "Terapista Ocupacional" },
+    { name: "", role: "Nutricionista" },
+    { name: "", role: "Fonoaudióloga" },
+    { name: "", role: "Profesora de Educación Física" },
+    { name: "", role: "Musicoterapeuta" },
+    { name: "", role: "Arteterapeuta" },
   ],
   // Equipo docente y de cuidado diario — las que están de 8:30 a 16:30
   // todos los días. Multifunción.
   daily: {
-    label: "equipo docente y de cuidado diario",
-    intro:
-      "Las que están todos los días, de 8:30 a 16:30. Hacen los talleres, asisten en los problemas de salud, acompañan a cada concurrente — y cuando hace falta también arreglan el jardín, hacen rifas para comprar materiales o cortan el pasto. Un equipo formidable.",
+    label: "Comisión Directiva",
+    intro: "",
     members: [
-      { name: "Carla Ximena León", role: "Orientadora" },
-      { name: "Roxana Andrea Santoro", role: "Orientadora" },
-      { name: "María Belén Roldán", role: "Orientadora" },
-      { name: "Diana Mariel Chávez", role: "Orientadora" },
-      { name: "Gladys Sarotti", role: "Auxiliar orientadora" },
-      { name: "María Eva Peirone", role: "Auxiliar orientadora" },
-      { name: "Beatriz Juárez", role: "Auxiliar orientadora" },
-      { name: "Ludmila Lencina", role: "Auxiliar orientadora" },
+      { name: "", role: "Presidente" },
+      { name: "", role: "Vicepresidente" },
+      { name: "", role: "Tesorero" },
+      { name: "", role: "Secretario" },
+      { name: "", role: "Prosecretario" },
+      { name: "", role: "Protesorero" },
+      { name: "", role: "Vocales" },
+      { name: "", role: "Tutores" },
+      { name: "", role: "Suplente" },
+      { name: "", role: "Revisores de Cuenta" },
     ],
   },
   // Cocina y limpieza.
   kitchen: {
-    label: "cocina y limpieza",
-    members: [
-      { name: "Isabel Enrique", role: "Cocinera" },
-      { name: "Ramona Enrique", role: "Ayudante de cocina y limpieza" },
-    ],
+    label: "",
+    members: [],
   },
   closing:
-    "Comen carne todos los días. Tres comidas, atención profesional y un equipo que trabaja con alegría — eso es lo que destacaron los periodistas de Fundación Banco Provincia cuando nos visitaron.",
+    "Un equipo interdisciplinario que trabaja con compromiso, vocación y alegría.",
 } as const;
 
 export const donate = {
@@ -442,9 +421,9 @@ export const donate = {
     ],
   },
   cash: {
-    title: "También aceptamos donaciones en efectivo",
-    desc: "Coordinamos un encuentro en el Centro o donde te quede cómodo. Escribinos para combinar día y horario.",
-    cta: { label: "Coordinar entrega", href: "/contacto" },
+    title: "",
+    desc: "",
+    cta: { label: "", href: "" },
   },
   companyLink: {
     text: "¿Empresa que aporta bienes o servicios?",
@@ -471,7 +450,7 @@ export const reviews = {
       text: "APADMSI es un espacio de contención para nuestros hijos y para nosotros, donde sobra la cordialidad y el cariño. El personal brinda un gran cariño a los concurrentes, que tienen distintas patologías y problemáticas. En resumen, es un lugar que nos da mucha seguridad y tranquilidad.",
     },
     {
-      author: "Familia de Natalia",
+      author: "Roxana Sanchiz",
       rating: 5,
       date: "Familia de una concurrente",
       text: "Después de mucho tiempo en la búsqueda de un lugar para mi hija Natalia llegué a APADMSI. Solo tengo palabras de agradecimiento hacia todos los que trabajan allí. Profesionales de primera que se esfuerzan cada día en lograr lo mejor para nuestros hijos.",
@@ -489,16 +468,10 @@ export const reviews = {
       text: "Maravilloso lugar, mí hermano lo ama, mucho cariño, paciencia y empatía caracterizan muy bien este espacio.",
     },
     {
-      author: "raulcesar serrat",
+      author: "Raúl César Serrat",
       rating: 5,
       date: "Hace un año",
       text: "Solo el amor salvará al mundo. APADMSI es una institución que lo demuestra. Es importante conocer la obra que realiza.",
-    },
-    {
-      author: "Walter Saglimeni",
-      rating: 5,
-      date: "Hace 2 años",
-      text: "Humanos!!",
     },
     {
       author: "Damiana Palau",
@@ -614,15 +587,15 @@ export const recognition = {
       kind: "msi",
       abbr: "Municipalidad de San Isidro",
       name: "Más de 40 años de apoyo",
-      desc: "Relación íntima y continua. Delfín Beccar Varela, actual director de discapacidad, mantiene contacto permanente con el Centro.",
+      desc: "Subsidió la compra de la sede en 1990. Compromiso estable y continuo. Participó del colectivo de discapacidad y mantiene contacto permanente con el Centro.",
       color: "#0E7C5A",
       logoSlug: "msi",
     },
     {
       kind: "fbp",
       abbr: "Fundación Banco Provincia",
-      name: "Donante reconocido",
-      desc: "Periodistas de la Fundación visitaron el Centro y destacaron la alegría y el amor del equipo de trabajo, único entre las instituciones recorridas.",
+      name: "Colaborador",
+      desc: "Periodistas de la Fundación visitaron el Centro y lo reconocieron como referencia por la alegría y el amor del equipo de trabajo.",
       color: "#B91C2C",
       logoSlug: "fbp",
     },
@@ -691,13 +664,12 @@ export const share = {
 } as const;
 
 export const newsletter = {
-  label: "Sumate al boletín",
-  intro:
-    "Una vez por mes te contamos qué pasó en la casa: el viaje, los talleres, los avances. Sin spam.",
-  placeholder: "Tu email",
-  cta: "Suscribirme",
-  successTitle: "¡Gracias!",
-  successText: "Te vamos a escribir cuando publiquemos el próximo boletín.",
+  label: "",
+  intro: "",
+  placeholder: "",
+  cta: "",
+  successTitle: "",
+  successText: "",
 } as const;
 
 export const footerNav = {

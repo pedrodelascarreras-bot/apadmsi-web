@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const to = process.env.CONTACT_EMAIL ?? "apadmsi@fibertel.com.ar";
+  const to = process.env.CONTACT_EMAIL ?? "apadmsisanisidro@gmail.com";
   const from = process.env.RESEND_FROM ?? "APADMSI Web <onboarding@resend.dev>";
 
   const html = `

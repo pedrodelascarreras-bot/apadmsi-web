@@ -9,7 +9,7 @@ import { donate } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Donar",
   description:
-    "Sumate como donante por transferencia bancaria, en efectivo, o como socio o voluntario. Tu colaboración sostiene el trabajo del Centro de Día.",
+    "Sumate como donante por MercadoPago, transferencia bancaria, o como socio o voluntario. Tu colaboración sostiene el trabajo del Centro de Día.",
 };
 
 export default function DonarPage() {
@@ -152,40 +152,6 @@ export default function DonarPage() {
         </Container>
       </section>
 
-      {/* Donaciones en efectivo */}
-      <section className="bg-cream py-14 sm:py-16">
-        <Container className="max-w-[860px] text-center">
-          <p className="section-label">en efectivo</p>
-          <h2
-            style={{
-              fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-              marginBottom: "0.75rem",
-              lineHeight: 1.2,
-              textWrap: "balance",
-            }}
-          >
-            {donate.cash.title}
-          </h2>
-          <p
-            className="mb-6 text-ink-muted"
-            style={{
-              fontSize: "1rem",
-              lineHeight: 1.65,
-              textWrap: "balance",
-            }}
-          >
-            {donate.cash.desc}
-          </p>
-          <Link
-            href={donate.cash.cta.href}
-            className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-burgundy bg-burgundy px-6 py-3 text-sm font-semibold text-white shadow-[0_2px_0_0_var(--color-burgundy-deep)] transition-all hover:-translate-y-px hover:bg-burgundy-deep hover:shadow-[0_3px_0_0_var(--color-burgundy-deep)]"
-          >
-            {donate.cash.cta.label}
-            <Heart size={14} />
-          </Link>
-        </Container>
-      </section>
-
       {/* Otras formas de sumarte */}
       <section className="bg-cream-warm py-14 sm:py-16">
         <Container className="max-w-[920px]">
@@ -239,7 +205,7 @@ export default function DonarPage() {
           <div className="space-y-4">
             <Faq
               q="¿En qué se usa el dinero?"
-              a="Las donaciones se destinan principalmente a sostener los sueldos del equipo profesional, las tres comidas diarias, los materiales de los talleres y las mejoras de infraestructura del Centro."
+              a="Las donaciones se destinan principalmente a sostener los sueldos del equipo profesional, los materiales de los talleres, las comidas diarias y las mejoras de infraestructura del Centro."
             />
             <Faq
               q="¿Recibo un recibo?"
