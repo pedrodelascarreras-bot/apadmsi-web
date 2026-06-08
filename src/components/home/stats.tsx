@@ -42,12 +42,12 @@ export function Stats() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-8">
+        <div className="mx-auto grid max-w-[860px] grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3 lg:gap-8">
           {stats.items.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 100}>
               <div
-                className="pl-5 sm:pl-6"
-                style={{ borderLeft: "1px solid rgba(250,246,240,0.18)" }}
+                className="text-center"
+                style={{ borderLeft: i > 0 ? "1px solid rgba(250,246,240,0.18)" : "none" }}
               >
                 <div
                   className="font-display leading-none text-cream"
@@ -73,7 +73,7 @@ export function Stats() {
                   )}
                 </div>
                 <div
-                  className="max-w-[200px]"
+                  className="mx-auto max-w-[200px]"
                   style={{
                     fontSize: "0.92rem",
                     color: "rgba(250,246,240,0.72)",
