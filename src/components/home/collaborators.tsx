@@ -66,14 +66,14 @@ export function Collaborators() {
           </div>
         </Reveal>
 
-        <ul className="mx-auto grid max-w-[1080px] gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5 list-none">
+        <ul className="mx-auto grid max-w-[1080px] gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5 list-none" style={{ gridAutoRows: "1fr" }}>
           {collaborators.items.map((item, idx) => {
             const logo = findLogo(item.logoSlug);
 
             return (
-              <Reveal key={item.abbr} delay={idx * 80} tag="li">
+              <Reveal key={item.abbr} delay={idx * 80} tag="li" className="flex">
                 <article
-                  className="group flex h-full items-stretch overflow-hidden rounded-[14px] border border-border bg-cream transition-all hover:-translate-y-[2px] hover:border-burgundy/30 hover:shadow-[0_10px_28px_rgba(31,22,17,0.08)]"
+                  className="group flex w-full items-stretch overflow-hidden rounded-[14px] border border-border bg-cream transition-all hover:-translate-y-[2px] hover:border-burgundy/30 hover:shadow-[0_10px_28px_rgba(31,22,17,0.08)]"
                 >
                   {/* Logo / sello a la izquierda */}
                   <div
