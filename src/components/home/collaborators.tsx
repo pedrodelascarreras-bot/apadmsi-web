@@ -20,12 +20,12 @@ function findLogo(slug: string | null): string | null {
 function ShieldIcon({ color }: { color: string }) {
   return (
     <svg
-      width="40"
-      height="40"
+      width="44"
+      height="44"
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
-      strokeWidth="1.5"
+      strokeWidth="1.4"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -66,64 +66,61 @@ export function Collaborators() {
           </div>
         </Reveal>
 
-        <ul className="mx-auto grid max-w-[1080px] gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5 list-none" style={{ gridAutoRows: "1fr" }}>
+        <ul
+          className="mx-auto grid max-w-[1080px] gap-5 sm:grid-cols-2 lg:grid-cols-3 list-none"
+          style={{ gridAutoRows: "1fr" }}
+        >
           {collaborators.items.map((item, idx) => {
             const logo = findLogo(item.logoSlug);
 
             return (
               <Reveal key={item.abbr} delay={idx * 80} tag="li" className="flex">
-                <article
-                  className="group flex w-full items-stretch overflow-hidden rounded-[14px] border border-border bg-cream transition-all hover:-translate-y-[2px] hover:border-burgundy/30 hover:shadow-[0_10px_28px_rgba(31,22,17,0.08)]"
-                >
-                  {/* Logo / sello a la izquierda */}
-                  <div
-                    className="grid w-[100px] shrink-0 place-items-center sm:w-[120px]"
-                    style={{
-                      background: logo ? "var(--color-paper)" : item.color,
-                      borderRight: "1px solid var(--color-border)",
-                    }}
-                  >
+                <article className="flex w-full flex-col items-center rounded-[14px] border border-border bg-cream px-6 py-7 text-center transition-all hover:-translate-y-[2px] hover:shadow-[0_10px_28px_rgba(31,22,17,0.08)]">
+                  {/* Logo / shield icon */}
+                  <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-paper" style={{ border: "1px solid var(--color-border)" }}>
                     {logo ? (
-                      <div className="relative h-14 w-[80px] sm:h-16 sm:w-[92px]">
+                      <div className="relative h-10 w-10">
                         <Image
                           src={logo}
                           alt={`Logo ${item.name}`}
                           fill
-                          sizes="92px"
+                          sizes="40px"
                           className="object-contain"
                         />
                       </div>
                     ) : (
-                      <ShieldIcon color="#FBF6EE" />
+                      <ShieldIcon color={item.color} />
                     )}
                   </div>
 
-                  {/* Texto a la derecha */}
-                  <div className="flex flex-1 flex-col justify-center px-4 py-4 sm:px-5">
-                    <p
-                      className="text-xs font-bold uppercase tracking-[0.12em]"
-                      style={{ color: item.color, marginBottom: "0.25rem" }}
-                    >
-                      {item.abbr}
-                    </p>
-                    <h3
-                      className="font-display text-ink"
-                      style={{
-                        fontSize: "1rem",
-                        fontWeight: 600,
-                        lineHeight: 1.3,
-                        marginBottom: "0.4rem",
-                      }}
-                    >
-                      {item.name}
-                    </h3>
-                    <p
-                      className="text-ink-muted"
-                      style={{ fontSize: "0.85rem", lineHeight: 1.5 }}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
+                  {/* Colored abbreviation */}
+                  <p
+                    className="text-xs font-bold uppercase tracking-[0.14em]"
+                    style={{ color: item.color, marginBottom: "0.5rem" }}
+                  >
+                    {item.abbr}
+                  </p>
+
+                  {/* Name */}
+                  <h3
+                    className="font-display text-ink"
+                    style={{
+                      fontSize: "1.02rem",
+                      fontWeight: 600,
+                      lineHeight: 1.3,
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    {item.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p
+                    className="text-ink-muted"
+                    style={{ fontSize: "0.85rem", lineHeight: 1.55 }}
+                  >
+                    {item.desc}
+                  </p>
                 </article>
               </Reveal>
             );
