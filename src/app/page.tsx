@@ -11,8 +11,6 @@ import { DonateCta } from "@/components/home/donate-cta";
 import { Reviews } from "@/components/home/reviews";
 import { PressBand } from "@/components/home/press-band";
 import { Contact } from "@/components/home/contact";
-import { SectionDivider } from "@/components/shared/section-divider";
-
 export default function Home() {
   return (
     <>
@@ -25,7 +23,6 @@ export default function Home() {
       <History />
       <Team />
       <Collaborators />
-      <SectionDivider variant="light" withHeart={false} />
       <Reviews />
       <PressBand />
       <DonateCta />
