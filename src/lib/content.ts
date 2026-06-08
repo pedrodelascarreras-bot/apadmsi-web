@@ -95,8 +95,8 @@ export const credentials = {
     },
     {
       kicker: "en",
-      value: "Beccar",
-      label: "San Isidro · Buenos Aires",
+      value: "San Isidro",
+      label: "Buenos Aires · Argentina",
     },
     {
       kicker: "como",
