@@ -1,7 +1,50 @@
 import { Container } from "@/components/shared/container";
 import { Reveal } from "@/components/shared/reveal";
 import { team } from "@/lib/content";
-import { TeamListCollapsible } from "./team-list-collapsible";
+
+function RoleList({
+  members,
+}: {
+  members: readonly { name: string; role: string }[];
+}) {
+  return (
+    <ul className="space-y-2.5 list-none">
+      {members.map((p) => (
+        <li
+          key={p.name || p.role}
+          className="flex items-center gap-3 rounded-[8px] bg-cream px-4 py-2.5"
+          style={{
+            borderLeft: "3px solid var(--color-burgundy)",
+          }}
+        >
+          {p.name ? (
+            <span className="flex flex-col gap-0.5 min-w-0">
+              <span
+                className="font-display text-ink"
+                style={{ fontSize: "0.95rem", fontWeight: 600, lineHeight: 1.25 }}
+              >
+                {p.name}
+              </span>
+              <span
+                className="text-xs uppercase tracking-[0.1em] text-ink-muted"
+                style={{ lineHeight: 1.3 }}
+              >
+                {p.role}
+              </span>
+            </span>
+          ) : (
+            <span
+              className="font-display text-ink"
+              style={{ fontSize: "0.92rem", fontWeight: 500, lineHeight: 1.3 }}
+            >
+              {p.role}
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export function Team() {
   return (
@@ -33,76 +76,37 @@ export function Team() {
           </div>
         </Reveal>
 
-        {/* Autoridades — cards compactas sin avatar */}
-        {team.members.length > 0 && <div className="mx-auto grid max-w-[1080px] grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6">
-          {team.members.map((member, idx) => (
-            <Reveal key={member.name || member.role} delay={idx * 100}>
-              <article
-                className="group flex h-full flex-col rounded-[16px] bg-paper px-4 pt-4 pb-4 transition-all hover:-translate-y-[2px] hover:shadow-[0_12px_32px_rgba(31,22,17,0.08)] sm:px-6 sm:pt-6 sm:pb-5"
-                style={{
-                  borderLeft: "3px solid var(--color-burgundy)",
-                  border: "1px solid var(--color-border)",
-                  borderLeftWidth: 3,
-                  borderLeftColor: "var(--color-burgundy)",
-                }}
-              >
-                <span className="mb-2 inline-block self-start rounded-full bg-cream-warm px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-burgundy sm:mb-3 sm:px-3 sm:py-1 sm:text-[0.66rem] sm:tracking-[0.16em]">
-                  {member.role}
-                </span>
-                {member.name && (
-                  <h3
-                    className="font-display text-ink"
-                    style={{
-                      fontSize: "1rem",
-                      fontWeight: 600,
-                      lineHeight: 1.25,
-                      marginBottom: "0.4rem",
-                      fontVariationSettings: '"opsz" 144, "SOFT" 80',
-                    }}
-                  >
-                    {member.name}
-                  </h3>
-                )}
-                {member.desc && (
-                  <p
-                    className="hidden text-ink-muted sm:block"
-                    style={{
-                      fontSize: "0.88rem",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {member.desc}
-                  </p>
-                )}
-              </article>
-            </Reveal>
-          ))}
-        </div>}
+        {/* Dos columnas: Comisión Directiva + Staff */}
+        <div className="mx-auto grid max-w-[960px] gap-6 md:grid-cols-2">
+          {/* Comisión Directiva */}
+          <Reveal delay={100}>
+            <div
+              className="h-full rounded-[16px] border border-border bg-paper px-6 py-7 sm:px-8 sm:py-8"
+              style={{ boxShadow: "0 6px 20px rgba(31,22,17,0.04)" }}
+            >
+              <p className="section-label" style={{ marginBottom: "1rem" }}>
+                {team.daily.label}
+              </p>
+              <RoleList members={team.daily.members} />
+            </div>
+          </Reveal>
 
-        {/* Equipo docente y de cuidado diario */}
-        <Reveal delay={250}>
-          <div className="mt-12">
-            <TeamListCollapsible
-              label={team.daily.label}
-              intro={team.daily.intro}
-              members={team.daily.members}
-            />
-          </div>
-        </Reveal>
-
-        {/* Equipo profesional especializado */}
-        <Reveal delay={300}>
-          <div className="mt-6">
-            <TeamListCollapsible
-              label="equipo profesional especializado"
-              intro="Profesionales que vienen por horas a lo largo de la semana para el seguimiento individual de cada concurrente."
-              members={team.professionals}
-            />
-          </div>
-        </Reveal>
+          {/* Staff */}
+          <Reveal delay={200}>
+            <div
+              className="h-full rounded-[16px] border border-border bg-paper px-6 py-7 sm:px-8 sm:py-8"
+              style={{ boxShadow: "0 6px 20px rgba(31,22,17,0.04)" }}
+            >
+              <p className="section-label" style={{ marginBottom: "1rem" }}>
+                Staff
+              </p>
+              <RoleList members={team.professionals} />
+            </div>
+          </Reveal>
+        </div>
 
         {/* Línea de cierre */}
-        <Reveal delay={400}>
+        <Reveal delay={300}>
           <div className="mt-10 flex w-full justify-center">
             <p
               className="text-ink-muted"
