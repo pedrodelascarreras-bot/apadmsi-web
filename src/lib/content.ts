@@ -362,7 +362,7 @@ export const team = {
     members: [],
   },
   closing:
-    "Un equipo interdisciplinario que trabaja con compromiso, vocación y alegría.",
+    "",
 } as const;
 
 export const donate = {
