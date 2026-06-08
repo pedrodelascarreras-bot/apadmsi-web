@@ -235,8 +235,30 @@ export function Reviews() {
         {/* ── Cards carousel ── */}
         {hasReviews ? (
           <>
-            {/* Scrollable track */}
+            {/* Scrollable track with side arrows */}
             <div className="relative mx-auto max-w-[1080px]">
+              {/* Left arrow — positioned to the left of cards */}
+              {reviews.items.length > VISIBLE && (
+                <div className="absolute left-0 top-0 bottom-0 z-10 hidden items-center sm:flex" style={{ transform: "translateX(calc(-100% - 16px))" }}>
+                  <ArrowButton
+                    direction="left"
+                    onClick={prev}
+                    disabled={!canPrev}
+                  />
+                </div>
+              )}
+
+              {/* Right arrow — positioned to the right of cards */}
+              {reviews.items.length > VISIBLE && (
+                <div className="absolute right-0 top-0 bottom-0 z-10 hidden items-center sm:flex" style={{ transform: "translateX(calc(100% + 16px))" }}>
+                  <ArrowButton
+                    direction="right"
+                    onClick={next}
+                    disabled={!canNext}
+                  />
+                </div>
+              )}
+
               <div
                 ref={trackRef}
                 className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 sm:overflow-hidden"
@@ -302,15 +324,9 @@ export function Reviews() {
                 ))}
               </div>
 
-              {/* Navigation arrows — desktop only */}
+              {/* Page dots — below cards */}
               {reviews.items.length > VISIBLE && (
-                <div className="mt-6 hidden items-center justify-center gap-3 sm:flex">
-                  <ArrowButton
-                    direction="left"
-                    onClick={prev}
-                    disabled={!canPrev}
-                  />
-                  {/* Page dots */}
+                <div className="mt-6 hidden items-center justify-center sm:flex">
                   <div className="flex items-center gap-1.5">
                     {Array.from({ length: totalPages }).map((_, idx) => (
                       <button
@@ -330,11 +346,6 @@ export function Reviews() {
                       />
                     ))}
                   </div>
-                  <ArrowButton
-                    direction="right"
-                    onClick={next}
-                    disabled={!canNext}
-                  />
                 </div>
               )}
             </div>
