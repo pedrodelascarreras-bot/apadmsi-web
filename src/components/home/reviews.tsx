@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Container } from "@/components/shared/container";
 import { Reveal } from "@/components/shared/reveal";
 import { reviews } from "@/lib/content";
 
+/* ── Helpers ── */
+
 function Star({ filled = true }: { filled?: boolean }) {
   return (
     <svg
-      width="18"
-      height="18"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill={filled ? "currentColor" : "none"}
       stroke="currentColor"
@@ -18,6 +20,60 @@ function Star({ filled = true }: { filled?: boolean }) {
     >
       <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
     </svg>
+  );
+}
+
+function QuoteIcon() {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="text-burgundy"
+      aria-hidden="true"
+    >
+      <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+    </svg>
+  );
+}
+
+function ArrowButton({
+  direction,
+  onClick,
+  disabled,
+}: {
+  direction: "left" | "right";
+  onClick: () => void;
+  disabled: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={direction === "left" ? "Anterior" : "Siguiente"}
+      className="grid h-10 w-10 place-items-center rounded-full border border-border bg-paper text-ink transition-all hover:border-burgundy hover:text-burgundy disabled:opacity-30 disabled:hover:border-border disabled:hover:text-ink"
+      style={{ boxShadow: "0 2px 8px rgba(31,22,17,0.06)" }}
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        {direction === "left" ? (
+          <polyline points="15 18 9 12 15 6" />
+        ) : (
+          <polyline points="9 6 15 12 9 18" />
+        )}
+      </svg>
+    </button>
   );
 }
 
@@ -95,16 +151,41 @@ function ReviewModal({
   );
 }
 
-const MOBILE_LIMIT = 3;
+/* ── Main component ── */
+
+const VISIBLE = 3; // cards visible at a time on desktop
 
 export function Reviews() {
   const [selected, setSelected] = useState<number | null>(null);
-  const [showAll, setShowAll] = useState(false);
+  const [page, setPage] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
   const hasReviews = reviews.items.length > 0;
+  const totalPages = Math.max(1, Math.ceil(reviews.items.length / VISIBLE));
+
+  const canPrev = page > 0;
+  const canNext = page < totalPages - 1;
+
+  const prev = useCallback(() => setPage((p) => Math.max(0, p - 1)), []);
+  const next = useCallback(
+    () => setPage((p) => Math.min(totalPages - 1, p + 1)),
+    [totalPages],
+  );
+
+  /* Scroll the track on page change (mobile touch scroll) */
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.firstElementChild as HTMLElement | null;
+    if (!card) return;
+    const gap = 20; // matches gap-5
+    const cardW = card.offsetWidth + gap;
+    el.scrollTo({ left: page * VISIBLE * cardW, behavior: "smooth" });
+  }, [page]);
 
   return (
     <section className="bg-paper py-16 sm:py-20 lg:py-24">
       <Container>
+        {/* ── Header ── */}
         <Reveal>
           <div className="mx-auto mb-10 max-w-[860px] text-center">
             <p className="section-label">{reviews.eyebrow}</p>
@@ -129,6 +210,7 @@ export function Reviews() {
               {reviews.intro}
             </p>
 
+            {/* Rating badge */}
             {reviews.summary && (
               <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-cream-warm px-5 py-2 text-ink">
                 <span className="flex text-burgundy">
@@ -143,71 +225,148 @@ export function Reviews() {
                   {reviews.summary.average.toFixed(1)}
                 </span>
                 <span className="text-sm text-ink-muted">
-                  · {reviews.summary.count} reseñas
+                  {reviews.summary.count} reseñas
                 </span>
               </div>
             )}
           </div>
         </Reveal>
 
+        {/* ── Cards carousel ── */}
         {hasReviews ? (
           <>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {reviews.items.map((r, i) => (
-                <Reveal key={i} delay={i * 90}>
+            {/* Scrollable track */}
+            <div className="relative mx-auto max-w-[1080px]">
+              <div
+                ref={trackRef}
+                className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 sm:overflow-hidden"
+                style={{
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                  WebkitOverflowScrolling: "touch",
+                }}
+              >
+                {reviews.items.map((r, i) => (
                   <button
+                    key={i}
                     type="button"
                     onClick={() => setSelected(i)}
-                    className={`h-full w-full cursor-pointer rounded-[12px] bg-paper text-left transition-all hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(31,22,17,0.08)]${
-                      !showAll && i >= MOBILE_LIMIT ? " hidden sm:block" : ""
-                    }`}
+                    className="flex w-[85vw] shrink-0 snap-start cursor-pointer flex-col rounded-[14px] bg-paper text-left transition-all hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(31,22,17,0.08)] sm:w-[calc((100%-2*1.25rem)/3)]"
                     style={{
-                      border: "1px solid rgba(31,22,17,0.08)",
+                      border: "1px solid var(--color-border)",
                       boxShadow: "0 2px 12px rgba(31,22,17,0.04)",
-                      padding: "1.5rem 1.75rem",
+                      padding: "1.75rem 1.75rem 1.5rem",
                     }}
                   >
-                    <div className="mb-3 flex text-burgundy">
+                    {/* Quote icon */}
+                    <QuoteIcon />
+
+                    {/* Stars */}
+                    <div className="mt-3 mb-4 flex text-burgundy">
                       {Array.from({ length: 5 }).map((_, idx) => (
-                        <span
-                          key={idx}
-                          className="star-pop"
-                          style={{ animationDelay: `${idx * 90 + 200}ms` }}
-                        >
-                          <Star filled={idx < r.rating} />
-                        </span>
+                        <Star key={idx} filled={idx < r.rating} />
                       ))}
                     </div>
+
+                    {/* Review text */}
                     <p
-                      className="text-ink"
-                      style={{ fontSize: "0.98rem", lineHeight: 1.6 }}
+                      className="flex-1 text-ink"
+                      style={{
+                        fontSize: "0.9rem",
+                        lineHeight: 1.6,
+                        display: "-webkit-box",
+                        WebkitLineClamp: 6,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}
                     >
                       &ldquo;{r.text}&rdquo;
                     </p>
-                    <div className="mt-4 flex items-baseline justify-between gap-3 text-sm">
-                      <span className="font-semibold text-ink">{r.author}</span>
-                      <span className="text-ink-soft">{r.date}</span>
+
+                    {/* Author */}
+                    <div className="mt-5 border-t border-border pt-4">
+                      <p
+                        className="font-semibold text-ink"
+                        style={{ fontSize: "0.92rem" }}
+                      >
+                        {r.author}
+                      </p>
+                      <p
+                        className="text-ink-muted"
+                        style={{ fontSize: "0.8rem", marginTop: "0.15rem" }}
+                      >
+                        {r.date}
+                      </p>
                     </div>
                   </button>
-                </Reveal>
-              ))}
-            </div>
-            {!showAll && reviews.items.length > MOBILE_LIMIT && (
-              <div className="mt-6 flex justify-center sm:hidden">
-                <button
-                  type="button"
-                  onClick={() => setShowAll(true)}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-cream-warm px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-burgundy hover:text-burgundy"
-                >
-                  Ver las {reviews.items.length - MOBILE_LIMIT} reseñas restantes
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </button>
+                ))}
               </div>
-            )}
-          </>
 
+              {/* Navigation arrows — desktop only */}
+              {reviews.items.length > VISIBLE && (
+                <div className="mt-6 hidden items-center justify-center gap-3 sm:flex">
+                  <ArrowButton
+                    direction="left"
+                    onClick={prev}
+                    disabled={!canPrev}
+                  />
+                  {/* Page dots */}
+                  <div className="flex items-center gap-1.5">
+                    {Array.from({ length: totalPages }).map((_, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        aria-label={`Página ${idx + 1}`}
+                        onClick={() => setPage(idx)}
+                        className="rounded-full transition-all"
+                        style={{
+                          width: page === idx ? 20 : 8,
+                          height: 8,
+                          background:
+                            page === idx
+                              ? "var(--color-burgundy)"
+                              : "var(--color-border)",
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <ArrowButton
+                    direction="right"
+                    onClick={next}
+                    disabled={!canNext}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* CTA button */}
+            <Reveal delay={200}>
+              <div className="mt-10 flex justify-center">
+                <a
+                  href={reviews.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-burgundy px-7 py-3 text-sm font-bold text-white transition-all hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(122,22,32,0.25)]"
+                >
+                  Ver todos los testimonios
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </Reveal>
+          </>
         ) : (
           <div className="mx-auto max-w-[640px] rounded-[12px] border border-dashed border-border bg-cream px-8 py-10 text-center">
             <p
