@@ -106,22 +106,24 @@ export function Team() {
         </div>
 
         {/* Línea de cierre */}
-        <Reveal delay={300}>
-          <div className="mt-10 flex w-full justify-center">
-            <p
-              className="text-ink-muted"
-              style={{
-                fontSize: "0.95rem",
-                lineHeight: 1.65,
-                textAlign: "center",
-                textWrap: "balance",
-                maxWidth: "720px",
-              }}
-            >
-              {team.closing}
-            </p>
-          </div>
-        </Reveal>
+        {team.closing && (
+          <Reveal delay={300}>
+            <div className="mt-10 flex w-full justify-center">
+              <p
+                className="text-ink-muted"
+                style={{
+                  fontSize: "0.95rem",
+                  lineHeight: 1.65,
+                  textAlign: "center",
+                  textWrap: "balance",
+                  maxWidth: "720px",
+                }}
+              >
+                {team.closing}
+              </p>
+            </div>
+          </Reveal>
+        )}
       </Container>
     </section>
   );
