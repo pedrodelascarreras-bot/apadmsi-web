@@ -2,44 +2,55 @@ import { Container } from "@/components/shared/container";
 import { Reveal } from "@/components/shared/reveal";
 import { team } from "@/lib/content";
 
-function RoleList({
+function PeopleIcon() {
+  return (
+    <svg
+      width="36"
+      height="36"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-burgundy"
+      aria-hidden="true"
+    >
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  );
+}
+
+function BulletList({
   members,
 }: {
   members: readonly { name: string; role: string }[];
 }) {
   return (
-    <ul className="space-y-2.5 list-none">
+    <ul className="space-y-3 list-none">
       {members.map((p) => (
         <li
           key={p.name || p.role}
-          className="flex items-center gap-3 rounded-[8px] bg-cream px-4 py-2.5"
-          style={{
-            borderLeft: "3px solid var(--color-burgundy)",
-          }}
+          className="flex items-center gap-3"
         >
-          {p.name ? (
-            <span className="flex flex-col gap-0.5 min-w-0">
-              <span
-                className="font-display text-ink"
-                style={{ fontSize: "0.95rem", fontWeight: 600, lineHeight: 1.25 }}
-              >
-                {p.name}
-              </span>
-              <span
-                className="text-xs uppercase tracking-[0.1em] text-ink-muted"
-                style={{ lineHeight: 1.3 }}
-              >
-                {p.role}
-              </span>
-            </span>
-          ) : (
-            <span
-              className="font-display text-ink"
-              style={{ fontSize: "0.92rem", fontWeight: 500, lineHeight: 1.3 }}
-            >
-              {p.role}
-            </span>
-          )}
+          {/* Burgundy bullet dot */}
+          <span
+            className="shrink-0 rounded-full bg-burgundy"
+            style={{ width: 7, height: 7 }}
+            aria-hidden="true"
+          />
+          <span
+            className="text-ink"
+            style={{
+              fontSize: "0.92rem",
+              lineHeight: 1.4,
+            }}
+          >
+            {p.name || p.role}
+          </span>
         </li>
       ))}
     </ul>
@@ -76,36 +87,48 @@ export function Team() {
           </div>
         </Reveal>
 
-        {/* Dos columnas: Comisión Directiva + Staff */}
+        {/* Two cards side by side */}
         <div className="mx-auto grid max-w-[960px] gap-6 md:grid-cols-2">
           {/* Comisión Directiva */}
           <Reveal delay={100}>
             <div
-              className="h-full rounded-[16px] border border-border bg-paper px-6 py-7 sm:px-8 sm:py-8"
+              className="h-full rounded-[16px] border border-border bg-paper px-7 py-8 sm:px-9 sm:py-9"
               style={{ boxShadow: "0 6px 20px rgba(31,22,17,0.04)" }}
             >
-              <p className="section-label" style={{ marginBottom: "1rem" }}>
-                {team.daily.label}
-              </p>
-              <RoleList members={team.daily.members} />
+              <div className="mb-6 flex flex-col items-center gap-3 text-center">
+                <PeopleIcon />
+                <h3
+                  className="font-display text-burgundy"
+                  style={{ fontSize: "1.15rem", fontWeight: 600 }}
+                >
+                  {team.daily.label}
+                </h3>
+              </div>
+              <BulletList members={team.daily.members} />
             </div>
           </Reveal>
 
           {/* Staff */}
           <Reveal delay={200}>
             <div
-              className="h-full rounded-[16px] border border-border bg-paper px-6 py-7 sm:px-8 sm:py-8"
+              className="h-full rounded-[16px] border border-border bg-paper px-7 py-8 sm:px-9 sm:py-9"
               style={{ boxShadow: "0 6px 20px rgba(31,22,17,0.04)" }}
             >
-              <p className="section-label" style={{ marginBottom: "1rem" }}>
-                Staff
-              </p>
-              <RoleList members={team.professionals} />
+              <div className="mb-6 flex flex-col items-center gap-3 text-center">
+                <PeopleIcon />
+                <h3
+                  className="font-display text-burgundy"
+                  style={{ fontSize: "1.15rem", fontWeight: 600 }}
+                >
+                  Staff
+                </h3>
+              </div>
+              <BulletList members={team.professionals} />
             </div>
           </Reveal>
         </div>
 
-        {/* Línea de cierre */}
+        {/* Closing line */}
         {team.closing && (
           <Reveal delay={300}>
             <div className="mt-10 flex w-full justify-center">
