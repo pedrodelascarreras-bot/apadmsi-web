@@ -144,7 +144,7 @@ export function DonatePanel({ accounts }: Props) {
       >
         {/* ═══════════ LEFT: MercadoPago ═══════════ */}
         <div
-          className="flex flex-col bg-paper px-7 py-8 sm:px-9 sm:py-9"
+          className="bg-paper px-7 py-8 sm:px-9 sm:py-9"
           style={{ borderRight: "1px solid var(--color-border)" }}
         >
           {/* Tab header */}
@@ -291,7 +291,7 @@ export function DonatePanel({ accounts }: Props) {
           </button>
 
           {/* Trust bar */}
-          <div className="mt-auto pt-6">
+          <div style={{ marginTop: "1.5rem" }}>
             <p
               className="mb-2 text-ink-muted"
               style={{ fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" }}
@@ -369,7 +369,7 @@ export function DonatePanel({ accounts }: Props) {
           <p className="mb-2 text-ink-muted" style={{ fontSize: "0.78rem" }}>
             Seleccioná la cuenta para ver los datos
           </p>
-          <div style={{ display: "flex", gap: "16px", marginBottom: "1.5rem" }}>
+          <div style={{ display: "flex", gap: "10px", marginBottom: "1.25rem" }}>
             {accounts.map((acc) => (
               <button
                 key={acc.currency}
@@ -378,8 +378,8 @@ export function DonatePanel({ accounts }: Props) {
                 className="cursor-pointer transition-all"
                 style={{
                   borderRadius: "999px",
-                  padding: "12px 28px",
-                  fontSize: "0.88rem",
+                  padding: "8px 20px",
+                  fontSize: "0.84rem",
                   fontWeight: 700,
                   ...(activeCurrency === acc.currency
                     ? {
