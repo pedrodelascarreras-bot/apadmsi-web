@@ -34,7 +34,7 @@ export function Team() {
         </Reveal>
 
         {/* Autoridades — cards compactas sin avatar */}
-        <div className="mx-auto grid max-w-[1080px] grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6">
+        {team.members.length > 0 && <div className="mx-auto grid max-w-[1080px] grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6">
           {team.members.map((member, idx) => (
             <Reveal key={member.name || member.role} delay={idx * 100}>
               <article
@@ -77,7 +77,7 @@ export function Team() {
               </article>
             </Reveal>
           ))}
-        </div>
+        </div>}
 
         {/* Equipo docente y de cuidado diario */}
         <Reveal delay={250}>
