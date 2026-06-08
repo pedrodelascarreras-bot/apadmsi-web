@@ -67,7 +67,7 @@ export const hero = {
   // <em> recibe subrayado peach
   headlineHtml:
     "Una casa donde cada persona puede <em>ser cuidada</em> como merece.",
-  lede: "APADMSI es un Centro de Día en San Isidro. Hace más de cuatro décadas acompañamos a jóvenes y adultos con discapacidad intelectual — y a sus familias. Con un equipo profesional comprometido y la convicción de que cada vida importa.",
+  lede: "APADMSI es un Centro de Día en San Isidro. Hace más de cuatro décadas acompañamos a jóvenes y adultos con discapacidad intelectual — y a sus familias. Con un equipo comprometido y la convicción de que cada vida importa.",
   ctaPrimary: { label: "Quiero ayudar", href: "/donar" },
   ctaSecondary: { label: "Conocé la casa", href: "#nosotros" },
   badge: {
@@ -154,7 +154,7 @@ export const objectives = {
   eyebrow: "nuestros objetivos",
   heading: "Tres compromisos que no negociamos.",
   intro:
-    "Estos son los pilares fundacionales de la Institución. Cada actividad, cada decisión, cada profesional que se suma al equipo se mide por su contribución a estos compromisos.",
+    "Estos son los pilares fundacionales de la Institución. Cada actividad, cada decisión, cada persona que se suma al equipo se mide por su contribución a estos compromisos.",
   items: [
     {
       number: "01",
@@ -319,19 +319,12 @@ export const team = {
   // <em> recibe highlight peach
   headlineHtml: "Cuidar <em>no se improvisa</em>.",
   intro:
-    "La Institución está conformada por una Comisión Directiva que conduce la Asociación Civil, y un equipo profesional interdisciplinario que lleva adelante el trabajo diario del Centro.",
+    "La Institución está conformada por una Comisión Directiva que conduce la Asociación Civil, y un equipo interdisciplinario que lleva adelante el trabajo diario del Centro.",
   // Autoridades y dirección actuales de la institución.
   // imageSlug: si existe `public/images/equipo/{slug}.jpg|png|webp` se usa
   // como avatar; si no, se muestra placeholder con iniciales.
-  members: [
-    {
-      role: "Presidenta · Fundadora",
-      name: "Nélida Sastre de Ehrhardt",
-      desc: "Conocida como Lala. Ingresó en los años 90 después de haber fundado la primera escuela especial para personas con discapacidad intelectual de San Fernando. Lidera la Institución con una premisa firme: trabajar para los que menos tienen.",
-      imageSlug: "nelida-sastre",
-    },
-  ],
-  // Equipo profesional especializado (sin foto individual).
+  members: [] as readonly { role: string; name: string; desc: string; imageSlug: string }[],
+  // Equipo interdisciplinario (sin foto individual).
   professionals: [
     { name: "", role: "Directoras" },
     { name: "", role: "Orientadoras" },
@@ -377,7 +370,7 @@ export const donate = {
   // <em> recibe highlight gold sobre fondo dark
   headlineHtml: "Tu aporte <em>sostiene</em> esta casa.",
   punch: "Cada aporte se traduce en jornadas reales.",
-  lede: "APADMSI no cuenta con colaboración fija de ninguna entidad. Necesitamos personas, empresas o instituciones que ayuden de forma permanente. Tu colaboración fortalece la estabilidad del equipo profesional, permite proyectar el crecimiento de la institución y se traduce en jornadas reales — meriendas, almuerzos, salidas, talleres — para los concurrentes que vienen todos los días.",
+  lede: "APADMSI no cuenta con colaboración fija de ninguna entidad. Necesitamos personas, empresas o instituciones que ayuden de forma permanente. Tu colaboración fortalece la estabilidad del equipo, permite proyectar el crecimiento de la Institución y se traduce en jornadas reales — meriendas, almuerzos, salidas, talleres — para los concurrentes que vienen todos los días.",
   ways: {
     label: "Otras formas de sumarte",
     items: [
@@ -459,7 +452,7 @@ export const reviews = {
       author: "Gabriel Horacio Laborde",
       rating: 5,
       date: "Hace un año",
-      text: "Es un lugar realmente por el cual se ocupan de verdad de las personas discapacitadas, con muchas actividades, están supervisados por un equipo de profesionales permanente que se ocupan de cada integrante del centro de Día. Mi reconocimiento.",
+      text: "Es un lugar realmente por el cual se ocupan de verdad de las personas con discapacidad, con muchas actividades, están supervisados por un equipo permanente que se ocupa de cada integrante del Centro de Día. Mi reconocimiento.",
     },
     {
       author: "Cristina Cruz Lara",
@@ -546,7 +539,7 @@ export const recognition = {
   eyebrow: "reconocimiento institucional",
   heading: "No estamos solos en esta tarea.",
   intro:
-    "Operar como Centro de Día para personas con discapacidad intelectual exige cumplir requisitos exigentes en infraestructura, equipo profesional y protocolos de atención. APADMSI cuenta con la habilitación oficial en los tres niveles del Estado y es prestadora reconocida por los principales organismos públicos del sistema.",
+    "Operar como Centro de Día para personas con discapacidad intelectual exige cumplir requisitos exigentes en infraestructura, equipo de trabajo y protocolos de atención. APADMSI cuenta con la habilitación oficial en los tres niveles del Estado y es prestadora reconocida por los principales organismos públicos del sistema.",
   // logoSlug: si existe `public/images/orgs/{slug}.png|svg|jpg|webp` se
   // muestra el logo real; si no, se usa un sello tipográfico estilizado
   // con los colores institucionales del organismo.
