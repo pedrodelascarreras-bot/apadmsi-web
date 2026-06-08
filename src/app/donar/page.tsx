@@ -152,44 +152,6 @@ export default function DonarPage() {
         </Container>
       </section>
 
-      {/* Otras formas de sumarte */}
-      <section className="bg-cream-warm py-14 sm:py-16">
-        <Container className="max-w-[920px]">
-          <p className="section-label text-center">{donate.ways.label}</p>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {donate.ways.items.map((way) => (
-              <article
-                key={way.title}
-                className="rounded-[12px] border border-border bg-paper p-6 text-center"
-              >
-                <h3
-                  className="font-display text-ink"
-                  style={{
-                    fontSize: "1.15rem",
-                    fontWeight: 500,
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  {way.title}
-                </h3>
-                <p
-                  className="text-ink-muted"
-                  style={{ fontSize: "0.92rem", lineHeight: 1.55 }}
-                >
-                  {way.desc}
-                </p>
-              </article>
-            ))}
-          </div>
-          <p
-            className="mt-6 text-center italic text-ink-soft"
-            style={{ fontSize: "0.9rem" }}
-          >
-            No hay requisitos específicos. Solo hacen falta tus ganas de participar.
-          </p>
-        </Container>
-      </section>
-
       {/* FAQ chico */}
       <section className="bg-cream py-14 sm:py-16">
         <Container className="max-w-[760px]">
