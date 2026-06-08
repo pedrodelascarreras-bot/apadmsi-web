@@ -152,38 +152,6 @@ export default function DonarPage() {
         </Container>
       </section>
 
-      {/* FAQ chico */}
-      <section className="bg-cream py-14 sm:py-16">
-        <Container className="max-w-[760px]">
-          <h2
-            className="mb-6"
-            style={{
-              fontSize: "clamp(1.4rem, 2.4vw, 1.8rem)",
-              lineHeight: 1.25,
-            }}
-          >
-            Preguntas frecuentes.
-          </h2>
-          <div className="space-y-4">
-            <Faq
-              q="¿En qué se usa el dinero?"
-              a="Las donaciones se destinan principalmente a sostener los sueldos del equipo profesional, los materiales de los talleres, las comidas diarias y las mejoras de infraestructura del Centro."
-            />
-            <Faq
-              q="¿Recibo un recibo?"
-              a="Sí. Una vez que recibimos el comprobante de la transferencia (o el efectivo), te emitimos un recibo institucional firmado por la dirección."
-            />
-            <Faq
-              q="¿Aceptan donaciones en bienes o servicios?"
-              a="Sí. Aceptamos donaciones en bienes (alimentos, materiales, ropa, equipamiento) y en servicios (mantenimiento, profesionales que aporten horas, etc.). Escribinos para coordinar."
-            />
-            <Faq
-              q="¿APADMSI es una asociación civil sin fines de lucro?"
-              a="Sí, somos una asociación civil sin fines de lucro fundada en 1982 (CUIT 30-64736769-7), reconocida por PAMI, Incluir Salud y Pensiones No Contributivas."
-            />
-          </div>
-        </Container>
-      </section>
     </>
   );
 }
@@ -205,22 +173,3 @@ function Row({
   );
 }
 
-function Faq({ q, a }: { q: string; a: string }) {
-  return (
-    <details className="group rounded-[12px] border border-border bg-paper px-5 py-4 transition-colors hover:border-ink-soft">
-      <summary className="flex cursor-pointer items-center justify-between gap-4 list-none">
-        <span className="font-semibold text-ink">{q}</span>
-        <span
-          aria-hidden="true"
-          className="text-burgundy transition-transform group-open:rotate-45"
-          style={{ fontSize: "1.4rem", lineHeight: 1 }}
-        >
-          +
-        </span>
-      </summary>
-      <p className="mt-3 text-ink-muted" style={{ fontSize: "0.95rem", lineHeight: 1.6 }}>
-        {a}
-      </p>
-    </details>
-  );
-}
