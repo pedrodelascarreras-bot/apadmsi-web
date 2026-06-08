@@ -1,0 +1,488 @@
+"use client";
+
+import { useState, useRef } from "react";
+import { Copyable } from "@/components/shared/copyable";
+import Link from "next/link";
+
+type Account = {
+  readonly currency: string;
+  readonly label: string;
+  readonly bank: string;
+  readonly cbu: string;
+  readonly alias: string;
+  readonly holder: string;
+  readonly cuitHolder: string;
+};
+
+type Props = {
+  accounts: Account[];
+};
+
+/* ── Icons ── */
+
+function HeartIcon() {
+  return (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-burgundy"
+      aria-hidden="true"
+    >
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+  );
+}
+
+function BankIcon() {
+  return (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-ink-muted"
+      aria-hidden="true"
+    >
+      <path d="M3 21h18" />
+      <path d="M3 10h18" />
+      <path d="M12 3l9 7H3l9-7z" />
+      <path d="M5 10v8" />
+      <path d="M9 10v8" />
+      <path d="M15 10v8" />
+      <path d="M19 10v8" />
+    </svg>
+  );
+}
+
+function LoadingSpinner() {
+  return (
+    <svg
+      className="h-5 w-5 animate-spin"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="3"
+      />
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      />
+    </svg>
+  );
+}
+
+/* ── Main component ── */
+
+export function DonatePanel({ accounts }: Props) {
+  /* MercadoPago state */
+  const [amount, setAmount] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [focused, setFocused] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const numericAmount = Number(amount) || 0;
+
+  /* Bank transfer state */
+  const [activeCurrency, setActiveCurrency] = useState<string>(
+    accounts[0]?.currency ?? "ARS",
+  );
+  const activeAccount = accounts.find((a) => a.currency === activeCurrency) ?? accounts[0];
+
+  async function handleDonate() {
+    if (numericAmount <= 0) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/mercadopago", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: numericAmount }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(
+          data.code === "MP_NOT_CONFIGURED"
+            ? "MercadoPago todavía no está habilitado. Mientras tanto, podés donar por transferencia bancaria."
+            : (data.error ?? "Hubo un problema. Intentá de nuevo en unos minutos."),
+        );
+        return;
+      }
+      if (data.init_point) window.location.href = data.init_point;
+    } catch {
+      setError("No pudimos conectar con el servidor. Intentá de nuevo.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <>
+      <div
+        className="mx-auto grid max-w-[960px] overflow-hidden rounded-[18px] md:grid-cols-2"
+        style={{
+          border: "1px solid var(--color-border)",
+          boxShadow: "0 8px 32px rgba(31,22,17,0.06)",
+        }}
+      >
+        {/* ═══════════ LEFT: MercadoPago ═══════════ */}
+        <div
+          className="flex flex-col bg-paper px-7 py-8 sm:px-9 sm:py-9"
+          style={{ borderRight: "1px solid var(--color-border)" }}
+        >
+          {/* Tab header */}
+          <div
+            className="mb-6 flex items-center gap-3 rounded-[10px] px-4 py-3"
+            style={{
+              border: "2px solid var(--color-burgundy)",
+              background: "rgba(122,22,32,0.04)",
+            }}
+          >
+            <HeartIcon />
+            <div>
+              <p
+                className="font-display text-burgundy"
+                style={{ fontSize: "0.95rem", fontWeight: 600, lineHeight: 1.2 }}
+              >
+                Donar online
+              </p>
+              <p className="text-ink-muted" style={{ fontSize: "0.75rem", lineHeight: 1.4 }}>
+                Rápido, seguro y confiable
+              </p>
+            </div>
+          </div>
+
+          {/* Label */}
+          <p
+            className="mb-3 text-ink"
+            style={{ fontSize: "0.88rem", fontWeight: 500 }}
+          >
+            Elegí el monto de tu donación
+          </p>
+
+          {/* Amount input */}
+          <div className="mb-5">
+            <div
+              className="flex items-center overflow-hidden rounded-[12px] transition-all duration-200"
+              style={{
+                border: focused
+                  ? "1.5px solid var(--color-burgundy)"
+                  : "1.5px solid var(--color-border)",
+                background: "#FFFFFF",
+                boxShadow: focused
+                  ? "0 0 0 3px rgba(122,22,32,0.08)"
+                  : "0 1px 3px rgba(31,22,17,0.03)",
+                height: "52px",
+              }}
+            >
+              <div
+                className="flex h-full items-center justify-center shrink-0"
+                style={{
+                  width: "48px",
+                  color: focused ? "var(--color-burgundy)" : "var(--color-ink-muted)",
+                  transition: "color 0.2s",
+                }}
+              >
+                <span
+                  className="font-display"
+                  style={{ fontSize: "1.2rem", fontWeight: 700 }}
+                >
+                  $
+                </span>
+              </div>
+              <input
+                ref={inputRef}
+                type="number"
+                inputMode="numeric"
+                min={1}
+                placeholder="Ingresá el monto que deseás"
+                value={amount}
+                onChange={(e) => {
+                  setAmount(e.target.value);
+                  setError(null);
+                }}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                className="font-display h-full flex-1 bg-transparent pr-5 outline-none"
+                style={{
+                  fontSize: "1.05rem",
+                  color: "var(--color-ink)",
+                  fontWeight: 600,
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Error */}
+          {error && (
+            <div
+              className="mb-4 rounded-[10px] px-4 py-3 text-center"
+              style={{
+                background: "rgba(122,22,32,0.06)",
+                border: "1px solid rgba(122,22,32,0.12)",
+              }}
+            >
+              <p style={{ fontSize: "0.82rem", lineHeight: 1.5, color: "var(--color-ink-muted)" }}>
+                {error}
+              </p>
+            </div>
+          )}
+
+          {/* Donate button */}
+          <button
+            type="button"
+            onClick={handleDonate}
+            disabled={loading || numericAmount <= 0}
+            className="group w-full cursor-pointer overflow-hidden transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 disabled:pointer-events-none disabled:opacity-40"
+            style={{
+              background:
+                "linear-gradient(180deg, #D93045 0%, #B91C2C 50%, #A01726 100%)",
+              borderRadius: "999px",
+              height: "52px",
+              boxShadow:
+                "0 4px 14px rgba(185,28,44,0.25), inset 0 1px 0 rgba(255,255,255,0.15)",
+            }}
+          >
+            <span
+              className="flex items-center justify-center gap-2"
+              style={{
+                color: "#FFFFFF",
+                fontSize: "1rem",
+                fontWeight: 600,
+              }}
+            >
+              {loading ? (
+                <>
+                  <LoadingSpinner />
+                  Conectando...
+                </>
+              ) : (
+                <>
+                  Donar ahora
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </>
+              )}
+            </span>
+          </button>
+
+          {/* Trust bar */}
+          <div className="mt-auto pt-6">
+            <p
+              className="mb-2 text-ink-muted"
+              style={{ fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" }}
+            >
+              Pagá con
+            </p>
+            <div className="flex items-center gap-3">
+              {/* MercadoPago */}
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-label="MercadoPago">
+                <rect width="32" height="32" rx="8" fill="#00AEEF" />
+                <path d="M8.5 18.5C8.5 18.5 10 15 13 15C14.5 15 15.5 15.8 16 16.5C16.5 15.8 17.5 15 19 15C22 15 23.5 18.5 23.5 18.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {/* Visa */}
+              <div
+                className="flex items-center justify-center rounded-[5px]"
+                style={{ width: "38px", height: "24px", background: "#FFF", border: "1px solid var(--color-border)" }}
+              >
+                <span style={{ fontSize: "0.6rem", fontWeight: 800, color: "#1A1F71" }}>VISA</span>
+              </div>
+              {/* Mastercard */}
+              <div
+                className="flex items-center justify-center rounded-[5px]"
+                style={{ width: "38px", height: "24px", background: "#FFF", border: "1px solid var(--color-border)" }}
+              >
+                <svg width="22" height="14" viewBox="0 0 24 15" fill="none" aria-label="Mastercard">
+                  <circle cx="9" cy="7.5" r="7" fill="#EB001B" opacity="0.85" />
+                  <circle cx="15" cy="7.5" r="7" fill="#F79E1B" opacity="0.85" />
+                  <path d="M12 2.2a7 7 0 010 10.6 7 7 0 000-10.6z" fill="#FF5F00" opacity="0.9" />
+                </svg>
+              </div>
+              {/* Separator + "Más opciones" */}
+              <span className="text-ink-muted" style={{ fontSize: "0.75rem" }}>
+                Más opciones ›
+              </span>
+            </div>
+            <p className="mt-2 flex items-center gap-1 text-ink-muted" style={{ fontSize: "0.7rem" }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: "#5AA469" }}>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Pago 100% seguro
+            </p>
+          </div>
+        </div>
+
+        {/* ═══════════ RIGHT: Transferencia bancaria ═══════════ */}
+        <div className="flex flex-col bg-cream px-7 py-8 sm:px-9 sm:py-9">
+          {/* Tab header */}
+          <div
+            className="mb-6 flex items-center gap-3 rounded-[10px] bg-paper px-4 py-3"
+            style={{ border: "1px solid var(--color-border)" }}
+          >
+            <BankIcon />
+            <div>
+              <p
+                className="font-display text-ink"
+                style={{ fontSize: "0.95rem", fontWeight: 600, lineHeight: 1.2 }}
+              >
+                Transferencia bancaria
+              </p>
+              <p className="text-ink-muted" style={{ fontSize: "0.75rem", lineHeight: 1.4 }}>
+                Pesos (ARS) o Dólares (USD)
+              </p>
+            </div>
+          </div>
+
+          {/* Label */}
+          <p
+            className="mb-3 text-ink"
+            style={{ fontSize: "0.88rem", fontWeight: 500 }}
+          >
+            Datos de las cuentas
+          </p>
+
+          {/* Currency toggle */}
+          <p className="mb-2 text-ink-muted" style={{ fontSize: "0.78rem" }}>
+            Seleccioná la cuenta para ver los datos
+          </p>
+          <div className="mb-5 flex gap-2">
+            {accounts.map((acc) => (
+              <button
+                key={acc.currency}
+                type="button"
+                onClick={() => setActiveCurrency(acc.currency)}
+                className="cursor-pointer rounded-full px-5 py-2 text-sm font-bold transition-all"
+                style={
+                  activeCurrency === acc.currency
+                    ? {
+                        background: "var(--color-burgundy)",
+                        color: "#FFFFFF",
+                        boxShadow: "0 2px 8px rgba(122,22,32,0.2)",
+                      }
+                    : {
+                        background: "var(--color-paper)",
+                        color: "var(--color-ink-muted)",
+                        border: "1px solid var(--color-border)",
+                      }
+                }
+              >
+                {acc.label} ({acc.currency})
+              </button>
+            ))}
+          </div>
+
+          {/* Account details */}
+          <div
+            className="rounded-[12px] bg-paper px-5 py-5"
+            style={{
+              border: "1px solid var(--color-border)",
+              boxShadow: "0 2px 8px rgba(31,22,17,0.03)",
+            }}
+          >
+            <dl className="space-y-3">
+              <BankRow dt="Banco" value={activeAccount.bank} />
+              <BankRow dt="CBU" value={activeAccount.cbu} copyable />
+              <BankRow dt="Alias" value={activeAccount.alias} copyable />
+              <BankRow dt="Titular" value={activeAccount.holder} />
+              <BankRow dt="CUIT" value={activeAccount.cuitHolder} copyable />
+            </dl>
+          </div>
+
+          {/* Footnote */}
+          <div className="mt-auto pt-5">
+            <p className="text-ink-muted" style={{ fontSize: "0.82rem", lineHeight: 1.55 }}>
+              Una vez realizada la transferencia,{" "}
+              <Link
+                href="/contacto"
+                className="font-semibold text-burgundy underline decoration-peach underline-offset-4 hover:decoration-burgundy"
+              >
+                enviá el comprobante
+              </Link>{" "}
+              para emitir el recibo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Input cleanup styles */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            input[type="number"]::-webkit-inner-spin-button,
+            input[type="number"]::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+            input[type="number"] {
+              -moz-appearance: textfield;
+            }
+            input[type="number"]::placeholder {
+              font-weight: 400;
+              font-size: 0.88rem;
+              color: var(--color-ink-muted);
+            }
+          `,
+        }}
+      />
+    </>
+  );
+}
+
+/* ── Helper ── */
+
+function BankRow({
+  dt,
+  value,
+  copyable,
+}: {
+  dt: string;
+  value: string;
+  copyable?: boolean;
+}) {
+  return (
+    <div className="flex items-center gap-3">
+      <dt
+        className="shrink-0 text-xs font-bold uppercase tracking-[0.12em] text-ink-muted"
+        style={{ minWidth: "54px" }}
+      >
+        {dt}
+      </dt>
+      <dd className="flex flex-1 items-center min-w-0">
+        {copyable ? (
+          <Copyable value={value} ariaLabel={dt} />
+        ) : (
+          <span
+            className="text-ink"
+            style={{ fontSize: "0.95rem", fontWeight: 500 }}
+          >
+            {value}
+          </span>
+        )}
+      </dd>
+    </div>
+  );
+}
