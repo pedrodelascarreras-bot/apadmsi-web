@@ -651,35 +651,52 @@ export const contact = {
 } as const;
 
 export const collaborators = {
-  eyebrow: "quienes nos acompañan",
-  heading: "Colaboradores.",
+  eyebrow: "quienes nos respaldan",
+  heading: "Habilitaciones y colaboradores.",
   intro:
-    "Instituciones y personas que sostienen el Centro con su compromiso permanente.",
+    "APADMSI cuenta con habilitación oficial en los tres niveles del Estado y con el respaldo de instituciones que acompañan al Centro de manera permanente.",
   items: [
     {
+      abbr: "Nacional",
+      name: "Habilitación Nacional",
+      desc: "Registro Nacional de Prestadores de Servicios de Atención a Personas con Discapacidad.",
+      color: "#7A1620",
+      logoSlug: "nacional",
+    },
+    {
+      abbr: "Provincial",
+      name: "Habilitación Provincial",
+      desc: "Habilitación otorgada por la Provincia de Buenos Aires para operar como Centro de Día.",
+      color: "#0066B3",
+      logoSlug: null,
+    },
+    {
+      abbr: "Municipal",
       name: "Municipalidad de San Isidro",
-      desc: "Colaborador permanente. Subsidió la compra de la sede en 1990, participa del colectivo de discapacidad y mantiene contacto continuo con el Centro.",
+      desc: "Subsidió la compra de la sede en 1990. Compromiso estable y continuo con el Centro desde hace más de 40 años.",
+      color: "#0E7C5A",
       logoSlug: "msi",
     },
     {
+      abbr: "Frizma",
       name: "Frizma Frigoríficos",
       desc: "Federico Vilariño y Frizma acompañan al Centro con donaciones regulares de alimentos y apoyo logístico.",
+      color: "#C8102E",
       logoSlug: "frizma",
     },
     {
+      abbr: "Superville",
       name: "Banco Superville",
       desc: "Apoya a la Institución a través de programas de responsabilidad social empresaria.",
+      color: "#1D3557",
       logoSlug: "superville",
     },
     {
+      abbr: "FBP",
       name: "Fundación Banco Provincia",
-      desc: "Periodistas de la Fundación visitaron el Centro y lo reconocieron como referencia por la alegría y el amor del equipo de trabajo.",
+      desc: "Visitaron el Centro y lo reconocieron como referencia por la alegría y el amor del equipo de trabajo.",
+      color: "#B91C2C",
       logoSlug: "fbp",
-    },
-    {
-      name: "Y muchas personas más",
-      desc: "Vecinos, familias, voluntarios y donantes anónimos que acompañan con lo que pueden. Cada aporte — grande o pequeño — sostiene esta casa.",
-      logoSlug: null,
     },
   ],
 } as const;

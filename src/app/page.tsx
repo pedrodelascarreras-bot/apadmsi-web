@@ -6,7 +6,6 @@ import { Activities } from "@/components/home/activities";
 import { Gallery } from "@/components/home/gallery";
 import { History } from "@/components/home/history";
 import { Team } from "@/components/home/team";
-import { Recognition } from "@/components/home/recognition";
 import { Collaborators } from "@/components/home/collaborators";
 import { DonateCta } from "@/components/home/donate-cta";
 import { Reviews } from "@/components/home/reviews";
@@ -25,7 +24,6 @@ export default function Home() {
       <Gallery />
       <History />
       <Team />
-      <Recognition />
       <Collaborators />
       <SectionDivider variant="light" withHeart={false} />
       <Reviews />
