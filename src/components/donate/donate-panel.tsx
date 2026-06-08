@@ -369,13 +369,13 @@ export function DonatePanel({ accounts }: Props) {
           <p className="mb-2 text-ink-muted" style={{ fontSize: "0.78rem" }}>
             Seleccioná la cuenta para ver los datos
           </p>
-          <div className="mb-5 flex gap-2">
+          <div className="mb-5 flex gap-3">
             {accounts.map((acc) => (
               <button
                 key={acc.currency}
                 type="button"
                 onClick={() => setActiveCurrency(acc.currency)}
-                className="cursor-pointer rounded-full px-5 py-2 text-sm font-bold transition-all"
+                className="cursor-pointer rounded-full px-6 py-2.5 text-sm font-bold transition-all"
                 style={
                   activeCurrency === acc.currency
                     ? {
