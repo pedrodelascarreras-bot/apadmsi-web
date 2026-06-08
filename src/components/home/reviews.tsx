@@ -339,33 +339,6 @@ export function Reviews() {
               )}
             </div>
 
-            {/* CTA button */}
-            <Reveal delay={200}>
-              <div className="mt-10 flex justify-center">
-                <a
-                  href={reviews.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-burgundy px-7 py-3 text-sm font-bold text-white transition-all hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(122,22,32,0.25)]"
-                >
-                  Ver todos los testimonios
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 12h14" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </a>
-              </div>
-            </Reveal>
           </>
         ) : (
           <div className="mx-auto max-w-[640px] rounded-[12px] border border-dashed border-border bg-cream px-8 py-10 text-center">
