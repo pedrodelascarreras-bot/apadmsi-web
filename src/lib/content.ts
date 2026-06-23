@@ -55,10 +55,11 @@ export const site = {
 } as const;
 
 export const navLinks = [
+  { href: "/", label: "Inicio", icon: "home" },
   { href: "/nosotros", label: "Quiénes somos", icon: "people" },
   { href: "/actividades", label: "Actividades", icon: "heart-hands" },
   { href: "/equipo", label: "Equipo", icon: "team" },
-  { href: "/donar", label: "Donar", icon: "target" },
+  { href: "/historia", label: "Historia", icon: "clock" },
   { href: "/contacto", label: "Contacto", icon: "mail" },
 ] as const;
 
@@ -68,7 +69,7 @@ export const hero = {
   headlineHtml:
     "Una casa donde cada persona puede <em>ser cuidada</em> como merece.",
   lede: "APADMSI es un Centro de Día en San Isidro. Hace más de cuatro décadas acompañamos a jóvenes y adultos con discapacidad intelectual — y a sus familias. Con un equipo comprometido y la convicción de que cada vida importa.",
-  ctaPrimary: { label: "Quiero ayudar", href: "/donar" },
+  ctaPrimary: { label: "Quiero ayudar", href: "#donar" },
   ctaSecondary: { label: "Conocé la casa", href: "/nosotros" },
   badge: {
     text: "Una casa con historia.",
@@ -700,6 +701,7 @@ export const footerNav = {
     { href: "/nosotros", label: "Quiénes somos" },
     { href: "/actividades", label: "Actividades" },
     { href: "/equipo", label: "Equipo" },
+    { href: "/historia", label: "Historia" },
     { href: "/galeria", label: "Galería" },
     { href: "/contacto", label: "Contacto" },
   ],

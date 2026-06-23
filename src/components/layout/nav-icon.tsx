@@ -1,4 +1,4 @@
-type IconName = "people" | "target" | "heart-hands" | "team" | "mail";
+type IconName = "home" | "people" | "target" | "heart-hands" | "team" | "mail" | "clock";
 
 type Props = {
   name: IconName;
@@ -21,6 +21,22 @@ export function NavIcon({ name, size = 24, className = "" }: Props) {
   };
 
   switch (name) {
+    case "home":
+      return (
+        <svg {...common}>
+          <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+          <path d="M9 21V14h6v7" />
+        </svg>
+      );
+
+    case "clock":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="9" />
+          <polyline points="12 7 12 12 15 14" />
+        </svg>
+      );
+
     case "people":
       return (
         <svg {...common}>
