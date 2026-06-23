@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HistoryExpanded } from "@/components/home/history-expanded";
+import { HistoriaOptionA } from "@/components/pages/historia-option-a";
 
 export const metadata: Metadata = {
   title: "Historia",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function HistoriaPage() {
-  return <HistoryExpanded />;
+  return <HistoriaOptionA />;
 }
