@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
-import { ActividadesCombined } from "@/components/pages/actividades-combined";
+import { ActividadesOptionC } from "@/components/pages/actividades-option-c";
 
 export const metadata: Metadata = {
   title: "Actividades",
@@ -38,5 +38,5 @@ function collectGalleryImages(): string[] {
 
 export default function ActividadesPage() {
   const galleryImages = collectGalleryImages();
-  return <ActividadesCombined galleryImages={galleryImages} />;
+  return <ActividadesOptionC galleryImages={galleryImages} />;
 }
