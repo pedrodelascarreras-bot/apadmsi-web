@@ -668,7 +668,7 @@ export const collaborators = {
       name: "Habilitación Provincial",
       desc: "Habilitación otorgada por la Provincia de Buenos Aires para operar como Centro de Día.",
       color: "#0066B3",
-      logoSlug: null,
+      logoSlug: "provincial",
     },
     {
       abbr: "Municipal",
