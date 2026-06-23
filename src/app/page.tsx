@@ -1,14 +1,12 @@
 import { Hero } from "@/components/home/hero";
-import { Credentials } from "@/components/home/credentials";
-import { Stats } from "@/components/home/stats";
+import { InstitutionalBand } from "@/components/home/institutional-band";
 import { DonateSection } from "@/components/home/donate-section";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Credentials />
-      <Stats />
+      <InstitutionalBand />
       <DonateSection />
     </>
   );
