@@ -93,51 +93,6 @@ export function About() {
           </div>
         </Reveal>
 
-        {/* Bloque destacado de misión */}
-        <Reveal delay={350}>
-          <aside
-            className="mx-auto mt-10 max-w-[760px] rounded-[14px] bg-cream-warm px-6 py-6 sm:px-8 sm:py-7"
-            style={{
-              borderLeft: "4px solid var(--color-peach)",
-              boxShadow: "0 6px 20px rgba(31,22,17,0.04)",
-            }}
-          >
-            <p
-              className="font-script text-burgundy"
-              style={{
-                fontSize: "1.4rem",
-                lineHeight: 1,
-                marginBottom: "0.75rem",
-              }}
-            >
-              {about.mission.label}
-            </p>
-            <ul className="flex flex-col gap-3 list-none">
-              {about.mission.statements.map((s) => (
-                <li
-                  key={s}
-                  className="font-display text-ink"
-                  style={{
-                    fontSize: "1.05rem",
-                    lineHeight: 1.5,
-                    fontWeight: 500,
-                    fontVariationSettings: '"opsz" 144, "SOFT" 80',
-                  }}
-                >
-                  <span
-                    aria-hidden="true"
-                    className="mr-2 text-peach"
-                    style={{ fontSize: "1.2em", verticalAlign: "-0.1em" }}
-                  >
-                    ↳
-                  </span>
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </aside>
-        </Reveal>
-
       </Container>
     </section>
   );

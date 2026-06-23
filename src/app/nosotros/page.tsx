@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { About } from "@/components/home/about";
 import { Collaborators } from "@/components/home/collaborators";
-import { PressBand } from "@/components/home/press-band";
 
 export const metadata: Metadata = {
   title: "Quiénes somos",
@@ -14,7 +13,6 @@ export default function NosotrosPage() {
     <>
       <About />
       <Collaborators />
-      <PressBand />
     </>
   );
 }
