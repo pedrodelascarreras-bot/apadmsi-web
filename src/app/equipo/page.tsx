@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EquipoCombined } from "@/components/pages/equipo-combined";
+import { EquipoOptionC } from "@/components/pages/equipo-option-c";
 
 export const metadata: Metadata = {
   title: "Equipo",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function EquipoPage() {
-  return <EquipoCombined />;
+  return <EquipoOptionC />;
 }
