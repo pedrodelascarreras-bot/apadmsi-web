@@ -122,18 +122,7 @@ export function HistoriaOptionA() {
         {/* Prensa — 3 cards */}
         <Reveal delay={300}>
           <div className="mx-auto mt-14 max-w-[900px]">
-            <h2
-              className="font-display mb-5 text-center"
-              style={{
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "var(--color-burgundy)",
-              }}
-            >
-              {press.heading}
-            </h2>
+{/* sin título — las cards hablan solas */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {press.outlets.map((outlet, i) => (
                 <a
