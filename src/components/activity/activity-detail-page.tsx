@@ -32,7 +32,7 @@ export function ActivityDetailPage({ activity, images }: Props) {
         />
         <Container className="relative z-10 max-w-[820px]">
           <Link
-            href="/#actividades"
+            href="/actividades"
             className="mb-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-burgundy hover:text-burgundy-deep"
           >
             <span aria-hidden="true">&larr;</span> Volver a actividades
@@ -201,7 +201,7 @@ export function ActivityDetailPage({ activity, images }: Props) {
               <Heart size={14} />
             </Link>
             <Link
-              href="/#actividades"
+              href="/actividades"
               className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-cream/30 bg-transparent px-6 py-3 text-sm font-semibold text-cream transition-all hover:border-cream"
             >
               Ver todas las actividades
