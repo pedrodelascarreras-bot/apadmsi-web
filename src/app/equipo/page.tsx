@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Team } from "@/components/home/team";
-import { Reviews } from "@/components/home/reviews";
+import { EquipoCombined } from "@/components/pages/equipo-combined";
 
 export const metadata: Metadata = {
   title: "Equipo",
@@ -9,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function EquipoPage() {
-  return (
-    <>
-      <Team />
-      <Reviews />
-    </>
-  );
+  return <EquipoCombined />;
 }

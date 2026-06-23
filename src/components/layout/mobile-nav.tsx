@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Heart } from "@/components/shared/heart";
 import { NavIcon } from "@/components/layout/nav-icon";
 import { navLinks } from "@/lib/content";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (open) {
@@ -74,17 +76,27 @@ export function MobileNav() {
             className="flex flex-col gap-1 px-6 pt-6 pb-10"
             style={{ paddingBottom: "max(2.5rem, env(safe-area-inset-bottom))" }}
           >
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 text-ink hover:text-burgundy text-lg font-medium py-3 border-b border-border transition-colors"
-              >
-                <NavIcon name={link.icon} size={22} className="text-burgundy" />
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-3 text-lg font-medium py-3 border-b border-border transition-colors"
+                  style={{
+                    color: isActive ? "var(--color-burgundy)" : undefined,
+                    borderLeftWidth: isActive ? "3px" : "0px",
+                    borderLeftColor: isActive ? "var(--color-burgundy)" : "transparent",
+                    borderLeftStyle: "solid",
+                    paddingLeft: isActive ? "0.75rem" : "0",
+                  }}
+                >
+                  <NavIcon name={link.icon} size={22} className="text-burgundy" />
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/donar"
               onClick={() => setOpen(false)}
