@@ -1,6 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { Credentials } from "@/components/home/credentials";
-import { MissionBlock } from "@/components/home/mission-block";
+import { Stats } from "@/components/home/stats";
 import { DonateSection } from "@/components/home/donate-section";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Hero />
       <Credentials />
-      <MissionBlock />
+      <Stats />
       <DonateSection />
     </>
   );
