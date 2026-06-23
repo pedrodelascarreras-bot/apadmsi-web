@@ -4,7 +4,7 @@ import path from "node:path";
 import { Container } from "@/components/shared/container";
 import { Heart } from "@/components/shared/heart";
 import { HeroImage } from "@/components/home/hero-image";
-import { hero } from "@/lib/content";
+import { hero, about } from "@/lib/content";
 
 const HERO_IMAGE = "/images/fotodeportadaFUNDACION.PNG";
 function heroImageExists() {
@@ -58,6 +58,26 @@ export function Hero() {
             >
               {hero.lede}
             </p>
+
+            <div
+              className="fade-up mx-auto mt-5 max-w-[540px] sm:mx-0"
+              style={{ animationDelay: "0.25s" }}
+            >
+              <p
+                className="font-script text-burgundy"
+                style={{ fontSize: "1.15rem", lineHeight: 1, marginBottom: "0.5rem" }}
+              >
+                {about.mission.label}
+              </p>
+              <ul className="flex flex-col gap-1.5 list-none text-ink-muted" style={{ fontSize: "0.92rem", lineHeight: 1.55 }}>
+                {about.mission.statements.map((s) => (
+                  <li key={s}>
+                    <span aria-hidden="true" className="mr-1.5 text-peach">↳</span>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div
               className="fade-up mt-8 flex flex-wrap items-center justify-center gap-4 sm:justify-start"

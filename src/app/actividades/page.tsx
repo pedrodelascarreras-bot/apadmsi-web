@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Activities } from "@/components/home/activities";
+import { Gallery } from "@/components/home/gallery";
 
 export const metadata: Metadata = {
   title: "Actividades",
@@ -8,5 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function ActividadesPage() {
-  return <Activities />;
+  return (
+    <>
+      <Activities />
+      <Gallery />
+    </>
+  );
 }

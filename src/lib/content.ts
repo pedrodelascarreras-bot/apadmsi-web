@@ -55,11 +55,10 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { href: "/", label: "Inicio", icon: "home" },
   { href: "/nosotros", label: "Quiénes somos", icon: "people" },
+  { href: "/historia", label: "Historia", icon: "clock" },
   { href: "/actividades", label: "Actividades", icon: "heart-hands" },
   { href: "/equipo", label: "Equipo", icon: "team" },
-  { href: "/historia", label: "Historia", icon: "clock" },
   { href: "/contacto", label: "Contacto", icon: "mail" },
 ] as const;
 
