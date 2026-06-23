@@ -16,7 +16,7 @@ const CHAPTERS: {
     year: "1982",
     title: "Fundación",
     desc: history.timeline[0].desc,
-    accent: "var(--color-burgundy)",
+    accent: "var(--color-peach)",
     bg: "dark",
     pullQuote: "Un grupo de padres decidió crear esa casa que no existía.",
   },
@@ -39,7 +39,7 @@ const CHAPTERS: {
     year: "2016",
     title: "Bailando por un Sueño",
     desc: history.timeline[3].desc,
-    accent: "var(--color-peach)",
+    accent: "var(--color-gold-warm)",
     bg: "dark",
     pullQuote: "Una visibilidad sin precedentes.",
   },
@@ -56,10 +56,10 @@ const CHAPTERS: {
 
 const bgStyles = {
   dark: {
-    background: "linear-gradient(135deg, #2A1F18 0%, #3D2E25 100%)",
+    background: "linear-gradient(135deg, #7A1620 0%, #8B2030 100%)",
     color: "var(--color-cream)",
-    mutedColor: "rgba(251,246,238,0.65)",
-    quoteColor: "rgba(251,246,238,0.85)",
+    mutedColor: "rgba(251,246,238,0.75)",
+    quoteColor: "rgba(251,246,238,0.9)",
     quoteBorder: "var(--color-peach)",
   },
   light: {
@@ -86,7 +86,7 @@ export function HistoryExpanded() {
         className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
         style={{
           background:
-            "linear-gradient(135deg, #2A1F18 0%, #3D2E25 40%, #4A3228 100%)",
+            "linear-gradient(135deg, #7A1620 0%, #8B2030 40%, #6E1420 100%)",
         }}
       >
         <div
