@@ -4,14 +4,86 @@ import { history, press, FOUNDED_YEAR } from "@/lib/content";
 
 const yearsActive = new Date().getFullYear() - FOUNDED_YEAR;
 
-export function HistoryExpanded() {
-  const items = history.timeline;
+const CHAPTERS: {
+  year: string;
+  title: string;
+  desc: string;
+  accent: string;
+  bg: "dark" | "light" | "warm";
+  pullQuote?: string;
+}[] = [
+  {
+    year: "1982",
+    title: "Fundación",
+    desc: history.timeline[0].desc,
+    accent: "var(--color-burgundy)",
+    bg: "dark",
+    pullQuote: "Un grupo de padres decidió crear esa casa que no existía.",
+  },
+  {
+    year: "Década del '90",
+    title: "Nueva comisión, nuevo impulso",
+    desc: history.timeline[1].desc,
+    accent: "var(--color-peach)",
+    bg: "light",
+    pullQuote: "Trabajar para los que menos tienen.",
+  },
+  {
+    year: "Años 2000",
+    title: "Crecimiento y visibilidad",
+    desc: history.timeline[2].desc,
+    accent: "var(--color-burgundy)",
+    bg: "warm",
+  },
+  {
+    year: "2016",
+    title: "Bailando por un Sueño",
+    desc: history.timeline[3].desc,
+    accent: "var(--color-peach)",
+    bg: "dark",
+    pullQuote: "Una visibilidad sin precedentes.",
+  },
+  {
+    year: "Hoy",
+    title: "Una casa con cuarenta años en pie",
+    desc: history.timeline[4].desc,
+    accent: "var(--color-burgundy)",
+    bg: "light",
+    pullQuote:
+      "Abrir, algún día, un hogar permanente para quienes ya no tengan familia que los cuide.",
+  },
+];
 
+const bgStyles = {
+  dark: {
+    background: "linear-gradient(135deg, #2A1F18 0%, #3D2E25 100%)",
+    color: "var(--color-cream)",
+    mutedColor: "rgba(251,246,238,0.65)",
+    quoteColor: "rgba(251,246,238,0.85)",
+    quoteBorder: "var(--color-peach)",
+  },
+  light: {
+    background: "var(--color-paper)",
+    color: "var(--color-ink)",
+    mutedColor: "var(--color-ink-muted)",
+    quoteColor: "var(--color-ink)",
+    quoteBorder: "var(--color-burgundy)",
+  },
+  warm: {
+    background: "var(--color-cream-warm)",
+    color: "var(--color-ink)",
+    mutedColor: "var(--color-ink-muted)",
+    quoteColor: "var(--color-ink)",
+    quoteBorder: "var(--color-peach)",
+  },
+};
+
+export function HistoryExpanded() {
   return (
-    <section className="relative overflow-hidden">
-      {/* ── Hero banner ── */}
-      <div
-        className="relative py-14 sm:py-18 lg:py-22 text-cream"
+    <>
+      {/* ── Hero ── */}
+      <section
+        className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
         style={{
           background:
             "linear-gradient(135deg, #2A1F18 0%, #3D2E25 40%, #4A3228 100%)",
@@ -19,113 +91,163 @@ export function HistoryExpanded() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-[10%] top-0 h-full w-1/2"
+          className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse, rgba(232,168,124,0.12), transparent 70%)",
+              "radial-gradient(ellipse at 70% 20%, rgba(232,168,124,0.12), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(185,28,44,0.06), transparent 60%)",
           }}
         />
         <Container className="relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-[860px] text-center">
-              <div
-                className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full px-4 py-2"
+            <div className="mx-auto max-w-[780px] text-center">
+              <p
+                className="font-script"
                 style={{
-                  background: "rgba(232,168,124,0.15)",
-                  border: "1px solid rgba(232,168,124,0.3)",
+                  fontSize: "clamp(1.2rem, 2vw, 1.5rem)",
+                  color: "var(--color-peach)",
+                  marginBottom: "1rem",
                 }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-peach)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><polyline points="12 7 12 12 15 14" /></svg>
-                <span style={{ fontSize: "0.8rem", letterSpacing: "0.06em", color: "var(--color-peach)", fontWeight: 600 }}>
-                  {yearsActive}+ AÑOS DE HISTORIA
-                </span>
-              </div>
-
-              <h1
-                className="highlight"
-                style={{
-                  fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
-                  lineHeight: 1.15,
-                  textWrap: "balance",
-                  color: "var(--color-cream)",
-                  fontWeight: 400,
-                }}
-              >
-                {history.heading}
-              </h1>
-              <p style={{ fontSize: "1rem", lineHeight: 1.7, textWrap: "balance", marginTop: "1rem", color: "rgba(251,246,238,0.7)" }}>
-                {history.intro}
+                {yearsActive}+ años de historia
               </p>
+              <h1
+                style={{
+                  fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
+                  fontWeight: 400,
+                  lineHeight: 1.08,
+                  color: "var(--color-cream)",
+                  textWrap: "balance",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Cuarenta y tantos años.
+                <br />
+                <em
+                  className="not-italic"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, transparent 60%, rgba(232,168,124,0.35) 60%)",
+                  }}
+                >
+                  Sin pausa, sin ruido.
+                </em>
+              </h1>
             </div>
           </Reveal>
         </Container>
-      </div>
+      </section>
 
-      {/* ── Timeline ── */}
-      <div className="bg-cream py-14 sm:py-18 lg:py-22">
-        <Container>
-          <div className="relative mx-auto max-w-[1080px]">
-            <span
+      {/* ── Chapters ── */}
+      {CHAPTERS.map((ch, i) => {
+        const style = bgStyles[ch.bg];
+        return (
+          <section
+            key={ch.year}
+            className="relative overflow-hidden"
+            style={{ background: style.background }}
+          >
+            {/* Decorative accent bar */}
+            <div
               aria-hidden="true"
-              className="absolute top-0 bottom-0 left-5 lg:left-1/2 lg:-translate-x-1/2"
               style={{
-                width: "2px",
-                background: "linear-gradient(180deg, var(--color-burgundy) 0%, var(--color-peach) 50%, var(--color-border) 100%)",
-                borderRadius: "1px",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "4px",
+                height: "100%",
+                background: ch.accent,
+                opacity: 0.6,
               }}
             />
 
-            <ul className="list-none flex flex-col gap-0">
-              {items.map((item, idx) => {
-                const isLeft = idx % 2 === 0;
-                return (
-                  <Reveal key={item.year} tag="li" delay={idx * 50}>
-                    <TimelineRow
-                      side={isLeft ? "left" : "right"}
-                      year={item.year}
-                      title={item.title}
-                      desc={item.desc}
-                      highlight={idx === 0 || idx === items.length - 1}
-                    />
-                  </Reveal>
-                );
-              })}
+            <Container>
+              <div
+                className="mx-auto max-w-[820px]"
+                style={{ padding: "3.5rem 0 3rem" }}
+              >
+                <Reveal>
+                  {/* Year — big decorative number */}
+                  <div className="flex items-end gap-4 sm:gap-6">
+                    <span
+                      className="font-display"
+                      style={{
+                        fontSize: "clamp(3rem, 7vw, 5rem)",
+                        fontWeight: 400,
+                        lineHeight: 0.85,
+                        color: ch.accent,
+                        opacity: ch.bg === "dark" ? 0.7 : 0.35,
+                        fontVariationSettings: '"opsz" 144, "SOFT" 50',
+                      }}
+                    >
+                      {ch.year}
+                    </span>
+                    <h2
+                      style={{
+                        fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)",
+                        fontWeight: 500,
+                        lineHeight: 1.2,
+                        color: style.color,
+                        paddingBottom: "0.3rem",
+                      }}
+                    >
+                      {ch.title}
+                    </h2>
+                  </div>
 
-              {/* Pendiente */}
-              <Reveal tag="li" delay={items.length * 50}>
-                <div className="relative grid grid-cols-1 lg:grid-cols-2 lg:gap-x-14" style={{ padding: "1.25rem 0" }}>
-                  <span
-                    aria-hidden="true"
-                    className="absolute z-10 top-5 left-5 -translate-x-1/2 lg:left-1/2"
+                  {/* Divider */}
+                  <div
                     style={{
-                      width: "18px",
-                      height: "18px",
-                      borderRadius: "50%",
-                      background: "var(--color-cream)",
-                      border: "2px dashed var(--color-peach)",
+                      width: "60px",
+                      height: "2px",
+                      background: ch.accent,
+                      margin: "1.25rem 0",
+                      borderRadius: "1px",
                     }}
                   />
-                  <div className="pl-14 lg:pl-0 lg:pr-12 lg:text-right lg:col-start-1">
-                    <div className="font-script text-burgundy" style={{ fontSize: "1.4rem", lineHeight: 1, marginBottom: "0.4rem" }}>
-                      próximamente
-                    </div>
-                    <p className="text-ink-muted" style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>
-                      {history.pendingNote}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            </ul>
-          </div>
-        </Container>
-      </div>
 
-      {/* ── Prensa / artículos ── */}
-      <div
+                  {/* Body text */}
+                  <p
+                    style={{
+                      fontSize: "1.05rem",
+                      lineHeight: 1.75,
+                      color: style.mutedColor,
+                      maxWidth: "680px",
+                    }}
+                  >
+                    {ch.desc}
+                  </p>
+
+                  {/* Pull quote */}
+                  {ch.pullQuote && (
+                    <blockquote
+                      style={{
+                        marginTop: "1.5rem",
+                        paddingLeft: "1.25rem",
+                        borderLeft: `3px solid ${style.quoteBorder}`,
+                        fontStyle: "italic",
+                        fontSize: "1.15rem",
+                        lineHeight: 1.5,
+                        color: style.quoteColor,
+                        fontWeight: 500,
+                        maxWidth: "600px",
+                      }}
+                    >
+                      &ldquo;{ch.pullQuote}&rdquo;
+                    </blockquote>
+                  )}
+                </Reveal>
+              </div>
+            </Container>
+          </section>
+        );
+      })}
+
+      {/* ── Prensa ── */}
+      <section
         className="py-14 sm:py-16 lg:py-20"
         style={{
-          background: "linear-gradient(180deg, var(--color-paper) 0%, var(--color-cream-warm) 100%)",
-          borderTop: "1px solid var(--color-border)",
+          background:
+            "linear-gradient(180deg, var(--color-cream-warm) 0%, var(--color-cream) 100%)",
         }}
       >
         <Container>
@@ -142,7 +264,10 @@ export function HistoryExpanded() {
               >
                 {press.heading}
               </h2>
-              <p className="text-ink-muted" style={{ fontSize: "0.95rem", lineHeight: 1.6 }}>
+              <p
+                className="text-ink-muted"
+                style={{ fontSize: "0.95rem", lineHeight: 1.6 }}
+              >
                 {press.intro}
               </p>
             </div>
@@ -158,25 +283,20 @@ export function HistoryExpanded() {
                   className="group flex h-full flex-col rounded-[16px] border border-border bg-paper transition-all hover:border-burgundy/30 hover:shadow-[0_8px_28px_rgba(31,22,17,0.08)]"
                   style={{ overflow: "hidden" }}
                 >
-                  {/* Colored top bar */}
                   <div
                     style={{
                       height: "4px",
-                      background: i === 0
-                        ? "var(--color-burgundy)"
-                        : i === 1
-                        ? "var(--color-peach)"
-                        : "linear-gradient(90deg, var(--color-burgundy), var(--color-peach))",
+                      background:
+                        i === 0
+                          ? "var(--color-burgundy)"
+                          : i === 1
+                          ? "var(--color-peach)"
+                          : "linear-gradient(90deg, var(--color-burgundy), var(--color-peach))",
                     }}
                   />
-
                   <div className="flex flex-1 flex-col gap-3 px-5 py-5">
-                    {/* Source + year */}
                     <div className="flex items-center justify-between gap-2">
-                      <span
-                        className="font-display font-semibold text-ink"
-                        style={{ fontSize: "1rem" }}
-                      >
+                      <span className="font-display font-semibold text-ink" style={{ fontSize: "1rem" }}>
                         {outlet.name}
                       </span>
                       <span
@@ -192,20 +312,9 @@ export function HistoryExpanded() {
                         {outlet.year}
                       </span>
                     </div>
-
-                    {/* Title */}
-                    <p
-                      className="font-display text-ink"
-                      style={{
-                        fontSize: "0.92rem",
-                        fontWeight: 500,
-                        lineHeight: 1.4,
-                      }}
-                    >
+                    <p className="font-display text-ink" style={{ fontSize: "0.92rem", fontWeight: 500, lineHeight: 1.4 }}>
                       &ldquo;{outlet.title}&rdquo;
                     </p>
-
-                    {/* Pull quote */}
                     <p
                       className="text-ink-muted italic"
                       style={{
@@ -217,8 +326,6 @@ export function HistoryExpanded() {
                     >
                       {outlet.pullQuote}
                     </p>
-
-                    {/* CTA */}
                     <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-xs font-bold uppercase tracking-[0.1em] text-burgundy transition-transform group-hover:translate-x-1">
                       {outlet.cta ?? "Ver más"}
                       <span aria-hidden="true">→</span>
@@ -229,82 +336,7 @@ export function HistoryExpanded() {
             ))}
           </div>
         </Container>
-      </div>
-    </section>
-  );
-}
-
-function TimelineRow({
-  side,
-  year,
-  title,
-  desc,
-  highlight = false,
-}: {
-  side: "left" | "right";
-  year: string;
-  title: string | null;
-  desc: string;
-  highlight?: boolean;
-}) {
-  const isLeft = side === "left";
-  const cardClass = isLeft
-    ? "pl-14 lg:pl-0 lg:pr-12 lg:text-right lg:col-start-1"
-    : "pl-14 lg:pl-12 lg:col-start-2";
-
-  return (
-    <div
-      className="relative grid grid-cols-1 lg:grid-cols-2 lg:gap-x-14"
-      style={{ padding: "1.25rem 0" }}
-    >
-      {/* Dot */}
-      <span
-        aria-hidden="true"
-        className="absolute z-10 top-5 left-5 -translate-x-1/2 lg:left-1/2"
-        style={{
-          width: highlight ? "22px" : "16px",
-          height: highlight ? "22px" : "16px",
-          borderRadius: "50%",
-          background: "var(--color-burgundy)",
-          border: `4px solid var(--color-cream)`,
-          boxShadow: highlight
-            ? "0 0 0 3px var(--color-burgundy), 0 0 12px rgba(185,28,44,0.3)"
-            : "0 0 0 2px var(--color-burgundy)",
-          marginTop: highlight ? "-3px" : "0",
-        }}
-      />
-
-      <div className={cardClass}>
-        {/* Year */}
-        <div
-          className="font-display text-burgundy"
-          style={{
-            fontSize: highlight ? "2rem" : "1.6rem",
-            fontWeight: 500,
-            lineHeight: 1,
-            marginBottom: "0.4rem",
-            fontVariationSettings: '"opsz" 144, "SOFT" 80',
-          }}
-        >
-          {year}
-        </div>
-
-        {title && (
-          <h3
-            className="font-semibold text-ink"
-            style={{ fontSize: "1rem", lineHeight: 1.4, marginBottom: "0.4rem" }}
-          >
-            {title}
-          </h3>
-        )}
-
-        <p
-          className="text-ink-muted"
-          style={{ fontSize: "0.95rem", lineHeight: 1.65, textWrap: "pretty" }}
-        >
-          {desc}
-        </p>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
