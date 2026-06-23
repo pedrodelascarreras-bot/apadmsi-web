@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
 import { Container } from "@/components/shared/container";
 import { Heart } from "@/components/shared/heart";
 import { MobileNav } from "@/components/layout/mobile-nav";
-import { NavIcon } from "@/components/layout/nav-icon";
-import { navLinks, site } from "@/lib/content";
+import { NavLinks } from "@/components/layout/nav-links";
+import { site } from "@/lib/content";
 
 export function Header() {
   return (
@@ -65,35 +64,7 @@ export function Header() {
           </span>
         </Link>
 
-        {/* Nav con iconos y separadores entre items */}
-        <ul className="hidden lg:flex items-center gap-6 list-none xl:gap-9">
-          {navLinks.map((link, i) => (
-            <Fragment key={link.href}>
-              {i > 0 && (
-                <li
-                  aria-hidden="true"
-                  className="h-10 w-px"
-                  style={{ background: "var(--color-border)" }}
-                />
-              )}
-              <li>
-                <Link
-                  href={link.href}
-                  className="group flex flex-col items-center gap-1.5 text-ink transition-colors hover:text-burgundy"
-                >
-                  <NavIcon
-                    name={link.icon}
-                    size={26}
-                    className="text-burgundy transition-transform group-hover:-translate-y-0.5"
-                  />
-                  <span className="whitespace-nowrap text-[0.78rem] font-semibold leading-tight">
-                    {link.label}
-                  </span>
-                </Link>
-              </li>
-            </Fragment>
-          ))}
-        </ul>
+        <NavLinks />
 
         {/* CTA */}
         <Link
