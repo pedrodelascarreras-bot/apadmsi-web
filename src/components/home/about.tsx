@@ -76,7 +76,7 @@ export function About() {
 
         {/* Párrafos */}
         <Reveal delay={250}>
-          <div className="mx-auto max-w-[760px]">
+          <div className="mx-auto max-w-[920px]">
             {about.paragraphsHtml.map((html, i) => (
               <p
                 key={i}
