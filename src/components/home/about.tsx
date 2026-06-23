@@ -85,7 +85,7 @@ export function About() {
                   fontSize: "1.08rem",
                   marginBottom: "1.25rem",
                   lineHeight: 1.7,
-                  textWrap: "balance",
+                  textAlign: "justify",
                 }}
                 dangerouslySetInnerHTML={{ __html: html }}
               />
