@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { About } from "@/components/home/about";
+import { HistoryExpanded } from "@/components/home/history-expanded";
 import { Collaborators } from "@/components/home/collaborators";
 import { Gallery } from "@/components/home/gallery";
 import { PressBand } from "@/components/home/press-band";
@@ -14,6 +15,7 @@ export default function NosotrosPage() {
   return (
     <>
       <About />
+      <HistoryExpanded />
       <Collaborators />
       <Gallery />
       <PressBand />
