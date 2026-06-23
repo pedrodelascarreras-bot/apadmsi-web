@@ -64,6 +64,27 @@ function BankIcon() {
   );
 }
 
+function RecurringIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M17 2l4 4-4 4" />
+      <path d="M3 11V9a4 4 0 014-4h14" />
+      <path d="M7 22l-4-4 4-4" />
+      <path d="M21 13v2a4 4 0 01-4 4H3" />
+    </svg>
+  );
+}
+
 function LoadingSpinner() {
   return (
     <svg
@@ -91,7 +112,12 @@ function LoadingSpinner() {
 
 /* ── Main component ── */
 
+type DonateMode = "once" | "monthly";
+
 export function DonatePanel({ accounts }: Props) {
+  /* Mode toggle */
+  const [mode, setMode] = useState<DonateMode>("once");
+
   /* MercadoPago state */
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
@@ -111,7 +137,8 @@ export function DonatePanel({ accounts }: Props) {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/mercadopago", {
+      const endpoint = mode === "monthly" ? "/api/mercadopago/subscription" : "/api/mercadopago";
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: numericAmount }),
@@ -147,26 +174,39 @@ export function DonatePanel({ accounts }: Props) {
           className="bg-paper px-7 py-8 sm:px-9 sm:py-9"
           style={{ borderRight: "1px solid var(--color-border)" }}
         >
-          {/* Tab header */}
+          {/* Mode toggle: Única vez / Suscripción mensual */}
           <div
-            className="mb-6 flex items-center gap-3 rounded-[10px] px-4 py-3"
-            style={{
-              border: "2px solid var(--color-burgundy)",
-              background: "rgba(122,22,32,0.04)",
-            }}
+            className="mb-6 flex overflow-hidden rounded-[10px]"
+            style={{ border: "1.5px solid var(--color-border)", background: "var(--color-cream-warm)" }}
           >
-            <HeartIcon />
-            <div>
-              <p
-                className="font-display text-burgundy"
-                style={{ fontSize: "0.95rem", fontWeight: 600, lineHeight: 1.2 }}
+            {([
+              { key: "once" as DonateMode, label: "Única vez", icon: <HeartIcon /> },
+              { key: "monthly" as DonateMode, label: "Suscripción mensual", icon: <RecurringIcon /> },
+            ]).map((tab) => (
+              <button
+                key={tab.key}
+                type="button"
+                onClick={() => { setMode(tab.key); setError(null); }}
+                className="flex flex-1 cursor-pointer items-center justify-center gap-2 py-3 transition-all"
+                style={{
+                  fontSize: "0.82rem",
+                  fontWeight: 600,
+                  ...(mode === tab.key
+                    ? {
+                        background: "var(--color-paper)",
+                        color: "var(--color-burgundy)",
+                        boxShadow: "0 1px 4px rgba(31,22,17,0.08)",
+                      }
+                    : {
+                        background: "transparent",
+                        color: "var(--color-ink-muted)",
+                      }),
+                }}
               >
-                Donar online
-              </p>
-              <p className="text-ink-muted" style={{ fontSize: "0.75rem", lineHeight: 1.4 }}>
-                Rápido, seguro y confiable
-              </p>
-            </div>
+                {tab.icon}
+                {tab.label}
+              </button>
+            ))}
           </div>
 
           {/* Label */}
@@ -174,7 +214,9 @@ export function DonatePanel({ accounts }: Props) {
             className="mb-3 text-ink"
             style={{ fontSize: "0.88rem", fontWeight: 500 }}
           >
-            Elegí el monto de tu donación
+            {mode === "monthly"
+              ? "Elegí el monto mensual"
+              : "Elegí el monto de tu donación"}
           </p>
 
           {/* Amount input */}
@@ -230,6 +272,22 @@ export function DonatePanel({ accounts }: Props) {
             </div>
           </div>
 
+          {/* Monthly info */}
+          {mode === "monthly" && (
+            <div
+              className="mb-4 flex items-start gap-2 rounded-[10px] px-4 py-3"
+              style={{
+                background: "rgba(90,164,105,0.06)",
+                border: "1px solid rgba(90,164,105,0.15)",
+              }}
+            >
+              <RecurringIcon />
+              <p style={{ fontSize: "0.8rem", lineHeight: 1.5, color: "var(--color-ink-muted)" }}>
+                Se debitará automáticamente cada mes de tu tarjeta de crédito. Podés cancelar cuando quieras desde MercadoPago.
+              </p>
+            </div>
+          )}
+
           {/* Error */}
           {error && (
             <div
@@ -275,7 +333,7 @@ export function DonatePanel({ accounts }: Props) {
                 </>
               ) : (
                 <>
-                  Donar ahora
+                  {mode === "monthly" ? "Suscribirme" : "Donar ahora"}
                   <svg
                     width="17"
                     height="17"
