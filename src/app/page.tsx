@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <HeroOptionC />
-      <InstitutionalBand />
+      <InstitutionalBand variant="b" />
       <DonateSection />
     </>
   );

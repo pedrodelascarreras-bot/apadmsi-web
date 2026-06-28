@@ -10,21 +10,41 @@ const items = [
   { number: "40", label: "concurrentes habilitados", suffix: "" },
 ];
 
-export function InstitutionalBand() {
+type Variant = "a" | "b";
+
+const themes = {
+  a: {
+    bg: "linear-gradient(135deg, #1E4744 0%, #2F5C59 100%)",
+    blob: "radial-gradient(circle, rgba(201,169,97,0.15), transparent 70%)",
+    headingColor: "var(--color-cream)",
+    numberColor: "var(--color-cream)",
+    labelColor: "rgba(250,246,240,0.6)",
+    borderColor: "rgba(250,246,240,0.15)",
+    textClass: "text-cream",
+  },
+  b: {
+    bg: "var(--color-paper)",
+    blob: "radial-gradient(circle, rgba(201,169,97,0.1), transparent 70%)",
+    headingColor: "#2F5C59",
+    numberColor: "#2F5C59",
+    labelColor: "#4A7B78",
+    borderColor: "rgba(47,92,89,0.15)",
+    textClass: "",
+  },
+};
+
+export function InstitutionalBand({ variant = "a" }: { variant?: Variant }) {
+  const t = themes[variant];
+
   return (
     <section
-      className="relative overflow-hidden text-cream py-12 sm:py-14 lg:py-16"
-      style={{
-        background: "linear-gradient(135deg, #2A1F18 0%, #3D2E25 100%)",
-      }}
+      className={`relative overflow-hidden ${t.textClass} py-12 sm:py-14 lg:py-16`}
+      style={{ background: t.bg }}
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -bottom-24 -left-24 h-[400px] w-[400px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(201,169,97,0.15), transparent 70%)",
-        }}
+        style={{ background: t.blob }}
       />
 
       <Container className="relative z-10">
@@ -37,7 +57,7 @@ export function InstitutionalBand() {
                 fontSize: "clamp(1.1rem, 2.2vw, 1.5rem)",
                 fontWeight: 500,
                 lineHeight: 1.25,
-                color: "var(--color-cream)",
+                color: t.headingColor,
                 fontVariationSettings: '"opsz" 144, "SOFT" 80',
               }}
             >
@@ -70,17 +90,17 @@ export function InstitutionalBand() {
               <div
                 className="text-center"
                 style={{
-                  borderLeft:
-                    i > 0 ? "1px solid rgba(250,246,240,0.15)" : "none",
+                  borderLeft: i > 0 ? `1px solid ${t.borderColor}` : "none",
                 }}
               >
                 <div
-                  className="font-display leading-none text-cream"
+                  className="font-display leading-none"
                   style={{
                     fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
                     fontWeight: 400,
                     fontVariationSettings: '"opsz" 144, "SOFT" 50',
                     marginBottom: "0.4rem",
+                    color: t.numberColor,
                   }}
                 >
                   <Counter to={Number(item.number)} />
@@ -101,7 +121,7 @@ export function InstitutionalBand() {
                   className="mx-auto max-w-[160px]"
                   style={{
                     fontSize: "0.78rem",
-                    color: "rgba(250,246,240,0.6)",
+                    color: t.labelColor,
                     lineHeight: 1.4,
                     letterSpacing: "0.04em",
                     textTransform: "uppercase",
