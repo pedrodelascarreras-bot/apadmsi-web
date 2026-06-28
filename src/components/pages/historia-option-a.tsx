@@ -166,8 +166,8 @@ export function HistoriaOptionA() {
                     </p>
                     <p
                       className="italic"
-                      style={{ color: "rgba(255,255,255,0.75)" }}
                       style={{
+                        color: "rgba(255,255,255,0.75)",
                         fontSize: "0.8rem",
                         lineHeight: 1.45,
                         borderLeft: "2px solid var(--color-peach)",
