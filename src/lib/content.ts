@@ -706,7 +706,6 @@ export const footerNav = {
   ],
   sumate: [
     { href: "/donar", label: "Donar mensualmente" },
-    { href: "/donar", label: "Transferencia bancaria" },
   ],
   seguinos: [
     { href: site.instagram.url, label: "Instagram" },

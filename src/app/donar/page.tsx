@@ -50,7 +50,7 @@ export default function DonarPage() {
         </div>
 
         {/* Two-panel card */}
-        <DonatePanel accounts={[...donate.bankTransfer.accounts]} />
+        <DonatePanel />
       </Container>
     </section>
   );

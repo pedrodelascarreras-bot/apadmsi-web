@@ -39,7 +39,7 @@ export function DonateSection() {
             </p>
           </div>
         </Reveal>
-        <DonatePanel accounts={[...donate.bankTransfer.accounts]} />
+        <DonatePanel />
       </Container>
     </section>
   );
