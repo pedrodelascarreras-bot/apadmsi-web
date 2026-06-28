@@ -19,7 +19,7 @@ export function DonateCta() {
         className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,124,0.25), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.25), transparent 70%)",
         }}
       />
       <div
@@ -94,7 +94,7 @@ export function DonateCta() {
             {/* CTA principal */}
             <Link
               href="/donar"
-              className="group inline-flex items-center gap-2.5 rounded-full border-[2px] border-peach bg-peach px-8 py-3.5 text-base font-bold transition-all hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(232,168,124,0.4)]"
+              className="group inline-flex items-center gap-2.5 rounded-full border-[2px] border-peach bg-peach px-8 py-3.5 text-base font-bold transition-all hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(201,171,110,0.4)]"
               style={{
                 color: "var(--color-burgundy-deep)",
                 letterSpacing: "0.01em",

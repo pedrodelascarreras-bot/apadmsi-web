@@ -707,12 +707,11 @@ export const footerNav = {
   sumate: [
     { href: "/donar", label: "Donar mensualmente" },
     { href: "/donar", label: "Transferencia bancaria" },
-    { href: "/contacto", label: "Voluntariado" },
-    { href: "/contacto", label: "Asociarse" },
   ],
   seguinos: [
     { href: site.instagram.url, label: "Instagram" },
     { href: site.facebook.url, label: "Facebook" },
+    { href: `https://wa.me/${site.phoneTel}`, label: "WhatsApp" },
   ],
 } as const;
 

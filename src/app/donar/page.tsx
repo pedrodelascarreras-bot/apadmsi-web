@@ -30,7 +30,7 @@ export default function DonarPage() {
                 fontStyle: "italic",
                 color: "var(--color-burgundy)",
                 background:
-                  "linear-gradient(180deg, transparent 65%, rgba(232,168,124,0.4) 65%)",
+                  "linear-gradient(180deg, transparent 65%, rgba(201,171,110,0.4) 65%)",
               }}
             >
               transformá

@@ -16,7 +16,7 @@ export function ActividadesOptionC({
   const items = activities.items;
 
   return (
-    <section style={{ background: "var(--color-paper)", padding: "3rem 0 2.5rem" }}>
+    <section className="paper-ctx" style={{ background: "var(--color-paper)", padding: "3rem 0 2.5rem" }}>
       <Container>
         <Reveal>
           <div className="mx-auto mb-8 max-w-[1000px] text-center">
@@ -47,7 +47,7 @@ export function ActividadesOptionC({
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                   marginBottom: "0.8rem",
-                  color: "var(--color-burgundy)",
+                  color: "#8B6914",
                 }}
               >
                 Actividades
@@ -56,11 +56,12 @@ export function ActividadesOptionC({
                 {items.map((item) => (
                   <div
                     key={item.title}
-                    className="rounded-[10px] text-ink"
+                    className="rounded-[10px]"
                     style={{
                       padding: "0.65rem 0.85rem",
                       fontSize: "0.85rem",
                       fontWeight: 500,
+                      color: "#FFFFFF",
                       background: "var(--color-cream-warm)",
                       border: "1px solid var(--color-border)",
                     }}
@@ -82,7 +83,7 @@ export function ActividadesOptionC({
                   fontWeight: 700,
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
-                  color: "var(--color-burgundy)",
+                  color: "#8B6914",
                 }}
               >
                 Galería
@@ -125,8 +126,8 @@ export function ActividadesOptionC({
                   href={activities.cta.button.href}
                   className="inline-flex items-center gap-2 rounded-full"
                   style={{
-                    color: "var(--color-burgundy)",
-                    border: "1.5px solid var(--color-burgundy)",
+                    color: "#2F5C59",
+                    border: "1.5px solid #2F5C59",
                     padding: "0.65rem 1.3rem",
                     fontSize: "0.85rem",
                     fontWeight: 600,

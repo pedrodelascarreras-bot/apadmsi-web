@@ -12,7 +12,7 @@ export function Quote() {
         className="pointer-events-none absolute -left-24 -top-24 h-[350px] w-[350px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,124,0.18), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.18), transparent 70%)",
         }}
       />
 
@@ -47,7 +47,7 @@ export function Quote() {
               dangerouslySetInnerHTML={{
                 __html: quote.textHtml.replace(
                   /<em>(.*?)<\/em>/g,
-                  '<em style="font-style: italic; color: var(--color-burgundy); background: linear-gradient(180deg, transparent 60%, rgba(232,168,124,0.3) 60%);">$1</em>'
+                  '<em style="font-style: italic; color: var(--color-burgundy); background: linear-gradient(180deg, transparent 60%, rgba(201,171,110,0.3) 60%);">$1</em>'
                 ),
               }}
             />

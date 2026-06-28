@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { FloatingCta } from "@/components/shared/floating-cta";
 import { BackToTop } from "@/components/shared/back-to-top";
 import { StructuredData } from "@/components/shared/structured-data";
-import { CustomCursor } from "@/components/shared/custom-cursor";
+
 import { ReadingMode } from "@/components/shared/reading-mode";
 import { ViewTransitions } from "@/components/shared/view-transitions";
 import "./globals.css";
@@ -115,7 +115,7 @@ export default function RootLayout({
         <Footer />
         <FloatingCta />
         <BackToTop />
-        <CustomCursor />
+
         <ReadingMode />
         <ViewTransitions />
       </body>

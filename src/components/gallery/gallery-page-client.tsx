@@ -54,7 +54,7 @@ export function GalleryPageClient({ images, categories }: Props) {
           className="pointer-events-none absolute -right-32 -top-24 h-[360px] w-[420px]"
           style={{
             background:
-              "radial-gradient(circle, rgba(232,168,124,0.22), transparent 70%)",
+              "radial-gradient(circle, rgba(201,171,110,0.22), transparent 70%)",
           }}
         />
         <div
@@ -62,7 +62,7 @@ export function GalleryPageClient({ images, categories }: Props) {
           className="pointer-events-none absolute -left-24 -bottom-16 h-[280px] w-[320px]"
           style={{
             background:
-              "radial-gradient(circle, rgba(185,28,44,0.10), transparent 70%)",
+              "radial-gradient(circle, rgba(168,137,77,0.10), transparent 70%)",
           }}
         />
 
@@ -120,7 +120,7 @@ export function GalleryPageClient({ images, categories }: Props) {
             <div
               role="tablist"
               aria-label="Filtrar por categoría"
-              className="mt-10 flex flex-wrap items-center gap-2 sm:gap-3"
+              className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
             >
               <FilterChip
                 label="Todas"
@@ -283,27 +283,31 @@ function FilterChip({
       role="tab"
       aria-selected={active}
       onClick={onClick}
-      className="group inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all"
+      className="group inline-flex items-center gap-2.5 rounded-full font-semibold transition-all duration-200"
       style={{
         cursor: "pointer",
-        color: active ? "#FFFFFF" : "var(--color-ink)",
+        padding: "0.6rem 1.4rem",
+        fontSize: "0.88rem",
+        letterSpacing: "0.01em",
+        color: active ? "#FFFFFF" : "#2F5C59",
         background: active ? "var(--color-burgundy)" : "var(--color-paper)",
         border: active
-          ? "1px solid var(--color-burgundy)"
-          : "1px solid var(--color-border)",
+          ? "1.5px solid var(--color-burgundy)"
+          : "1.5px solid var(--color-border)",
         boxShadow: active
-          ? "0 2px 0 0 var(--color-burgundy-deep)"
-          : "none",
+          ? "0 4px 12px rgba(139,105,20,0.25)"
+          : "0 1px 3px rgba(31,22,17,0.04)",
+        transform: active ? "scale(1.03)" : "scale(1)",
       }}
     >
-      <span style={{ color: active ? "#FFFFFF" : "var(--color-ink)" }}>
-        {label}
-      </span>
+      <span>{label}</span>
       <span
-        className="rounded-full px-2 py-0.5 text-[0.7rem] font-bold"
+        className="rounded-full font-bold"
         style={{
-          background: active ? "rgba(255,255,255,0.2)" : "var(--color-cream)",
-          color: active ? "#FFFFFF" : "var(--color-ink-muted)",
+          padding: "0.15rem 0.5rem",
+          fontSize: "0.72rem",
+          background: active ? "rgba(255,255,255,0.22)" : "var(--color-cream)",
+          color: active ? "#FFFFFF" : "#FFFFFF",
         }}
       >
         {count}

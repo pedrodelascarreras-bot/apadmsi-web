@@ -59,7 +59,7 @@ export function BackToTop() {
         cursor: "pointer",
         background: "var(--color-burgundy)",
         color: "#FFFFFF",
-        boxShadow: "0 8px 24px rgba(122,22,32,0.35)",
+        boxShadow: "0 8px 24px rgba(201,171,110,0.35)",
         position: "fixed",
         right: "1rem",
         left: "auto",

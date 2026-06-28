@@ -10,7 +10,7 @@ export function Header() {
   return (
     <header
       className="sticky top-0 z-50 border-b border-border backdrop-blur-md"
-      style={{ backgroundColor: "rgba(251, 246, 238, 0.94)" }}
+      style={{ backgroundColor: "rgba(47, 92, 89, 0.96)" }}
     >
       {/* Blob decorativo top-right */}
       <div
@@ -18,7 +18,7 @@ export function Header() {
         className="pointer-events-none absolute -right-24 -top-20 h-[200px] w-[260px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,124,0.30), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.20), transparent 70%)",
         }}
       />
       {/* Blob decorativo bottom-left */}
@@ -27,7 +27,7 @@ export function Header() {
         className="pointer-events-none absolute -bottom-16 -left-20 h-[160px] w-[220px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,124,0.25), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.15), transparent 70%)",
         }}
       />
 
@@ -41,14 +41,24 @@ export function Header() {
           aria-label={`${site.name} · inicio`}
           className="flex shrink-0 items-center gap-3 text-ink no-underline"
         >
-          <span className="relative block h-14 w-[84px] shrink-0 sm:h-[72px] sm:w-[108px] lg:h-20 lg:w-[120px]">
+          <span
+            className="relative block shrink-0 overflow-hidden rounded-full"
+            style={{
+              width: "60px",
+              height: "60px",
+              background: "rgba(255,255,255,0.92)",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              padding: "4px",
+            }}
+          >
             <Image
               src="/logo.png"
               alt={`${site.brandShort} · ${site.tagline}`}
               fill
               priority
-              sizes="120px"
+              sizes="60px"
               className="object-contain"
+              style={{ padding: "2px" }}
             />
           </span>
           <span className="flex flex-col leading-[1.15]">

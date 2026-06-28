@@ -60,7 +60,7 @@ export function ReadingMode() {
       title={active ? "Modo lectura activo" : "Modo lectura"}
       className={`fixed bottom-5 left-5 z-[80] hidden h-11 w-11 items-center justify-center rounded-full border transition-all hover:-translate-y-0.5 lg:inline-flex ${
         active
-          ? "border-burgundy bg-burgundy text-white shadow-[0_4px_12px_rgba(122,22,32,0.3)]"
+          ? "border-burgundy bg-burgundy text-white shadow-[0_4px_12px_rgba(201,171,110,0.3)]"
           : "border-border bg-paper/95 text-ink shadow-[0_4px_12px_rgba(31,22,17,0.08)] backdrop-blur-sm hover:border-burgundy hover:text-burgundy"
       }`}
     >

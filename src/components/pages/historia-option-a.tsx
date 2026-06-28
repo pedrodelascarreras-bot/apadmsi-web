@@ -6,7 +6,7 @@ const yearsActive = new Date().getFullYear() - FOUNDED_YEAR;
 
 export function HistoriaOptionA() {
   return (
-    <section style={{ background: "var(--color-paper)", padding: "3rem 0 2.5rem" }}>
+    <section className="paper-ctx" style={{ background: "var(--color-paper)", padding: "3rem 0 2.5rem" }}>
       <Container>
         {/* Header */}
         <Reveal>
@@ -131,7 +131,7 @@ export function HistoriaOptionA() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex h-full flex-col rounded-[14px] border border-border bg-cream-warm transition-all hover:border-burgundy/30 hover:shadow-[0_6px_20px_rgba(31,22,17,0.08)]"
-                  style={{ overflow: "hidden" }}
+                  style={{ overflow: "hidden", color: "#FFFFFF" }}
                 >
                   <div
                     style={{
@@ -147,26 +147,26 @@ export function HistoriaOptionA() {
                   <div className="flex flex-1 flex-col gap-2 px-5 py-5">
                     <div className="flex items-center justify-between">
                       <span
-                        className="font-display text-ink"
-                        style={{ fontSize: "0.95rem", fontWeight: 600 }}
+                        className="font-display"
+                        style={{ fontSize: "0.95rem", fontWeight: 600, color: "#FFFFFF" }}
                       >
                         {outlet.name}
                       </span>
                       <span
-                        className="text-ink-muted"
-                        style={{ fontSize: "0.7rem" }}
+                        style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.7)" }}
                       >
                         {outlet.year}
                       </span>
                     </div>
                     <p
-                      className="font-display text-ink"
-                      style={{ fontSize: "0.88rem", fontWeight: 500, lineHeight: 1.35 }}
+                      className="font-display"
+                      style={{ fontSize: "0.88rem", fontWeight: 500, lineHeight: 1.35, color: "#FFFFFF" }}
                     >
                       &ldquo;{outlet.title}&rdquo;
                     </p>
                     <p
-                      className="text-ink-muted italic"
+                      className="italic"
+                      style={{ color: "rgba(255,255,255,0.75)" }}
                       style={{
                         fontSize: "0.8rem",
                         lineHeight: 1.45,
@@ -176,7 +176,7 @@ export function HistoriaOptionA() {
                     >
                       {outlet.pullQuote}
                     </p>
-                    <span className="mt-auto pt-2 text-xs font-bold uppercase tracking-[0.08em] text-burgundy transition-transform group-hover:translate-x-1">
+                    <span className="mt-auto pt-2 text-xs font-bold uppercase tracking-[0.08em] transition-transform group-hover:translate-x-1" style={{ color: "var(--color-gold-warm)" }}>
                       {outlet.cta ?? "Ver más"} →
                     </span>
                   </div>
