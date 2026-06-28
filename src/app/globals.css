@@ -5,33 +5,33 @@
    Definidos en design-system.md. Toda UI usa estas variables.
    --------------------------------------------------------------- */
 :root {
-  /* Marca */
-  --color-burgundy:       #B91C2C;
-  --color-burgundy-deep:  #7A1620;
-  --color-burgundy-soft:  #D94A5A;
+  /* Marca — teal + dorado */
+  --color-burgundy:       #C9AB6E;
+  --color-burgundy-deep:  #A8894D;
+  --color-burgundy-soft:  #D4BC82;
 
   /* Cálidos */
-  --color-peach:          #E8A87C;
-  --color-coral:          #E89B7C;
-  --color-sand:           #F0E4D3;
+  --color-peach:          #C9AB6E;
+  --color-coral:          #BDA05F;
+  --color-sand:           #3D6C69;
 
-  /* Fondos */
-  --color-cream:          #FBF6EE;
-  --color-cream-warm:     #F5EBDD;
-  --color-cream-deep:     #EDE0CC;
-  --color-paper:          #FFFFFF;
+  /* Fondos — teal */
+  --color-cream:          #4A7B78;
+  --color-cream-warm:     #3D6C69;
+  --color-cream-deep:     #2F5C59;
+  --color-paper:          #F5F1E8;
 
-  /* Tinta */
-  --color-ink:            #2A1F18;
-  --color-ink-muted:      #6E5D4F;
-  --color-ink-soft:       #8B7868;
+  /* Tinta — blanco (sin negro) */
+  --color-ink:            #FFFFFF;
+  --color-ink-muted:      #F0EBE0;
+  --color-ink-soft:       #E0D8C8;
 
   /* Acento dorado */
-  --color-gold:           #C9A961;
-  --color-gold-warm:      #D4B574;
+  --color-gold:           #C9AB6E;
+  --color-gold-warm:      #D4BC82;
 
   /* Líneas */
-  --color-border:         #E5D9C5;
+  --color-border:         #5A8E8B;
 
   /* Tipografía (las var --font-* vienen de next/font en layout.tsx) */
   --font-display: var(--font-display), 'Times New Roman', serif;
@@ -119,6 +119,28 @@ body {
   overflow-x: hidden;
   /* Cuando el modal abre y bloquea body, prevenir bounce en iOS */
   overscroll-behavior-y: none;
+}
+
+/* Elementos con fondo paper (crema claro) necesitan texto oscuro */
+.bg-paper,
+.paper-ctx {
+  --color-ink:       #2F5C59;
+  --color-ink-muted: #4A7B78;
+  --color-ink-soft:  #6A9E9B;
+  color: #2F5C59;
+}
+.paper-ctx .section-label {
+  color: #8B6914;
+}
+.paper-ctx .highlight em {
+  color: #8B6914;
+}
+/* Elementos teal dentro de paper necesitan texto blanco */
+.teal-ctx {
+  --color-ink:       #FFFFFF !important;
+  --color-ink-muted: rgba(255,255,255,0.75) !important;
+  --color-ink-soft:  rgba(255,255,255,0.55) !important;
+  color: #FFFFFF !important;
 }
 
 /* Touch targets mínimos y desactivar highlight azul de iOS Safari */

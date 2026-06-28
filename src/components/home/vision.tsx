@@ -11,7 +11,7 @@ export function Vision() {
         className="pointer-events-none absolute -right-24 top-12 h-[400px] w-[400px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,124,0.18), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.18), transparent 70%)",
         }}
       />
 
@@ -80,7 +80,7 @@ export function Vision() {
                   fontStyle: "italic",
                   color: "var(--color-burgundy)",
                   background:
-                    "linear-gradient(180deg, transparent 65%, rgba(232,168,124,0.3) 65%)",
+                    "linear-gradient(180deg, transparent 65%, rgba(201,171,110,0.3) 65%)",
                 }}
               >
                 {vision.pullQuote.text}

@@ -63,7 +63,7 @@ export function History() {
                   style={{
                     background: "var(--color-peach)",
                     boxShadow:
-                      "0 6px 18px rgba(232,168,124,0.45), inset 0 0 0 4px var(--color-cream)",
+                      "0 6px 18px rgba(201,171,110,0.45), inset 0 0 0 4px var(--color-cream)",
                   }}
                 >
                   <svg

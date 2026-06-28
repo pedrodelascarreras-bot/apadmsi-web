@@ -27,7 +27,7 @@ export function ActivityDetailPage({ activity, images }: Props) {
           className="pointer-events-none absolute -right-20 -top-20 h-[420px] w-[420px]"
           style={{
             background:
-              "radial-gradient(circle, rgba(232,168,124,0.22), transparent 70%)",
+              "radial-gradient(circle, rgba(201,171,110,0.22), transparent 70%)",
           }}
         />
         <Container className="relative z-10 max-w-[820px]">
@@ -167,7 +167,7 @@ export function ActivityDetailPage({ activity, images }: Props) {
           className="pointer-events-none absolute -right-24 -top-24 h-[400px] w-[400px]"
           style={{
             background:
-              "radial-gradient(circle, rgba(232,168,124,0.22), transparent 70%)",
+              "radial-gradient(circle, rgba(201,171,110,0.22), transparent 70%)",
           }}
         />
         <Container className="relative z-10 max-w-[680px] text-center">

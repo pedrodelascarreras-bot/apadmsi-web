@@ -75,7 +75,7 @@ export function Collaborators() {
 
             return (
               <Reveal key={item.abbr} delay={idx * 80} tag="li" className="flex">
-                <article className="flex w-full flex-col items-center rounded-[14px] border border-border bg-cream px-6 py-7 text-center transition-all hover:-translate-y-[2px] hover:shadow-[0_10px_28px_rgba(31,22,17,0.08)]">
+                <article className="teal-ctx flex w-full flex-col items-center rounded-[14px] border border-border bg-cream px-6 py-7 text-center transition-all hover:-translate-y-[2px] hover:shadow-[0_10px_28px_rgba(31,22,17,0.08)]">
                   {/* Logo / shield icon */}
                   <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-paper" style={{ border: "1px solid var(--color-border)" }}>
                     {logo ? (

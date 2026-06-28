@@ -25,7 +25,7 @@ export function FloatingCta() {
     <Link
       href="/donar"
       aria-label="Quiero ayudar a APADMSI"
-      className={`btn-burgundy fixed right-4 z-[90] inline-flex items-center gap-2 rounded-full border-[1.5px] border-burgundy bg-burgundy px-5 py-3.5 text-sm font-semibold shadow-[0_8px_24px_rgba(122,22,32,0.35)] duration-300 lg:hidden ${
+      className={`btn-burgundy fixed right-4 z-[90] inline-flex items-center gap-2 rounded-full border-[1.5px] border-burgundy bg-burgundy px-5 py-3.5 text-sm font-semibold shadow-[0_8px_24px_rgba(201,171,110,0.35)] duration-300 lg:hidden ${
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"

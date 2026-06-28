@@ -20,7 +20,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-[10%] top-[10%] h-[80%] w-1/2"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(232,168,124,0.18), transparent 70%)",
+            "radial-gradient(ellipse, rgba(201,171,110,0.18), transparent 70%)",
         }}
       />
 
@@ -135,7 +135,7 @@ export function Hero() {
                     className="absolute inset-0"
                     style={{
                       background:
-                        "repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(185,28,44,0.04) 14px, rgba(185,28,44,0.04) 15px)",
+                        "repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(168,137,77,0.04) 14px, rgba(168,137,77,0.04) 15px)",
                     }}
                   />
                 </>
@@ -148,7 +148,7 @@ export function Hero() {
               className="absolute -right-2 -top-4 z-10 grid h-14 w-14 place-items-center rounded-full sm:-right-4 sm:h-[70px] sm:w-[70px]"
               style={{
                 background: "var(--color-peach)",
-                boxShadow: "0 8px 24px rgba(232,168,124,0.4)",
+                boxShadow: "0 8px 24px rgba(201,171,110,0.4)",
               }}
             >
               <Heart size={28} className="text-burgundy" />

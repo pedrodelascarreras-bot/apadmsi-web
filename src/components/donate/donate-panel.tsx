@@ -176,8 +176,8 @@ export function DonatePanel({ accounts }: Props) {
         >
           {/* Mode toggle: Única vez / Suscripción mensual */}
           <div
-            className="mb-6 flex overflow-hidden rounded-[10px]"
-            style={{ border: "1.5px solid var(--color-border)", background: "var(--color-cream-warm)" }}
+            className="mb-6 flex overflow-hidden rounded-full"
+            style={{ border: "1.5px solid var(--color-border)", background: "var(--color-paper)", padding: "4px" }}
           >
             {([
               { key: "once" as DonateMode, label: "Única vez", icon: <HeartIcon /> },
@@ -187,19 +187,19 @@ export function DonatePanel({ accounts }: Props) {
                 key={tab.key}
                 type="button"
                 onClick={() => { setMode(tab.key); setError(null); }}
-                className="flex flex-1 cursor-pointer items-center justify-center gap-2 py-3 transition-all"
+                className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full py-3 transition-all"
                 style={{
                   fontSize: "0.82rem",
                   fontWeight: 600,
                   ...(mode === tab.key
                     ? {
-                        background: "var(--color-paper)",
-                        color: "var(--color-burgundy)",
-                        boxShadow: "0 1px 4px rgba(31,22,17,0.08)",
+                        background: "var(--color-burgundy)",
+                        color: "#FFFFFF",
+                        boxShadow: "0 2px 8px rgba(139,105,20,0.3)",
                       }
                     : {
                         background: "transparent",
-                        color: "var(--color-ink-muted)",
+                        color: "#4A7B78",
                       }),
                 }}
               >
@@ -229,7 +229,7 @@ export function DonatePanel({ accounts }: Props) {
                   : "1.5px solid var(--color-border)",
                 background: "#FFFFFF",
                 boxShadow: focused
-                  ? "0 0 0 3px rgba(122,22,32,0.08)"
+                  ? "0 0 0 3px rgba(201,171,110,0.15)"
                   : "0 1px 3px rgba(31,22,17,0.03)",
                 height: "52px",
               }}
@@ -293,8 +293,8 @@ export function DonatePanel({ accounts }: Props) {
             <div
               className="mb-4 rounded-[10px] px-4 py-3 text-center"
               style={{
-                background: "rgba(122,22,32,0.06)",
-                border: "1px solid rgba(122,22,32,0.12)",
+                background: "rgba(201,171,110,0.08)",
+                border: "1px solid rgba(201,171,110,0.15)",
               }}
             >
               <p style={{ fontSize: "0.82rem", lineHeight: 1.5, color: "var(--color-ink-muted)" }}>
@@ -311,11 +311,11 @@ export function DonatePanel({ accounts }: Props) {
             className="group w-full cursor-pointer overflow-hidden transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 disabled:pointer-events-none disabled:opacity-40"
             style={{
               background:
-                "linear-gradient(180deg, #D93045 0%, #B91C2C 50%, #A01726 100%)",
+                "linear-gradient(180deg, #D4BC82 0%, #C9AB6E 50%, #A8894D 100%)",
               borderRadius: "999px",
               height: "52px",
               boxShadow:
-                "0 4px 14px rgba(185,28,44,0.25), inset 0 1px 0 rgba(255,255,255,0.15)",
+                "0 4px 14px rgba(168,137,77,0.3), inset 0 1px 0 rgba(255,255,255,0.15)",
             }}
           >
             <span
@@ -444,12 +444,13 @@ export function DonatePanel({ accounts }: Props) {
                         background: "var(--color-burgundy)",
                         color: "#FFFFFF",
                         border: "1.5px solid var(--color-burgundy)",
-                        boxShadow: "0 2px 8px rgba(122,22,32,0.2)",
+                        boxShadow: "0 2px 8px rgba(139,105,20,0.3)",
+                        transform: "scale(1.02)",
                       }
                     : {
-                        background: "var(--color-paper)",
-                        color: "var(--color-ink-muted)",
-                        border: "1.5px solid var(--color-border)",
+                        background: "transparent",
+                        color: "rgba(255,255,255,0.65)",
+                        border: "1.5px solid rgba(255,255,255,0.3)",
                       }),
                 }}
               >

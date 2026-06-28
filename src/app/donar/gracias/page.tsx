@@ -19,7 +19,7 @@ export default function GraciasPage() {
         className="pointer-events-none absolute -right-20 -top-20 h-[420px] w-[420px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,124,0.22), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.22), transparent 70%)",
         }}
       />
       <Container className="relative z-10 max-w-[640px] text-center">
@@ -27,7 +27,7 @@ export default function GraciasPage() {
           className="mx-auto mb-8 grid h-20 w-20 place-items-center rounded-full"
           style={{
             background: "var(--color-peach)",
-            boxShadow: "0 12px 32px rgba(232,168,124,0.4)",
+            boxShadow: "0 12px 32px rgba(201,171,110,0.4)",
           }}
         >
           <Heart size={40} className="text-burgundy" />

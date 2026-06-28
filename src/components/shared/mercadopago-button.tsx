@@ -249,11 +249,11 @@ export function MercadoPagoButton() {
             className="group relative w-full cursor-pointer overflow-hidden transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 disabled:pointer-events-none disabled:opacity-40"
             style={{
               background:
-                "linear-gradient(180deg, #D93045 0%, #B91C2C 50%, #A01726 100%)",
+                "linear-gradient(180deg, #D4BC82 0%, #C9AB6E 50%, #A8894D 100%)",
               borderRadius: "999px",
               height: "58px",
               boxShadow:
-                "0 4px 14px rgba(185,28,44,0.3), 0 1px 3px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.15)",
+                "0 4px 14px rgba(168,137,77,0.3), 0 1px 3px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.15)",
             }}
           >
             {/* Shimmer on hover */}

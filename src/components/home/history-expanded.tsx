@@ -56,7 +56,7 @@ const CHAPTERS: {
 
 const bgStyles = {
   dark: {
-    background: "linear-gradient(135deg, #7A1620 0%, #8B2030 100%)",
+    background: "linear-gradient(135deg, #2F5C59 0%, #3D6C69 100%)",
     color: "var(--color-cream)",
     mutedColor: "rgba(251,246,238,0.75)",
     quoteColor: "rgba(251,246,238,0.9)",
@@ -86,7 +86,7 @@ export function HistoryExpanded() {
         className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
         style={{
           background:
-            "linear-gradient(135deg, #7A1620 0%, #8B2030 40%, #6E1420 100%)",
+            "linear-gradient(135deg, #2F5C59 0%, #3D6C69 40%, #2A5451 100%)",
         }}
       >
         <div
@@ -94,7 +94,7 @@ export function HistoryExpanded() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 70% 20%, rgba(232,168,124,0.12), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(185,28,44,0.06), transparent 60%)",
+              "radial-gradient(ellipse at 70% 20%, rgba(201,171,110,0.12), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(168,137,77,0.06), transparent 60%)",
           }}
         />
         <Container className="relative z-10">
@@ -126,7 +126,7 @@ export function HistoryExpanded() {
                   className="not-italic"
                   style={{
                     background:
-                      "linear-gradient(180deg, transparent 60%, rgba(232,168,124,0.35) 60%)",
+                      "linear-gradient(180deg, transparent 60%, rgba(201,171,110,0.35) 60%)",
                   }}
                 >
                   Sin pausa, sin ruido.

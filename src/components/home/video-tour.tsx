@@ -25,7 +25,7 @@ export function VideoTour() {
         className="pointer-events-none absolute -right-24 -top-20 h-[340px] w-[340px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,124,0.18), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.18), transparent 70%)",
         }}
       />
 

@@ -67,8 +67,8 @@ function InitialsCircle({ name, index }: { name: string; index: number }) {
         height: "44px",
         borderRadius: "12px",
         background: index % 2 === 0
-          ? "linear-gradient(135deg, rgba(122,22,32,0.08), rgba(122,22,32,0.15))"
-          : "linear-gradient(135deg, rgba(232,168,124,0.12), rgba(232,168,124,0.25))",
+          ? "linear-gradient(135deg, rgba(201,171,110,0.08), rgba(201,171,110,0.15))"
+          : "linear-gradient(135deg, rgba(201,171,110,0.12), rgba(201,171,110,0.25))",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -98,7 +98,7 @@ export function EquipoOptionC() {
       }}
     >
       {/* Header */}
-      <div style={{ padding: "2rem 0 0" }}>
+      <div style={{ padding: "2.5rem 0 0" }}>
         <Container>
           <Reveal>
             <div className="mx-auto max-w-[1000px] text-center">
@@ -109,16 +109,17 @@ export function EquipoOptionC() {
                   fontSize: "clamp(2rem, 3.8vw, 3rem)",
                   lineHeight: 1.15,
                   textWrap: "balance",
-                  marginBottom: "0.4rem",
+                  marginBottom: "1.2rem",
                 }}
                 dangerouslySetInnerHTML={{ __html: team.headlineHtml }}
               />
               <p
                 className="mx-auto text-ink-muted"
                 style={{
-                  fontSize: "0.92rem",
-                  lineHeight: 1.6,
-                  maxWidth: "560px",
+                  fontSize: "0.95rem",
+                  lineHeight: 1.75,
+                  maxWidth: "580px",
+                  textAlign: "center",
                   textWrap: "balance",
                 }}
               >
@@ -130,7 +131,7 @@ export function EquipoOptionC() {
       </div>
 
       {/* Tabs */}
-      <div style={{ marginTop: "1.5rem" }}>
+      <div style={{ marginTop: "2.5rem" }}>
         <Container>
           <div
             className="mx-auto flex max-w-[1000px] rounded-full bg-paper"
@@ -158,7 +159,7 @@ export function EquipoOptionC() {
                     background: isActive ? "var(--color-burgundy)" : "transparent",
                     border: "none",
                     cursor: "pointer",
-                    boxShadow: isActive ? "0 4px 12px rgba(122,22,32,0.2)" : "none",
+                    boxShadow: isActive ? "0 4px 12px rgba(201,171,110,0.2)" : "none",
                   }}
                 >
                   <TabIcon icon={t.icon} active={isActive} />
@@ -278,7 +279,7 @@ export function EquipoOptionC() {
                   <div
                     className="mb-5 flex flex-col items-center gap-3 rounded-[14px] sm:flex-row sm:justify-between"
                     style={{
-                      background: "linear-gradient(135deg, #7A1620 0%, #8B2030 100%)",
+                      background: "linear-gradient(135deg, #2F5C59 0%, #3D6C69 100%)",
                       padding: "1.25rem 1.75rem",
                     }}
                   >
@@ -360,25 +361,26 @@ export function EquipoOptionC() {
                           width="28"
                           height="28"
                           viewBox="0 0 24 24"
-                          fill="var(--color-burgundy)"
-                          style={{ opacity: 0.2, marginBottom: "0.5rem" }}
+                          fill="#C9AB6E"
+                          style={{ marginBottom: "0.5rem" }}
                         >
                           <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
                         </svg>
 
                         {/* Stars */}
-                        <div className="mb-2 flex text-burgundy" style={{ gap: "1px" }}>
+                        <div className="mb-2 flex" style={{ gap: "1px", color: "#C9AB6E" }}>
                           {Array.from({ length: 5 }).map((_, idx) => (
-                            <svg key={idx} width="14" height="14" viewBox="0 0 24 24" fill={idx < r.rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                            <svg key={idx} width="16" height="16" viewBox="0 0 24 24" fill={idx < r.rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
                           ))}
                         </div>
 
                         {/* Text */}
                         <p
-                          className="flex-1 text-ink"
+                          className="flex-1"
                           style={{
-                            fontSize: "0.92rem",
-                            lineHeight: 1.65,
+                            fontSize: "0.95rem",
+                            lineHeight: 1.7,
+                            color: "#1A3A38",
                             display: "-webkit-box",
                             WebkitLineClamp: 4,
                             WebkitBoxOrient: "vertical",
@@ -392,7 +394,7 @@ export function EquipoOptionC() {
                         <div
                           className="mt-4 flex items-center gap-3"
                           style={{
-                            borderTop: "1px solid var(--color-border)",
+                            borderTop: "1px solid rgba(47,92,89,0.15)",
                             paddingTop: "0.75rem",
                           }}
                         >
@@ -401,21 +403,21 @@ export function EquipoOptionC() {
                               width: "36px",
                               height: "36px",
                               borderRadius: "50%",
-                              background: "linear-gradient(135deg, rgba(122,22,32,0.1), rgba(232,168,124,0.2))",
+                              background: "linear-gradient(135deg, #C9AB6E, #A8894D)",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
                               fontSize: "0.8rem",
-                              fontWeight: 600,
-                              color: "var(--color-burgundy)",
+                              fontWeight: 700,
+                              color: "#FFFFFF",
                               flexShrink: 0,
                             }}
                           >
                             {r.author.split(" ").map(w => w[0]).slice(0, 2).join("")}
                           </div>
                           <div>
-                            <p className="font-semibold text-ink" style={{ fontSize: "0.88rem" }}>{r.author}</p>
-                            <p className="text-ink-muted" style={{ fontSize: "0.75rem" }}>{r.date}</p>
+                            <p className="font-semibold" style={{ fontSize: "0.88rem", color: "#1A3A38" }}>{r.author}</p>
+                            <p style={{ fontSize: "0.75rem", color: "#4A7B78" }}>{r.date}</p>
                           </div>
                         </div>
                       </button>

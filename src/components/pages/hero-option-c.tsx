@@ -72,9 +72,10 @@ export function HeroOptionC() {
               style={{
                 borderRadius: "16px 80px 16px 80px",
                 aspectRatio: "4/3",
-                boxShadow: "0 24px 64px rgba(122,22,32,0.12)",
+                boxShadow: "0 24px 64px rgba(201,171,110,0.25)",
+                border: "2px solid var(--color-border)",
                 background:
-                  "linear-gradient(140deg, var(--color-cream-warm), var(--color-sand))",
+                  "linear-gradient(140deg, var(--color-paper), var(--color-cream-warm))",
               }}
             >
               {heroImageExists() && (
@@ -85,7 +86,7 @@ export function HeroOptionC() {
                   priority
                   sizes="(max-width: 1024px) 95vw, 55vw"
                   className="object-cover"
-                  style={{ objectPosition: "50% 30%", filter: "saturate(0.75)" }}
+                  style={{ objectPosition: "50% 30%" }}
                 />
               )}
             </div>
@@ -113,7 +114,7 @@ export function HeroOptionC() {
               className="absolute -right-2 -top-3 z-10 grid h-12 w-12 place-items-center rounded-full sm:-right-4 sm:h-14 sm:w-14"
               style={{
                 background: "var(--color-peach)",
-                boxShadow: "0 8px 24px rgba(232,168,124,0.4)",
+                boxShadow: "0 8px 24px rgba(201,171,110,0.4)",
               }}
             >
               <Heart size={24} className="text-burgundy" />

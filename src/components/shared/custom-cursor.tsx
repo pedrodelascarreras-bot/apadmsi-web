@@ -86,7 +86,7 @@ export function CustomCursor() {
         fontSize: "0.78rem",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
-        boxShadow: "0 8px 24px rgba(232,168,124,0.45)",
+        boxShadow: "0 8px 24px rgba(201,171,110,0.45)",
         mixBlendMode: "normal",
         transform: "translate3d(-100px, -100px, 0) translate(-50%, -50%)",
       }}

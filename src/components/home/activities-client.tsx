@@ -204,7 +204,7 @@ export function ActivitiesClient({
         className="pointer-events-none absolute bottom-0 right-0 h-[300px] w-[300px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,124,0.2), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.2), transparent 70%)",
         }}
       />
 
@@ -316,7 +316,7 @@ export function ActivitiesClient({
           <div
             className="mx-auto mt-12 max-w-[960px] rounded-[16px] bg-burgundy px-6 py-7 text-center text-white sm:px-10 sm:py-8"
             style={{
-              boxShadow: "0 12px 40px rgba(122,22,32,0.18)",
+              boxShadow: "0 12px 40px rgba(201,171,110,0.18)",
             }}
           >
             <h3
