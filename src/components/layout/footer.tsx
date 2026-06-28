@@ -10,10 +10,10 @@ const currentYear = new Date().getFullYear();
 export function Footer() {
   return (
     <footer
-      className="relative overflow-hidden text-cream pt-16 pb-8"
+      className="relative overflow-hidden pt-16 pb-8"
       style={{
-        background:
-          "linear-gradient(135deg, #2A1F18 0%, #3D2E25 100%)",
+        background: "var(--color-paper)",
+        borderTop: "1px solid var(--color-border)",
       }}
     >
       <div
@@ -21,7 +21,7 @@ export function Footer() {
         className="pointer-events-none absolute -top-24 -right-24 h-[350px] w-[350px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(201,171,110,0.12), transparent 70%)",
+            "radial-gradient(circle, rgba(201,171,110,0.1), transparent 70%)",
         }}
       />
 
@@ -32,7 +32,8 @@ export function Footer() {
             <Link
               href="/"
               aria-label={`${site.name} · inicio`}
-              className="inline-flex items-center gap-3 text-cream no-underline"
+              className="inline-flex items-center gap-3 no-underline"
+              style={{ color: "#2F5C59" }}
             >
               <span className="relative block h-12 w-[72px] shrink-0 sm:h-14 sm:w-[84px]">
                 <Image
@@ -47,16 +48,17 @@ export function Footer() {
                 <strong className="font-display text-lg font-semibold tracking-wide">
                   {site.name}
                 </strong>
-                <span className="text-sm text-cream/60 tracking-wide">
+                <span className="text-sm tracking-wide" style={{ color: "#4A7B78" }}>
                   {site.tagline}
                 </span>
               </span>
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/70">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed" style={{ color: "#4A7B78" }}>
               {site.longName}. Asociación civil sin fines de lucro.
             </p>
             <span
-              className="mt-6 inline-block font-script text-xl text-peach"
+              className="mt-6 inline-block font-script text-xl"
+              style={{ color: "var(--color-burgundy)" }}
             >
               Gracias por estar acá ♥
             </span>
@@ -64,7 +66,7 @@ export function Footer() {
 
           {/* Navegar */}
           <div>
-            <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] text-peach mb-5">
+            <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] mb-5" style={{ color: "var(--color-burgundy)" }}>
               Navegar
             </h4>
             <ul className="space-y-2.5 list-none">
@@ -72,7 +74,8 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-cream/75 hover:text-cream transition-colors"
+                    className="text-sm transition-colors hover:underline"
+                    style={{ color: "#4A7B78" }}
                   >
                     {link.label}
                   </Link>
@@ -83,7 +86,7 @@ export function Footer() {
 
           {/* Sumate */}
           <div>
-            <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] text-peach mb-5">
+            <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] mb-5" style={{ color: "var(--color-burgundy)" }}>
               Sumate
             </h4>
             <ul className="space-y-2.5 list-none">
@@ -91,7 +94,8 @@ export function Footer() {
                 <li key={`${link.label}-${i}`}>
                   <Link
                     href={link.href}
-                    className="text-sm text-cream/75 hover:text-cream transition-colors"
+                    className="text-sm transition-colors hover:underline"
+                    style={{ color: "#4A7B78" }}
                   >
                     {link.label}
                   </Link>
@@ -102,7 +106,7 @@ export function Footer() {
 
           {/* Seguinos */}
           <div>
-            <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] text-peach mb-5">
+            <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] mb-5" style={{ color: "var(--color-burgundy)" }}>
               Seguinos
             </h4>
             <ul className="space-y-2.5 list-none">
@@ -112,7 +116,8 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-cream/75 hover:text-cream transition-colors"
+                    className="inline-flex items-center gap-2 text-sm transition-colors hover:underline"
+                    style={{ color: "#4A7B78" }}
                   >
                     {link.label === "Instagram" && (
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -140,24 +145,24 @@ export function Footer() {
         </div>
 
         {/* Boletín + compartir */}
-        <div className="grid gap-8 border-t border-cream/10 pt-10 mb-8 md:grid-cols-[1.2fr_1fr] md:gap-12">
+        <div className="grid gap-8 pt-10 mb-8 md:grid-cols-[1.2fr_1fr] md:gap-12" style={{ borderTop: "1px solid var(--color-border)" }}>
           {newsletter.label && (
             <div>
-              <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] text-peach mb-3">
+              <h4 className="font-sans text-xs font-bold uppercase tracking-[0.15em] mb-3" style={{ color: "var(--color-burgundy)" }}>
                 {newsletter.label}
               </h4>
-              <p className="mb-4 text-sm text-cream/70" style={{ lineHeight: 1.55, maxWidth: "420px" }}>
+              <p className="mb-4 text-sm" style={{ lineHeight: 1.55, maxWidth: "420px", color: "#4A7B78" }}>
                 {newsletter.intro}
               </p>
               <NewsletterForm />
             </div>
           )}
           <div className="md:flex md:flex-col md:items-end md:justify-end">
-            <ShareButtons variant="dark" />
+            <ShareButtons variant="light" />
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-cream/10 pt-8 text-xs text-cream/50">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-8 text-xs" style={{ borderTop: "1px solid var(--color-border)", color: "#6A9E9B" }}>
           <span>
             © {currentYear} {site.name}.{" "}
             {site.cuit ? `CUIT ${site.cuit}. ` : ""}Todos los derechos
