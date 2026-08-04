@@ -63,16 +63,16 @@ export const navLinks = [
 ] as const;
 
 export const hero = {
-  eyebrow: "donde cada vida importa",
+  eyebrow: "cada vida importa",
   // <em> recibe subrayado peach
   headlineHtml:
-    "Una casa donde cada persona puede <em>ser cuidada</em> como merece.",
-  lede: "APADMSI es un Centro de Día en San Isidro. Hace más de cuatro décadas acompañamos a jóvenes y adultos con discapacidad intelectual — y a sus familias. Con un equipo comprometido y la convicción de que cada vida importa.",
-  ctaPrimary: { label: "Quiero ayudar", href: "#donar" },
-  ctaSecondary: { label: "Conocé la casa", href: "/nosotros" },
+    "Dignidad, respeto y <em>amor</em>.",
+  lede: "Desde hace más de cuarenta años, en APADMSI acompañamos a jóvenes y adultos con discapacidad intelectual y a sus familias.\n\nSomos un Centro de Día en San Isidro que ofrece un espacio de cuidado, desarrollo y pertenencia, sostenido por un equipo comprometido y por una convicción que nos guía desde el primer día: cada vida importa.",
+  ctaPrimary: { label: "Quiero colaborar", href: "#donar" },
+  ctaSecondary: { label: "Conocé APADMSI", href: "/nosotros" },
   badge: {
-    text: "Una casa con historia.",
-    subtext: "Más de cuarenta años cuidando.",
+    text: "Más de cuarenta años acompañando familias.",
+    subtext: "",
   },
 } as const;
 
@@ -107,7 +107,7 @@ export const credentials = {
 } as const;
 
 export const stats = {
-  eyebrow: "esto somos hoy",
+  eyebrow: "más de cuatro décadas creando oportunidades y acompañando familias",
   heading: "El Centro, en números.",
   items: [
     {
@@ -281,9 +281,9 @@ export const quote = {
 
 export const history = {
   eyebrow: "nuestra historia",
-  heading: "Cuarenta y tantos años. Sin pausa, sin ruido.",
+  heading: "Más de cuatro décadas construyendo un lugar donde cada persona importa.",
   intro:
-    "APADMSI nació el 14 de julio de 1982 como respuesta a la necesidad de ofrecer un espacio integral para personas con discapacidad intelectual. Un grupo de padres y amigos que veían a sus hijos sin un lugar adonde ir decidió crear esa casa que no existía. Cuatro décadas después, la misma casa sigue de pie en Billinghurst 1260, ampliada y mejorada — pero idéntica en espíritu.",
+    "APADMSI nació el 14 de julio de 1982, impulsada por un grupo de padres y amigos que decidió transformar una necesidad en un proyecto concreto: crear un espacio de acompañamiento para jóvenes y adultos con discapacidad intelectual que no encontraban un lugar donde continuar desarrollándose.\n\nMás de cuatro décadas después, esa misma casa sigue abierta en Billinghurst 1260, Béccar. Creció, se fortaleció y se renovó, pero conserva intacto el espíritu que le dio origen.",
   timeline: [
     {
       year: "1982",
@@ -315,11 +315,11 @@ export const history = {
 } as const;
 
 export const team = {
-  eyebrow: "el equipo",
+  eyebrow: "quiénes hacen posible cada día",
   // <em> recibe highlight peach
-  headlineHtml: "Cuidar <em>no se improvisa</em>.",
+  headlineHtml: "Un equipo que acompaña con <em>profesionalismo</em> y compromiso.",
   intro:
-    "La Institución está conformada por una Comisión Directiva que conduce la Asociación Civil, y un equipo interdisciplinario que lleva adelante el trabajo diario del Centro.",
+    "Detrás de cada jornada hay personas que eligen acompañar. Un equipo interdisciplinario que trabaja de manera coordinada para respetar la historia, las necesidades y las posibilidades de desarrollo de cada concurrente.\n\nEste trabajo cotidiano también es posible gracias al compromiso de una Comisión Directiva que desde hace más de cuatro décadas sostiene e impulsa la misión de APADMSI.",
   // Autoridades y dirección actuales de la institución.
   // imageSlug: si existe `public/images/equipo/{slug}.jpg|png|webp` se usa
   // como avatar; si no, se muestra placeholder con iniciales.
@@ -366,11 +366,11 @@ export const team = {
 } as const;
 
 export const donate = {
-  eyebrow: "sumate",
+  eyebrow: "sumáte a APADMSI",
   // <em> recibe highlight gold sobre fondo dark
-  headlineHtml: "Tu aporte <em>sostiene</em> esta casa.",
-  punch: "Cada aporte se traduce en jornadas reales.",
-  lede: "APADMSI no cuenta con colaboración fija de ninguna entidad. Necesitamos personas, empresas o instituciones que ayuden de forma permanente. Tu colaboración fortalece la estabilidad del equipo, permite proyectar el crecimiento de la Institución y se traduce en jornadas reales — meriendas, almuerzos, salidas, talleres — para los concurrentes que vienen todos los días.",
+  headlineHtml: "Tu aporte ayuda a que este proyecto <em>siga creciendo</em>.",
+  punch: "Tu colaboración = Nuevas oportunidades para APADMSI.",
+  lede: "Desde hace más de cuarenta años, APADMSI acompaña a personas con discapacidad intelectual y a sus familias creando un espacio de pertenencia, desarrollo y cuidado.\n\nCada donación, sin importar su monto, contribuye a sostener ese trabajo cotidiano: mantener abierto el Centro, fortalecer las actividades, incorporar recursos y seguir ofreciendo un acompañamiento de calidad.\n\nTu aporte hace posibles las nuevas oportunidades.\n\n¡Gracias por sumarte!",
   ways: {
     label: "Otras formas de sumarte",
     items: [
@@ -428,10 +428,10 @@ export const donate = {
 // Reseñas reales de Google Maps. Cargadas manualmente a partir de capturas
 // del cliente (la Places API de Google requiere key paga para automatizar).
 export const reviews = {
-  eyebrow: "lo que dicen",
-  heading: "Testimonios de familias y reseñas de visitantes.",
+  eyebrow: "experiencias compartidas",
+  heading: "Las familias y la comunidad cuentan quiénes somos.",
   intro:
-    "Combinamos dos voces: los testimonios que nos comparten las familias de los concurrentes y las reseñas publicadas en Google Maps por vecinos, profesionales y quienes pasaron por el Centro.",
+    "Hay aspectos del trabajo cotidiano que sólo pueden describir quienes los viven de cerca. Estas palabras pertenecen a familias, vecinos, profesionales y visitantes que conocieron APADMSI y quisieron compartir su experiencia. Son testimonios que hablan de confianza, compromiso y del valor de sentirse acompañados.",
   googleMapsUrl:
     "https://www.google.com/maps/place/Apadmsi/@-34.4735,-58.538446,17z/",
   summary: { average: 4.6, count: 30 } as { average: number; count: number } | null,
@@ -493,11 +493,11 @@ export const reviews = {
 } as const;
 
 export const press = {
-  label: "Hablaron de nosotros",
-  eyebrow: "en los medios",
-  heading: "Cobertura periodística.",
+  label: "Nuestra tarea, compartida",
+  eyebrow: "nuestra tarea, compartida",
+  heading: "Una historia que también fue contada por otros.",
   intro:
-    "Notas publicadas que dan cuenta del trabajo institucional del Centro a lo largo de los años.",
+    "A lo largo de los años, distintos medios de comunicación e instituciones se interesaron por el trabajo que realiza APADMSI. Estas publicaciones y registros reflejan el compromiso sostenido de la institución, acompañan su crecimiento y ayudan a dar visibilidad a una tarea que, desde hace más de cuatro décadas, transforma la vida de muchas personas y sus familias.\n\nLas notas y los registros que compartimos a continuación forman parte de ese recorrido.",
   outlets: [
     {
       name: "La Nación",
@@ -536,10 +536,10 @@ export const press = {
 // financian al Centro. Información factual de fuente pública (web vigente
 // y notas de prensa).
 export const recognition = {
-  eyebrow: "reconocimiento institucional",
-  heading: "No estamos solos en esta tarea.",
+  eyebrow: "el respaldo que nos acompaña",
+  heading: "Un compromiso sostenido, con reconocimiento oficial.",
   intro:
-    "Operar como Centro de Día para personas con discapacidad intelectual exige cumplir requisitos exigentes en infraestructura, equipo de trabajo y protocolos de atención. APADMSI cuenta con la habilitación oficial en los tres niveles del Estado y es prestadora reconocida por los principales organismos públicos del sistema.",
+    "Desde hace más de cuatro décadas, APADMSI desarrolla su tarea con la responsabilidad y el compromiso que requiere el acompañamiento de personas con discapacidad intelectual. Este trabajo cotidiano se sostiene con un equipo interdisciplinario, estándares de calidad y las habilitaciones oficiales que acreditan el funcionamiento del Centro.\n\nContamos con reconocimiento en los ámbitos nacional, provincial y municipal, y trabajamos junto a organismos e instituciones que acompañan y respaldan nuestra labor. Ese apoyo fortalece nuestra misión y nos permite seguir ofreciendo un espacio de confianza para los concurrentes y sus familias.",
   // logoSlug: si existe `public/images/orgs/{slug}.png|svg|jpg|webp` se
   // muestra el logo real; si no, se usa un sello tipográfico estilizado
   // con los colores institucionales del organismo.
@@ -601,10 +601,10 @@ export const recognition = {
 // `embedUrl` con la URL de embed (ej. "https://www.youtube.com/embed/VIDEO_ID").
 // Mientras tanto, la sección muestra un placeholder con CTA para visitar.
 export const videoTour = {
-  eyebrow: "vení a recorrer la casa",
-  heading: "Una mirada al Centro, en video.",
+  eyebrow: "conocénos",
+  heading: "Una mirada cercana a APADMSI.",
   intro:
-    "Si las palabras no alcanzan, las imágenes en movimiento sí. Mirá un recorrido corto por nuestro día a día — los talleres, las comidas, las salidas y la gente que hace que esto pase.",
+    "Este video te mostrará brevemente quiénes somos, cómo trabajamos y qué hace de APADMSI un lugar de pertenencia para muchos concurrentes y sus familias. Te invitamos a recorrer el Centro y descubrir su misión desde adentro.",
   // TODO: pegar acá la URL de embed cuando el video esté subido a YouTube/Vimeo.
   // Ejemplo YouTube: "https://www.youtube.com/embed/VIDEO_ID?rel=0"
   // Ejemplo Vimeo:   "https://player.vimeo.com/video/VIDEO_ID"
@@ -618,10 +618,10 @@ export const videoTour = {
 } as const;
 
 export const gallery = {
-  eyebrow: "el día a día",
-  heading: "Las palabras alcanzan hasta acá.",
+  eyebrow: "momentos compartidos… y ¡disfrutados!",
+  heading: "Imágenes que cuentan nuestra historia.",
   intro:
-    "El día a día del Centro se cuenta mejor en imágenes. Compartimos en Instagram fotos de las actividades, las salidas, los talleres y los momentos cotidianos. Acá una muestra; en la cuenta vas a encontrar más.",
+    "En cada foto verás mucho más que una actividad. Observarás vínculos, aprendizajes, encuentros y la vida cotidiana de un espacio construido con mucho compromiso y afecto. Te invitamos a conocer APADMSI desde adentro, a través de quienes le dan vida cada día.",
   items: [
     { src: "/images/recreativas/recreativas-6.jpg", alt: "Mate compartido en el comedor del Centro" },
     { src: "/images/cocina/cocina-9.jpg", alt: 'Bolsas del taller productivo "Estamos en el Horno"' },
@@ -645,9 +645,9 @@ export const gallery = {
 } as const;
 
 export const contact = {
-  eyebrow: "visitanos",
-  heading: "Te invitamos a conocer el Centro.",
-  lede: "Si querés saber más, ver cómo trabajamos o sumarte como socio, voluntario o donante, escribinos o llamanos. Coordinamos una visita en el horario que te convenga.",
+  eyebrow: "estamos para ayudarte",
+  heading: "¡Queremos conocerte!",
+  lede: "Si querés conocer APADMSI, hacer una consulta, coordinar una visita o colaborar con nuestra misión, será un gusto recibir tu mensaje. Estamos a disposición para responder tus inquietudes y acompañarte en lo que necesites.",
 } as const;
 
 export const collaborators = {

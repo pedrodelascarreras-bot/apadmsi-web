@@ -15,7 +15,7 @@ export default function DonarPage() {
       <Container className="max-w-[1080px]">
         {/* Header */}
         <div className="mx-auto mb-10 max-w-[700px] text-center">
-          <p className="section-label">doná online</p>
+          <p className="section-label">sumáte a APADMSI</p>
           <h1
             style={{
               fontSize: "clamp(1.8rem, 3.6vw, 2.6rem)",
@@ -24,7 +24,7 @@ export default function DonarPage() {
               textWrap: "balance",
             }}
           >
-            Sumate hoy,{" "}
+            Tu aporte ayuda a que este proyecto{" "}
             <em
               style={{
                 fontStyle: "italic",
@@ -33,9 +33,9 @@ export default function DonarPage() {
                   "linear-gradient(180deg, transparent 65%, rgba(201,171,110,0.4) 65%)",
               }}
             >
-              transformá
-            </em>{" "}
-            el mañana.
+              siga creciendo
+            </em>
+            .
           </h1>
           <p
             className="text-ink-muted"
@@ -45,7 +45,7 @@ export default function DonarPage() {
               textWrap: "balance",
             }}
           >
-            Cada aporte nos ayuda a seguir acompañando y cuidando.
+            Cada donación, sin importar su monto, contribuye a sostener el trabajo cotidiano de APADMSI.
           </p>
         </div>
 

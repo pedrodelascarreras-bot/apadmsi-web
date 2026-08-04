@@ -83,7 +83,7 @@ export function Header() {
           className="btn-burgundy hidden lg:inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border-[1.5px] border-burgundy bg-burgundy px-6 py-3 text-sm font-semibold shadow-[0_2px_0_0_var(--color-burgundy-deep)]"
           style={{ color: "#FFFFFF" }}
         >
-          <span style={{ color: "#FFFFFF" }}>Quiero ayudar</span>
+          <span style={{ color: "#FFFFFF" }}>Quiero colaborar</span>
           <Heart size={14} className="heart-pulse" />
         </Link>
 

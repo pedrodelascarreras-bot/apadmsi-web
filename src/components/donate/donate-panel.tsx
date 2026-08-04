@@ -234,7 +234,7 @@ export function DonatePanel({ accounts: _accounts }: Props) {
               </>
             ) : (
               <>
-                Suscribirme
+                Quiero colaborar
                 <svg
                   width="17"
                   height="17"
