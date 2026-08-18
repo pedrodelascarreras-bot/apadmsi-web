@@ -71,6 +71,7 @@ export function InstitutionalBand({ variant = "a" }: { variant?: Variant }) {
                 fontSize: "1.1rem",
                 color: "var(--color-gold-warm)",
                 marginTop: "0.5rem",
+                fontWeight: 700,
               }}
             >
               {stats.eyebrow}

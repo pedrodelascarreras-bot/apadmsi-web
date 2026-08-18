@@ -415,7 +415,7 @@ export function EquipoOptionC() {
                             {r.author.split(" ").map(w => w[0]).slice(0, 2).join("")}
                           </div>
                           <div>
-                            <p className="font-semibold" style={{ fontSize: "0.88rem", color: "#1A3A38" }}>{r.author}</p>
+                            <p className="font-semibold" style={{ fontSize: "0.88rem", color: "var(--color-burgundy)" }}>{r.author}</p>
                             <p style={{ fontSize: "0.75rem", color: "#4A7B78" }}>{r.date}</p>
                           </div>
                         </div>
