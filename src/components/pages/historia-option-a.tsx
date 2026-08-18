@@ -29,8 +29,8 @@ export function HistoriaOptionA() {
                 fontSize: "0.95rem",
                 lineHeight: 1.6,
                 maxWidth: "600px",
-                textAlign: "center",
-                textWrap: "balance",
+                textAlign: "justify",
+                textAlignLast: "center",
               }}
             >
               {history.intro.split(".").slice(0, 2).join(".") + "."}

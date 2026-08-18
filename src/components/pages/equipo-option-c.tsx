@@ -119,8 +119,8 @@ export function EquipoOptionC() {
                   fontSize: "0.95rem",
                   lineHeight: 1.75,
                   maxWidth: "580px",
-                  textAlign: "center",
-                  textWrap: "balance",
+                  textAlign: "justify",
+                  textAlignLast: "center",
                 }}
               >
                 {team.intro}
