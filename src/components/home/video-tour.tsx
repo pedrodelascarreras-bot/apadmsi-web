@@ -141,7 +141,7 @@ export function VideoTour() {
                       href={videoTour.cta.href}
                       className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-cream bg-transparent px-6 py-3 text-sm font-semibold text-cream transition-all hover:bg-cream hover:text-ink"
                     >
-                      {videoTour.cta.label} &rarr;
+                      {videoTour.cta.label}
                     </Link>
                   </div>
                 </div>

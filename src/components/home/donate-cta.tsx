@@ -44,7 +44,6 @@ export function DonateCta() {
                 marginBottom: "0.75rem",
               }}
             >
-              <span className="font-sans" style={{ color: "var(--color-gold-warm)" }}>↳ </span>
               {donate.eyebrow}
             </p>
             <h2

@@ -25,7 +25,6 @@ export function HeroOptionC() {
               className="font-script text-2xl font-medium leading-none text-burgundy"
               style={{ display: "inline-block" }}
             >
-              <span className="font-sans font-normal text-peach">↳ </span>
               {hero.eyebrow}
             </p>
 
@@ -144,7 +143,6 @@ export function HeroOptionC() {
           >
             {about.mission.statements.map((s) => (
               <li key={s}>
-                <span aria-hidden="true" className="mr-1.5 text-peach">↳</span>
                 {s}
               </li>
             ))}

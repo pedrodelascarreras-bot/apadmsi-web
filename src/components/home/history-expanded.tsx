@@ -328,7 +328,6 @@ export function HistoryExpanded() {
                     </p>
                     <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-xs font-bold uppercase tracking-[0.1em] text-burgundy transition-transform group-hover:translate-x-1">
                       {outlet.cta ?? "Ver más"}
-                      <span aria-hidden="true">→</span>
                     </span>
                   </div>
                 </a>

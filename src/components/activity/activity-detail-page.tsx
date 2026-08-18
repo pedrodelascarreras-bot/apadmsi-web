@@ -35,7 +35,7 @@ export function ActivityDetailPage({ activity, images }: Props) {
             href="/actividades"
             className="mb-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-burgundy hover:text-burgundy-deep"
           >
-            <span aria-hidden="true">&larr;</span> Volver a actividades
+            Volver a actividades
           </Link>
           <Reveal>
             <p className="section-label">{activity.eyebrow}</p>

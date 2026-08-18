@@ -177,7 +177,7 @@ export function HistoriaOptionA() {
                       {outlet.pullQuote}
                     </p>
                     <span className="mt-auto pt-2 text-xs font-bold uppercase tracking-[0.08em] transition-transform group-hover:translate-x-1" style={{ color: "var(--color-gold-warm)" }}>
-                      {outlet.cta ?? "Ver más"} →
+                      {outlet.cta ?? "Ver más"}
                     </span>
                   </div>
                 </a>

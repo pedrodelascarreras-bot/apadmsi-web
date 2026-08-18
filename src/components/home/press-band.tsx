@@ -76,7 +76,6 @@ export function PressBand() {
 
                 <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.1em] text-burgundy transition-transform group-hover:translate-x-0.5">
                   {outlet.cta ?? "Ver más"}
-                  <span aria-hidden="true">→</span>
                 </span>
               </a>
             ))}

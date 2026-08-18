@@ -36,13 +36,6 @@ export function MissionBlock() {
                     fontVariationSettings: '"opsz" 144, "SOFT" 80',
                   }}
                 >
-                  <span
-                    aria-hidden="true"
-                    className="mr-2 text-peach"
-                    style={{ fontSize: "1.2em", verticalAlign: "-0.1em" }}
-                  >
-                    ↳
-                  </span>
                   {s}
                 </li>
               ))}

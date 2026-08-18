@@ -111,7 +111,7 @@ export function Vision() {
                 rel="noopener noreferrer"
                 className="mt-3 inline-block text-xs uppercase tracking-[0.12em] text-ink-soft underline decoration-peach underline-offset-4 transition-colors hover:text-burgundy"
               >
-                Fuente: {vision.pullQuote.source.label} &rarr;
+                Fuente: {vision.pullQuote.source.label}
               </a>
             </div>
           </aside>

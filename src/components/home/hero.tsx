@@ -32,7 +32,6 @@ export function Hero() {
               className="fade-up font-script text-2xl font-medium leading-none text-burgundy"
               style={{ display: "inline-block" }}
             >
-              <span className="text-peach font-sans font-normal">↳ </span>
               {hero.eyebrow}
             </p>
 
@@ -72,7 +71,6 @@ export function Hero() {
               <ul className="flex flex-col gap-1.5 list-none text-ink-muted" style={{ fontSize: "0.92rem", lineHeight: 1.55 }}>
                 {about.mission.statements.map((s) => (
                   <li key={s}>
-                    <span aria-hidden="true" className="mr-1.5 text-peach">↳</span>
                     {s}
                   </li>
                 ))}

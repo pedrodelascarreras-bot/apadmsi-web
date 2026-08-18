@@ -129,7 +129,7 @@ export const stats = {
 } as const;
 
 export const about = {
-  eyebrow: "Quiénes somos",
+  eyebrow: "",
   // <em> recibe highlight peach
   headlineHtml: "Una <em>casa</em>, no una institución.",
   paragraphsHtml: [
@@ -180,7 +180,7 @@ export const objectives = {
 } as const;
 
 export const activities = {
-  eyebrow: "Qué hacemos",
+  eyebrow: "",
   heading: "Un programa completo. Una sola intención: cuidar.",
   intro:
     "Desarrollamos un programa amplio de actividades terapéuticas, recreativas y ocupacionales con el objetivo de enriquecer las diversas habilidades de cada concurrente.",
@@ -280,7 +280,7 @@ export const quote = {
 } as const;
 
 export const history = {
-  eyebrow: "Nuestra historia",
+  eyebrow: "",
   heading: "Más de cuatro décadas construyendo un lugar donde cada persona importa.",
   intro:
     "APADMSI nació el 14 de julio de 1982, impulsada por un grupo de padres y amigos que decidió transformar una necesidad en un proyecto concreto: crear un espacio de acompañamiento para jóvenes y adultos con discapacidad intelectual que no encontraban un lugar donde continuar desarrollándose.\n\nMás de cuatro décadas después, esa misma casa sigue abierta en Billinghurst 1260, Béccar. Creció, se fortaleció y se renovó, pero conserva intacto el espíritu que le dio origen.",
@@ -315,9 +315,9 @@ export const history = {
 } as const;
 
 export const team = {
-  eyebrow: "Quiénes hacen posible cada día",
+  eyebrow: "",
   // <em> recibe highlight peach
-  headlineHtml: "Un equipo que acompaña con <em>profesionalismo</em> y compromiso.",
+  headlineHtml: "Un equipo profesional con <em>vocación</em> que hace la diferencia.",
   intro:
     "Detrás de cada jornada hay personas que eligen acompañar. Un equipo interdisciplinario que trabaja de manera coordinada para respetar la historia, las necesidades y las posibilidades de desarrollo de cada concurrente.\n\nEste trabajo cotidiano también es posible gracias al compromiso de una Comisión Directiva que desde hace más de cuatro décadas sostiene e impulsa la misión de APADMSI.",
   // Autoridades y dirección actuales de la institución.
@@ -645,9 +645,9 @@ export const gallery = {
 } as const;
 
 export const contact = {
-  eyebrow: "Estamos para ayudarte",
-  heading: "¡Queremos conocerte!",
-  lede: "Si querés conocer APADMSI, hacer una consulta, coordinar una visita o colaborar con nuestra misión, será un gusto recibir tu mensaje. Estamos a disposición para responder tus inquietudes y acompañarte en lo que necesites.",
+  eyebrow: "",
+  heading: "¿Querés conocernos?",
+  lede: "Nuestra institución está siempre abierta.",
 } as const;
 
 export const collaborators = {

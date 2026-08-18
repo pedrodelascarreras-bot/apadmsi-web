@@ -376,7 +376,7 @@ export function Reviews() {
               rel="noopener noreferrer"
               className="btn-outline-ink inline-flex items-center gap-2 rounded-full border-[1.5px] border-ink px-5 py-2.5 text-sm font-semibold"
             >
-              Ver reseñas en Google Maps &rarr;
+              Ver reseñas en Google Maps
             </a>
           </div>
         )}

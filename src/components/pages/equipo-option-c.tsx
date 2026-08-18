@@ -321,7 +321,6 @@ export function EquipoOptionC() {
                       }}
                     >
                       Ver en Google Maps
-                      <span aria-hidden="true">→</span>
                     </a>
                   </div>
 
