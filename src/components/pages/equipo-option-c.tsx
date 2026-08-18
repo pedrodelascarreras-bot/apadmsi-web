@@ -114,11 +114,10 @@ export function EquipoOptionC() {
                 dangerouslySetInnerHTML={{ __html: team.headlineHtml }}
               />
               <p
-                className="mx-auto text-ink-muted"
+                className="text-ink-muted"
                 style={{
                   fontSize: "0.95rem",
                   lineHeight: 1.75,
-                  maxWidth: "580px",
                   textAlign: "justify",
                   textAlignLast: "center",
                 }}

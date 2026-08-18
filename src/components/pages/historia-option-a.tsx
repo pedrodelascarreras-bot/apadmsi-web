@@ -24,11 +24,10 @@ export function HistoriaOptionA() {
               {history.heading}
             </h1>
             <p
-              className="mx-auto text-ink-muted"
+              className="text-ink-muted"
               style={{
                 fontSize: "0.95rem",
                 lineHeight: 1.6,
-                maxWidth: "600px",
                 textAlign: "justify",
                 textAlignLast: "center",
               }}
