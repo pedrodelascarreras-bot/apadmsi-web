@@ -673,7 +673,7 @@ export const collaborators = {
     {
       abbr: "Municipal",
       name: "Habilitación Municipal",
-      desc: "Intendente Delfín Beccar Varela. Subsidió la compra de la sede en 1990. Compromiso estable y continuo con el Centro desde hace más de 40 años.",
+      desc: "La Municipalidad de San Isidro subsidió la compra de la sede en 1990. Compromiso estable y continuo con el Centro desde hace más de 40 años.",
       color: "#0E7C5A",
       logoSlug: "msi",
     },

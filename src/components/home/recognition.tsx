@@ -120,10 +120,10 @@ export function Recognition() {
                   {/* Texto a la derecha */}
                   <div className="flex flex-1 flex-col justify-center px-5 py-5 sm:px-6">
                     <h3
-                      className="font-display"
+                      className="font-display font-bold"
                       style={{
                         fontSize: "1.05rem",
-                        fontWeight: 600,
+                        fontWeight: 700,
                         lineHeight: 1.3,
                         marginBottom: "0.5rem",
                         color: "var(--color-burgundy)",

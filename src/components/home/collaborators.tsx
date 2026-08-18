@@ -95,10 +95,10 @@ export function Collaborators() {
 
                   {/* Name */}
                   <h3
-                    className="font-display"
+                    className="font-display font-bold"
                     style={{
                       fontSize: "1.02rem",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       lineHeight: 1.3,
                       marginBottom: "0.5rem",
                       color: "var(--color-burgundy)",
