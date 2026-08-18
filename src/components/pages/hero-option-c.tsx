@@ -31,7 +31,7 @@ export function HeroOptionC() {
             <h1
               className="highlight mt-3 text-ink"
               style={{
-                fontSize: "clamp(2.2rem, 4.8vw, 3.8rem)",
+                fontSize: "clamp(2rem, 3.8vw, 3rem)",
                 fontWeight: 400,
                 lineHeight: 1.1,
                 letterSpacing: "-0.02em",

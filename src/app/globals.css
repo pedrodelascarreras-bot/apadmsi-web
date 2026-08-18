@@ -225,12 +225,17 @@ ul, ol { margin: 0; padding: 0; }
 /* Subrayado peach detrás de palabras destacadas (em dentro de h1/h2) */
 .highlight em {
   position: relative;
-  font-style: italic;
+  font-style: normal;
   color: var(--color-burgundy);
   font-variation-settings: "opsz" 144, "SOFT" 100;
 }
 .highlight em::after {
   content: none;
+}
+
+/* Eliminar todas las cursivas del sitio */
+em, i {
+  font-style: normal;
 }
 
 /* Etiqueta de sección manuscrita ("eyebrow") */

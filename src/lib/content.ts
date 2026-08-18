@@ -63,7 +63,7 @@ export const navLinks = [
 ] as const;
 
 export const hero = {
-  eyebrow: "Cada vida importa",
+  eyebrow: "",
   // <em> recibe subrayado peach
   headlineHtml:
     "Dignidad, respeto y <em>amor</em>.",

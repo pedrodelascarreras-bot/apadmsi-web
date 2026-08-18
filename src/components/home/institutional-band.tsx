@@ -61,14 +61,9 @@ export function InstitutionalBand({ variant = "a" }: { variant?: Variant }) {
                 fontVariationSettings: '"opsz" 144, "SOFT" 80',
               }}
             >
-              <span style={{ opacity: 0.8 }}>{credentials.legalKicker}</span>
+              {credentials.legalKicker}
               <br />
-              <em
-                className="not-italic"
-                style={{ color: "var(--color-peach)", fontWeight: 600 }}
-              >
-                {credentials.legalRest}
-              </em>
+              {credentials.legalRest}
             </h2>
             <p
               className="font-script"

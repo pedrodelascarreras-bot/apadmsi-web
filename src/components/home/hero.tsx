@@ -38,7 +38,7 @@ export function Hero() {
             <h1
               className="highlight fade-up mt-3 text-ink"
               style={{
-                fontSize: "clamp(2.4rem, 5.2vw, 4.2rem)",
+                fontSize: "clamp(2rem, 3.8vw, 3rem)",
                 fontWeight: 400,
                 lineHeight: 1.1,
                 letterSpacing: "-0.02em",

@@ -26,7 +26,7 @@ function ReviewModal({ review, onClose }: { review: ReviewItem; onClose: () => v
             <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill={i < review.rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
           ))}
         </div>
-        <p className="text-ink" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>&ldquo;{review.text}&rdquo;</p>
+        <p style={{ fontSize: "1.15rem", lineHeight: 1.7, color: "var(--color-burgundy)" }}>&ldquo;{review.text}&rdquo;</p>
         <div className="mt-6 flex items-baseline justify-between gap-3">
           <span className="text-base font-semibold text-ink">{review.author}</span>
           <span className="text-sm text-ink-soft">{review.date}</span>
@@ -119,8 +119,7 @@ export function EquipoOptionC() {
                   fontSize: "0.95rem",
                   lineHeight: 1.75,
                   maxWidth: "580px",
-                  textAlign: "center",
-                  textWrap: "balance",
+                  textAlign: "justify",
                 }}
               >
                 {team.intro}
@@ -379,7 +378,7 @@ export function EquipoOptionC() {
                           style={{
                             fontSize: "0.95rem",
                             lineHeight: 1.7,
-                            color: "#1A3A38",
+                            color: "var(--color-burgundy)",
                             display: "-webkit-box",
                             WebkitLineClamp: 4,
                             WebkitBoxOrient: "vertical",
