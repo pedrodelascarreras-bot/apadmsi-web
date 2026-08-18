@@ -40,10 +40,11 @@ export function Collaborators() {
   return (
     <section id="colaboradores" className="bg-paper py-14 sm:py-16 lg:py-20">
       <Container>
+        {(collaborators.eyebrow || collaborators.heading || collaborators.intro) && (
         <Reveal>
           <div className="mx-auto mb-12 max-w-[860px] text-center">
-            <p className="section-label">{collaborators.eyebrow}</p>
-            <h2
+            {collaborators.eyebrow && <p className="section-label">{collaborators.eyebrow}</p>}
+            {collaborators.heading && <h2
               style={{
                 fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
                 marginBottom: "1rem",
@@ -52,8 +53,8 @@ export function Collaborators() {
               }}
             >
               {collaborators.heading}
-            </h2>
-            <p
+            </h2>}
+            {collaborators.intro && <p
               className="text-ink-muted"
               style={{
                 fontSize: "1rem",
@@ -62,9 +63,10 @@ export function Collaborators() {
               }}
             >
               {collaborators.intro}
-            </p>
+            </p>}
           </div>
         </Reveal>
+        )}
 
         <ul
           className="mx-auto grid max-w-[1080px] gap-5 sm:grid-cols-2 lg:grid-cols-3 list-none"

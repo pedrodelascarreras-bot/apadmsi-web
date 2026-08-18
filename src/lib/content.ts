@@ -652,7 +652,7 @@ export const contact = {
 
 export const collaborators = {
   eyebrow: "",
-  heading: "Habilitaciones y colaboradores.",
+  heading: "",
   intro: "",
   items: [
     {
