@@ -9,7 +9,7 @@ export function DonateSection() {
       <Container className="max-w-[1080px]">
         <Reveal>
           <div className="mx-auto mb-8 max-w-[640px] text-center">
-            <p className="section-label">sumáte a APADMSI</p>
+            <p className="section-label">Sumáte a APADMSI</p>
             <h2
               style={{
                 fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
@@ -23,8 +23,7 @@ export function DonateSection() {
                 style={{
                   fontStyle: "italic",
                   color: "var(--color-burgundy)",
-                  background:
-                    "linear-gradient(180deg, transparent 65%, rgba(201,171,110,0.4) 65%)",
+                  background: "none",
                 }}
               >
                 siga creciendo

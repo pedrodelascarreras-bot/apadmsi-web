@@ -93,22 +93,15 @@ export function Collaborators() {
                     )}
                   </div>
 
-                  {/* Colored abbreviation */}
-                  <p
-                    className="text-xs font-bold uppercase tracking-[0.14em]"
-                    style={{ color: item.color, marginBottom: "0.5rem" }}
-                  >
-                    {item.abbr}
-                  </p>
-
                   {/* Name */}
                   <h3
-                    className="font-display text-ink"
+                    className="font-display"
                     style={{
                       fontSize: "1.02rem",
                       fontWeight: 600,
                       lineHeight: 1.3,
                       marginBottom: "0.5rem",
+                      color: "var(--color-burgundy)",
                     }}
                   >
                     {item.name}

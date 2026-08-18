@@ -42,30 +42,8 @@ export function GalleryPageClient({ images, categories }: Props) {
     <main className="bg-cream">
       {/* Hero / Header de la galería */}
       <section
-        className="relative overflow-hidden pt-16 pb-10 sm:pt-20 lg:pt-24"
-        style={{
-          background:
-            "linear-gradient(180deg, var(--color-paper) 0%, var(--color-cream) 100%)",
-        }}
+        className="relative overflow-hidden bg-cream pt-16 pb-10 sm:pt-20 lg:pt-24"
       >
-        {/* Blob decorativo */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-32 -top-24 h-[360px] w-[420px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(201,171,110,0.22), transparent 70%)",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-24 -bottom-16 h-[280px] w-[320px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(168,137,77,0.10), transparent 70%)",
-          }}
-        />
-
         <Container>
           <div className="relative z-10">
             {/* Breadcrumb minimal */}
@@ -89,8 +67,8 @@ export function GalleryPageClient({ images, categories }: Props) {
               Volver al inicio
             </Link>
 
-            <div className="mt-6 max-w-[820px]">
-              <p className="section-label">galería</p>
+            <div className="mx-auto mt-6 max-w-[820px] text-center">
+              <p className="section-label">Galería</p>
               <h1
                 style={{
                   fontSize: "clamp(2.4rem, 5vw, 3.6rem)",
@@ -107,7 +85,6 @@ export function GalleryPageClient({ images, categories }: Props) {
                   fontSize: "1.1rem",
                   lineHeight: 1.65,
                   textWrap: "balance",
-                  maxWidth: "640px",
                 }}
               >
                 El día a día de APADMSI en imágenes: los talleres, las salidas,

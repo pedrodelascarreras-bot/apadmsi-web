@@ -15,7 +15,7 @@ export default function DonarPage() {
       <Container className="max-w-[1080px]">
         {/* Header */}
         <div className="mx-auto mb-10 max-w-[700px] text-center">
-          <p className="section-label">sumáte a APADMSI</p>
+          <p className="section-label">Sumáte a APADMSI</p>
           <h1
             style={{
               fontSize: "clamp(1.8rem, 3.6vw, 2.6rem)",
@@ -29,8 +29,7 @@ export default function DonarPage() {
               style={{
                 fontStyle: "italic",
                 color: "var(--color-burgundy)",
-                background:
-                  "linear-gradient(180deg, transparent 65%, rgba(201,171,110,0.4) 65%)",
+                background: "none",
               }}
             >
               siga creciendo

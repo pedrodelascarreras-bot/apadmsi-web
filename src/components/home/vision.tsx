@@ -19,10 +19,10 @@ export function Vision() {
         <div className="grid items-start gap-10 lg:gap-16 lg:grid-cols-[1.1fr_1fr]">
           {/* Texto principal */}
           <Reveal>
-          <div>
+          <div className="text-center">
             <p className="section-label">{vision.eyebrow}</p>
             <h2
-              className="highlight max-w-[600px]"
+              className="highlight mx-auto max-w-[600px]"
               style={{
                 fontSize: "clamp(2rem, 3.8vw, 2.8rem)",
                 marginBottom: "1.5rem",
@@ -79,8 +79,7 @@ export function Vision() {
                 style={{
                   fontStyle: "italic",
                   color: "var(--color-burgundy)",
-                  background:
-                    "linear-gradient(180deg, transparent 65%, rgba(201,171,110,0.3) 65%)",
+                  background: "none",
                 }}
               >
                 {vision.pullQuote.text}

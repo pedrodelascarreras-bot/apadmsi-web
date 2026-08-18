@@ -63,7 +63,7 @@ export const navLinks = [
 ] as const;
 
 export const hero = {
-  eyebrow: "cada vida importa",
+  eyebrow: "Cada vida importa",
   // <em> recibe subrayado peach
   headlineHtml:
     "Dignidad, respeto y <em>amor</em>.",
@@ -107,7 +107,7 @@ export const credentials = {
 } as const;
 
 export const stats = {
-  eyebrow: "más de cuatro décadas creando oportunidades y acompañando familias",
+  eyebrow: "Más de cuatro décadas creando oportunidades y acompañando familias",
   heading: "El Centro, en números.",
   items: [
     {
@@ -129,7 +129,7 @@ export const stats = {
 } as const;
 
 export const about = {
-  eyebrow: "quiénes somos",
+  eyebrow: "Quiénes somos",
   // <em> recibe highlight peach
   headlineHtml: "Una <em>casa</em>, no una institución.",
   paragraphsHtml: [
@@ -151,7 +151,7 @@ export const about = {
 } as const;
 
 export const objectives = {
-  eyebrow: "nuestros objetivos",
+  eyebrow: "Nuestros objetivos",
   heading: "Tres compromisos que no negociamos.",
   intro:
     "Estos son los pilares fundacionales de la Institución. Cada actividad, cada decisión, cada persona que se suma al equipo se mide por su contribución a estos compromisos.",
@@ -180,7 +180,7 @@ export const objectives = {
 } as const;
 
 export const activities = {
-  eyebrow: "qué hacemos",
+  eyebrow: "Qué hacemos",
   heading: "Un programa completo. Una sola intención: cuidar.",
   intro:
     "Desarrollamos un programa amplio de actividades terapéuticas, recreativas y ocupacionales con el objetivo de enriquecer las diversas habilidades de cada concurrente.",
@@ -246,7 +246,7 @@ export const activities = {
 // El proyecto institucional a largo plazo: un Hogar permanente para los
 // concurrentes. Lo declaró públicamente la presidenta en La Nación (2014).
 export const vision = {
-  eyebrow: "nuestro próximo paso",
+  eyebrow: "Nuestro próximo paso",
   // <em> recibe highlight peach
   headlineHtml: "Que el <em>cuidado</em> no se termine.",
   paragraphsHtml: [
@@ -280,7 +280,7 @@ export const quote = {
 } as const;
 
 export const history = {
-  eyebrow: "nuestra historia",
+  eyebrow: "Nuestra historia",
   heading: "Más de cuatro décadas construyendo un lugar donde cada persona importa.",
   intro:
     "APADMSI nació el 14 de julio de 1982, impulsada por un grupo de padres y amigos que decidió transformar una necesidad en un proyecto concreto: crear un espacio de acompañamiento para jóvenes y adultos con discapacidad intelectual que no encontraban un lugar donde continuar desarrollándose.\n\nMás de cuatro décadas después, esa misma casa sigue abierta en Billinghurst 1260, Béccar. Creció, se fortaleció y se renovó, pero conserva intacto el espíritu que le dio origen.",
@@ -315,7 +315,7 @@ export const history = {
 } as const;
 
 export const team = {
-  eyebrow: "quiénes hacen posible cada día",
+  eyebrow: "Quiénes hacen posible cada día",
   // <em> recibe highlight peach
   headlineHtml: "Un equipo que acompaña con <em>profesionalismo</em> y compromiso.",
   intro:
@@ -366,7 +366,7 @@ export const team = {
 } as const;
 
 export const donate = {
-  eyebrow: "sumáte a APADMSI",
+  eyebrow: "Sumáte a APADMSI",
   // <em> recibe highlight gold sobre fondo dark
   headlineHtml: "Tu aporte ayuda a que este proyecto <em>siga creciendo</em>.",
   punch: "Tu colaboración = Nuevas oportunidades para APADMSI.",
@@ -428,7 +428,7 @@ export const donate = {
 // Reseñas reales de Google Maps. Cargadas manualmente a partir de capturas
 // del cliente (la Places API de Google requiere key paga para automatizar).
 export const reviews = {
-  eyebrow: "experiencias compartidas",
+  eyebrow: "Experiencias compartidas",
   heading: "Las familias y la comunidad cuentan quiénes somos.",
   intro:
     "Hay aspectos del trabajo cotidiano que sólo pueden describir quienes los viven de cerca. Estas palabras pertenecen a familias, vecinos, profesionales y visitantes que conocieron APADMSI y quisieron compartir su experiencia. Son testimonios que hablan de confianza, compromiso y del valor de sentirse acompañados.",
@@ -494,7 +494,7 @@ export const reviews = {
 
 export const press = {
   label: "Nuestra tarea, compartida",
-  eyebrow: "nuestra tarea, compartida",
+  eyebrow: "Nuestra tarea, compartida",
   heading: "Una historia que también fue contada por otros.",
   intro:
     "A lo largo de los años, distintos medios de comunicación e instituciones se interesaron por el trabajo que realiza APADMSI. Estas publicaciones y registros reflejan el compromiso sostenido de la institución, acompañan su crecimiento y ayudan a dar visibilidad a una tarea que, desde hace más de cuatro décadas, transforma la vida de muchas personas y sus familias.\n\nLas notas y los registros que compartimos a continuación forman parte de ese recorrido.",
@@ -536,7 +536,7 @@ export const press = {
 // financian al Centro. Información factual de fuente pública (web vigente
 // y notas de prensa).
 export const recognition = {
-  eyebrow: "el respaldo que nos acompaña",
+  eyebrow: "El respaldo que nos acompaña",
   heading: "Un compromiso sostenido, con reconocimiento oficial.",
   intro:
     "Desde hace más de cuatro décadas, APADMSI desarrolla su tarea con la responsabilidad y el compromiso que requiere el acompañamiento de personas con discapacidad intelectual. Este trabajo cotidiano se sostiene con un equipo interdisciplinario, estándares de calidad y las habilitaciones oficiales que acreditan el funcionamiento del Centro.\n\nContamos con reconocimiento en los ámbitos nacional, provincial y municipal, y trabajamos junto a organismos e instituciones que acompañan y respaldan nuestra labor. Ese apoyo fortalece nuestra misión y nos permite seguir ofreciendo un espacio de confianza para los concurrentes y sus familias.",
@@ -601,7 +601,7 @@ export const recognition = {
 // `embedUrl` con la URL de embed (ej. "https://www.youtube.com/embed/VIDEO_ID").
 // Mientras tanto, la sección muestra un placeholder con CTA para visitar.
 export const videoTour = {
-  eyebrow: "conocénos",
+  eyebrow: "Conocénos",
   heading: "Una mirada cercana a APADMSI.",
   intro:
     "Este video te mostrará brevemente quiénes somos, cómo trabajamos y qué hace de APADMSI un lugar de pertenencia para muchos concurrentes y sus familias. Te invitamos a recorrer el Centro y descubrir su misión desde adentro.",
@@ -618,7 +618,7 @@ export const videoTour = {
 } as const;
 
 export const gallery = {
-  eyebrow: "momentos compartidos… y ¡disfrutados!",
+  eyebrow: "Momentos compartidos… y ¡disfrutados!",
   heading: "Imágenes que cuentan nuestra historia.",
   intro:
     "En cada foto verás mucho más que una actividad. Observarás vínculos, aprendizajes, encuentros y la vida cotidiana de un espacio construido con mucho compromiso y afecto. Te invitamos a conocer APADMSI desde adentro, a través de quienes le dan vida cada día.",
@@ -645,13 +645,13 @@ export const gallery = {
 } as const;
 
 export const contact = {
-  eyebrow: "estamos para ayudarte",
+  eyebrow: "Estamos para ayudarte",
   heading: "¡Queremos conocerte!",
   lede: "Si querés conocer APADMSI, hacer una consulta, coordinar una visita o colaborar con nuestra misión, será un gusto recibir tu mensaje. Estamos a disposición para responder tus inquietudes y acompañarte en lo que necesites.",
 } as const;
 
 export const collaborators = {
-  eyebrow: "quienes nos respaldan",
+  eyebrow: "Quienes nos respaldan",
   heading: "Habilitaciones y colaboradores.",
   intro:
     "APADMSI cuenta con habilitación oficial en los tres niveles del Estado y con el respaldo de instituciones que acompañan al Centro de manera permanente.",
@@ -672,7 +672,7 @@ export const collaborators = {
     },
     {
       abbr: "Municipal",
-      name: "Municipalidad de San Isidro",
+      name: "Habilitación Municipal",
       desc: "Intendente Delfín Beccar Varela. Subsidió la compra de la sede en 1990. Compromiso estable y continuo con el Centro desde hace más de 40 años.",
       color: "#0E7C5A",
       logoSlug: "msi",
@@ -739,7 +739,7 @@ export type ActivityDetail = {
 
 export const arteTerapiaPage: ActivityDetail = {
   slug: "arte-terapia",
-  eyebrow: "actividades · APADMSI",
+  eyebrow: "Actividades · APADMSI",
   title: "Arte Terapia",
   headlineHtml:
     "El efecto sanador de la <em>expresión artística</em>.",
@@ -758,7 +758,7 @@ export const arteTerapiaPage: ActivityDetail = {
 
 export const recreativasPage: ActivityDetail = {
   slug: "recreativas",
-  eyebrow: "actividades · APADMSI",
+  eyebrow: "Actividades · APADMSI",
   title: "Actividades recreativas",
   headlineHtml:
     "La recreación es <em>un derecho</em>, no un extra.",
@@ -777,7 +777,7 @@ export const recreativasPage: ActivityDetail = {
 
 export const musicoterapiaPage: ActivityDetail = {
   slug: "musicoterapia",
-  eyebrow: "actividades · APADMSI",
+  eyebrow: "Actividades · APADMSI",
   title: "Musicoterapia",
   headlineHtml:
     "Cuando las palabras no alcanzan, <em>está la música</em>.",
@@ -796,7 +796,7 @@ export const musicoterapiaPage: ActivityDetail = {
 
 export const cocinaPage: ActivityDetail = {
   slug: "cocina",
-  eyebrow: "actividades · APADMSI",
+  eyebrow: "Actividades · APADMSI",
   title: "Taller de Cocina",
   headlineHtml:
     "La cocina como un acto de <em>autonomía</em>.",
@@ -815,7 +815,7 @@ export const cocinaPage: ActivityDetail = {
 
 export const huertaPage: ActivityDetail = {
   slug: "huerta",
-  eyebrow: "actividades · APADMSI",
+  eyebrow: "Actividades · APADMSI",
   title: "Taller de Huerta",
   headlineHtml:
     "El contacto con la tierra <em>calma, ordena y conecta</em>.",
@@ -834,7 +834,7 @@ export const huertaPage: ActivityDetail = {
 
 export const manualidadesPage: ActivityDetail = {
   slug: "manualidades",
-  eyebrow: "actividades · APADMSI",
+  eyebrow: "Actividades · APADMSI",
   title: "Taller de Manualidades",
   headlineHtml:
     "Pintar, recortar, ensamblar — <em>transformar</em>.",

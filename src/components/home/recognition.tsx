@@ -119,19 +119,14 @@ export function Recognition() {
 
                   {/* Texto a la derecha */}
                   <div className="flex flex-1 flex-col justify-center px-5 py-5 sm:px-6">
-                    <p
-                      className="text-xs font-bold uppercase tracking-[0.12em]"
-                      style={{ color: item.color, marginBottom: "0.3rem" }}
-                    >
-                      {item.abbr}
-                    </p>
                     <h3
-                      className="font-display text-ink"
+                      className="font-display"
                       style={{
                         fontSize: "1.05rem",
                         fontWeight: 600,
                         lineHeight: 1.3,
                         marginBottom: "0.5rem",
+                        color: "var(--color-burgundy)",
                       }}
                     >
                       {item.name}

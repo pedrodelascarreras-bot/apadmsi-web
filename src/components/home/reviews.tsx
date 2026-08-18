@@ -135,8 +135,7 @@ function ReviewModal({
           ))}
         </div>
         <p
-          className="text-ink"
-          style={{ fontSize: "1.15rem", lineHeight: 1.7 }}
+          style={{ fontSize: "1.15rem", lineHeight: 1.7, color: "var(--color-burgundy)" }}
         >
           &ldquo;{review.text}&rdquo;
         </p>
@@ -292,7 +291,7 @@ export function Reviews() {
 
                     {/* Review text */}
                     <p
-                      className="flex-1 text-ink"
+                      className="flex-1"
                       style={{
                         fontSize: "0.9rem",
                         lineHeight: 1.6,
@@ -300,6 +299,7 @@ export function Reviews() {
                         WebkitLineClamp: 6,
                         WebkitBoxOrient: "vertical",
                         overflow: "hidden",
+                        color: "var(--color-burgundy)",
                       }}
                     >
                       &ldquo;{r.text}&rdquo;
