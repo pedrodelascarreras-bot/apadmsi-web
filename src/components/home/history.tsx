@@ -34,7 +34,7 @@ export function History() {
               style={{
                 fontSize: "1.05rem",
                 lineHeight: 1.7,
-                textWrap: "balance",
+                textAlign: "justify",
               }}
             >
               {history.intro}
@@ -300,7 +300,7 @@ function TimelineRow({
           <h3
             className="font-semibold text-ink"
             style={{
-              fontSize: "1rem",
+              fontSize: "1.2rem",
               lineHeight: 1.4,
               marginBottom: "0.5rem",
             }}

@@ -68,7 +68,6 @@ export function GalleryPageClient({ images, categories }: Props) {
             </Link>
 
             <div className="mx-auto mt-6 max-w-[820px] text-center">
-              <p className="section-label">Galería</p>
               <h1
                 style={{
                   fontSize: "clamp(2.4rem, 5vw, 3.6rem)",
