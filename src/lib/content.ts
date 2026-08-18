@@ -651,10 +651,9 @@ export const contact = {
 } as const;
 
 export const collaborators = {
-  eyebrow: "Quienes nos respaldan",
+  eyebrow: "",
   heading: "Habilitaciones y colaboradores.",
-  intro:
-    "APADMSI cuenta con habilitación oficial en los tres niveles del Estado y con el respaldo de instituciones que acompañan al Centro de manera permanente.",
+  intro: "",
   items: [
     {
       abbr: "Nacional",
