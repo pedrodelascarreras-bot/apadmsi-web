@@ -34,7 +34,8 @@ export function History() {
               style={{
                 fontSize: "1.05rem",
                 lineHeight: 1.7,
-                textAlign: "justify",
+                textAlign: "center",
+                textWrap: "balance",
               }}
             >
               {history.intro}
