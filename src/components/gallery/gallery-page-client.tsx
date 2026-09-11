@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Container } from "@/components/shared/container";
 import { Lightbox } from "@/components/shared/lightbox";
+import { gallery } from "@/lib/content";
 
 type ImageItem = {
   src: string;
@@ -68,6 +69,7 @@ export function GalleryPageClient({ images, categories }: Props) {
             </Link>
 
             <div className="mx-auto mt-6 max-w-[820px] text-center">
+              <p className="section-label">{gallery.eyebrow}</p>
               <h1
                 style={{
                   fontSize: "clamp(2.4rem, 5vw, 3.6rem)",
@@ -76,7 +78,7 @@ export function GalleryPageClient({ images, categories }: Props) {
                   textWrap: "balance",
                 }}
               >
-                Momentos del Centro.
+                {gallery.heading}
               </h1>
               <p
                 className="text-ink-muted"
@@ -86,9 +88,7 @@ export function GalleryPageClient({ images, categories }: Props) {
                   textWrap: "balance",
                 }}
               >
-                El día a día de APADMSI en imágenes: los talleres, las salidas,
-                los festejos, las manos en la masa y la mesa compartida. Hacé
-                click en cualquier foto para verla en grande.
+                {gallery.intro}
               </p>
             </div>
 

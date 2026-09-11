@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "@/components/shared/container";
 import { Reveal } from "@/components/shared/reveal";
 import { team, reviews } from "@/lib/content";
@@ -21,11 +21,13 @@ function ReviewModal({ review, onClose }: { review: ReviewItem; onClose: () => v
         className="w-full max-w-[560px] rounded-[16px] bg-paper px-8 py-8 sm:px-10 sm:py-10"
         style={{ boxShadow: "0 24px 80px rgba(31,22,17,0.3)" }}
       >
-        <div className="mb-4 flex text-burgundy" style={{ gap: "2px" }}>
-          {Array.from({ length: 5 }).map((_, i) => (
-            <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill={i < review.rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-          ))}
-        </div>
+        {review.rating > 0 && (
+          <div className="mb-4 flex text-burgundy" style={{ gap: "2px" }}>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill={i < review.rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+            ))}
+          </div>
+        )}
         <p style={{ fontSize: "1.15rem", lineHeight: 1.7, color: "var(--color-burgundy)" }}>&ldquo;{review.text}&rdquo;</p>
         <div className="mt-6 flex items-baseline justify-between gap-3">
           <span className="text-base font-semibold text-ink">{review.author}</span>
@@ -83,10 +85,35 @@ function InitialsCircle({ name, index }: { name: string; index: number }) {
   );
 }
 
+const REVIEWS_PER_VIEW = 4;
+const REVIEWS_INTERVAL_MS = 7000;
+
 export function EquipoOptionC() {
   const [tab, setTab] = useState<Tab>("comision");
   const [selected, setSelected] = useState<number | null>(null);
+  const [page, setPage] = useState(0);
+  const [paused, setPaused] = useState(false);
   const items = reviews.items;
+
+  // Siempre se muestran 4 tarjetas: la última página completa el cupo
+  // volviendo al principio de la lista.
+  const pages = Math.max(1, Math.ceil(items.length / REVIEWS_PER_VIEW));
+  const visible = Array.from({ length: REVIEWS_PER_VIEW }, (_, i) => {
+    const index = (page * REVIEWS_PER_VIEW + i) % items.length;
+    return { review: items[index], index };
+  });
+
+  // Rotación automática — se detiene al pasar el mouse, al abrir un
+  // testimonio o si el sistema pide menos animación.
+  useEffect(() => {
+    if (tab !== "testimonios" || paused || selected !== null || pages < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(
+      () => setPage((p) => (p + 1) % pages),
+      REVIEWS_INTERVAL_MS,
+    );
+    return () => clearInterval(id);
+  }, [tab, paused, selected, pages]);
 
   return (
     <section
@@ -274,6 +301,31 @@ export function EquipoOptionC() {
             {tab === "testimonios" && (
               <Reveal>
                 <div>
+                  {/* Intro editorial */}
+                  <div className="mx-auto mb-6 max-w-[720px] text-center">
+                    <p className="section-label">{reviews.eyebrow}</p>
+                    <h3
+                      style={{
+                        fontSize: "clamp(1.4rem, 2.6vw, 1.9rem)",
+                        lineHeight: 1.2,
+                        marginBottom: "0.75rem",
+                        textWrap: "balance",
+                      }}
+                    >
+                      {reviews.heading}
+                    </h3>
+                    <p
+                      className="text-ink-muted"
+                      style={{
+                        fontSize: "0.98rem",
+                        lineHeight: 1.65,
+                        textWrap: "balance",
+                      }}
+                    >
+                      {reviews.intro}
+                    </p>
+                  </div>
+
                   {/* Rating summary */}
                   <div
                     className="mb-5 flex flex-col items-center gap-3 rounded-[14px] sm:flex-row sm:justify-between"
@@ -323,13 +375,22 @@ export function EquipoOptionC() {
                     </a>
                   </div>
 
-                  {/* Review cards grid */}
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {items.slice(0, 6).map((r, i) => (
+                  {/* Carrusel de testimonios — siempre 4 visibles */}
+                  <div
+                    onMouseEnter={() => setPaused(true)}
+                    onMouseLeave={() => setPaused(false)}
+                    onFocusCapture={() => setPaused(true)}
+                    onBlurCapture={() => setPaused(false)}
+                  >
+                  <div
+                    key={page}
+                    className="fade-up grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+                  >
+                    {visible.map(({ review: r, index }, i) => (
                       <button
-                        key={i}
+                        key={index}
                         type="button"
-                        onClick={() => setSelected(i)}
+                        onClick={() => setSelected(index)}
                         className="group flex cursor-pointer flex-col rounded-[14px] bg-paper text-left transition-all hover:-translate-y-[2px] hover:shadow-[0_8px_28px_rgba(31,22,17,0.08)]"
                         style={{
                           border: "1px solid var(--color-border)",
@@ -365,12 +426,14 @@ export function EquipoOptionC() {
                           <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
                         </svg>
 
-                        {/* Stars */}
-                        <div className="mb-2 flex" style={{ gap: "1px", color: "#C9AB6E" }}>
-                          {Array.from({ length: 5 }).map((_, idx) => (
-                            <svg key={idx} width="16" height="16" viewBox="0 0 24 24" fill={idx < r.rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-                          ))}
-                        </div>
+                        {/* Stars — solo en reseñas con puntaje de Google */}
+                        {r.rating > 0 && (
+                          <div className="mb-2 flex" style={{ gap: "1px", color: "#C9AB6E" }}>
+                            {Array.from({ length: 5 }).map((_, idx) => (
+                              <svg key={idx} width="16" height="16" viewBox="0 0 24 24" fill={idx < r.rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                            ))}
+                          </div>
+                        )}
 
                         {/* Text */}
                         <p
@@ -415,11 +478,38 @@ export function EquipoOptionC() {
                           </div>
                           <div>
                             <p className="font-semibold" style={{ fontSize: "0.88rem", color: "var(--color-burgundy)" }}>{r.author}</p>
-                            <p style={{ fontSize: "0.75rem", color: "#4A7B78" }}>{r.date}</p>
+                            {r.date && (
+                              <p style={{ fontSize: "0.75rem", color: "#4A7B78" }}>{r.date}</p>
+                            )}
                           </div>
                         </div>
                       </button>
                     ))}
+                  </div>
+
+                  {/* Indicadores */}
+                  {pages > 1 && (
+                    <div className="mt-6 flex items-center justify-center gap-2">
+                      {Array.from({ length: pages }).map((_, p) => (
+                        <button
+                          key={p}
+                          type="button"
+                          onClick={() => setPage(p)}
+                          aria-label={`Ver testimonios ${p + 1} de ${pages}`}
+                          aria-current={p === page}
+                          className="rounded-full transition-all"
+                          style={{
+                            width: p === page ? "24px" : "8px",
+                            height: "8px",
+                            background:
+                              p === page
+                                ? "var(--color-burgundy)"
+                                : "rgba(47,92,89,0.25)",
+                          }}
+                        />
+                      ))}
+                    </div>
+                  )}
                   </div>
                 </div>
               </Reveal>

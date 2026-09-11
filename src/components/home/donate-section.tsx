@@ -18,24 +18,22 @@ export function DonateSection() {
                 textWrap: "balance",
               }}
             >
-              Tu aporte ayuda a que este proyecto{" "}
-              <em
-                style={{
-                  fontStyle: "italic",
-                  color: "var(--color-burgundy)",
-                  background: "none",
-                }}
-              >
-                siga creciendo
-              </em>
-              .
+              Tu aporte ayuda a que este proyecto siga creciendo
             </h2>
-            <p
-              className="text-ink-muted"
-              style={{ fontSize: "0.95rem", lineHeight: 1.6 }}
-            >
-              Cada donación, sin importar su monto, contribuye a sostener el trabajo cotidiano de APADMSI.
-            </p>
+            <div className="text-ink-muted">
+              {donate.lede.split("\n\n").map((par) => (
+                <p
+                  key={par}
+                  style={{
+                    fontSize: "0.95rem",
+                    lineHeight: 1.6,
+                    marginTop: "0.75rem",
+                  }}
+                >
+                  {par}
+                </p>
+              ))}
+            </div>
           </div>
         </Reveal>
         <DonatePanel />

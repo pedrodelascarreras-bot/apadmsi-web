@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { donate } from "@/lib/content";
 
 type Props = {
   accounts?: unknown[];
@@ -248,6 +249,18 @@ export function DonatePanel({ accounts: _accounts }: Props) {
             )}
           </span>
         </button>
+
+        <p
+          className="text-center"
+          style={{
+            marginTop: "0.85rem",
+            fontSize: "0.9rem",
+            fontWeight: 600,
+            color: "var(--color-gold-warm)",
+          }}
+        >
+          {donate.punch}
+        </p>
 
         {/* Trust bar */}
         <div style={{ marginTop: "1.5rem" }}>

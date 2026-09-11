@@ -91,12 +91,20 @@ export function HeroOptionC() {
             </div>
             {/* Badge flotante */}
             <div
-              className="absolute -bottom-4 -left-2 z-10 rounded-[12px] border border-border bg-paper px-5 py-3.5 sm:-left-6"
-              style={{ boxShadow: "0 12px 40px rgba(31,22,17,0.12)" }}
+              className="teal-ctx absolute -bottom-4 -left-2 z-10 rounded-[12px] px-5 py-3.5 sm:-left-6"
+              style={{
+                background: "var(--color-cream-deep)",
+                border: "1px solid var(--color-gold)",
+                boxShadow: "0 12px 40px rgba(31,22,17,0.28)",
+              }}
             >
               <p
-                className="font-display leading-tight text-burgundy"
-                style={{ fontSize: "1.1rem", fontWeight: 500 }}
+                className="font-display leading-tight"
+                style={{
+                  fontSize: "1.1rem",
+                  fontWeight: 500,
+                  color: "var(--color-gold-warm)",
+                }}
               >
                 {hero.badge.text}
               </p>
@@ -106,17 +114,6 @@ export function HeroOptionC() {
               >
                 {hero.badge.subtext}
               </p>
-            </div>
-            {/* Corazón decorativo */}
-            <div
-              aria-hidden="true"
-              className="absolute -right-2 -top-3 z-10 grid h-12 w-12 place-items-center rounded-full sm:-right-4 sm:h-14 sm:w-14"
-              style={{
-                background: "var(--color-peach)",
-                boxShadow: "0 8px 24px rgba(201,171,110,0.4)",
-              }}
-            >
-              <Heart size={24} className="text-burgundy" />
             </div>
           </div>
         </div>

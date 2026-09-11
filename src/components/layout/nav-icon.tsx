@@ -1,4 +1,4 @@
-type IconName = "home" | "people" | "target" | "heart-hands" | "team" | "mail" | "clock";
+type IconName = "home" | "people" | "target" | "heart-hands" | "team" | "mail" | "clock" | "gallery";
 
 type Props = {
   name: IconName;
@@ -26,6 +26,16 @@ export function NavIcon({ name, size = 24, className = "" }: Props) {
         <svg {...common}>
           <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
           <path d="M9 21V14h6v7" />
+        </svg>
+      );
+
+    case "gallery":
+      return (
+        <svg {...common}>
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <circle cx="8.5" cy="10" r="1.5" />
+          <path d="m4 17 4.5-4.5a1.5 1.5 0 0 1 2 0L15 17" />
+          <path d="m13.5 15.5 2-2a1.5 1.5 0 0 1 2 0L20 16" />
         </svg>
       );
 

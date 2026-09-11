@@ -58,6 +58,7 @@ export const navLinks = [
   { href: "/nosotros", label: "Quiénes somos", icon: "people" },
   { href: "/historia", label: "Historia", icon: "clock" },
   { href: "/actividades", label: "Actividades", icon: "heart-hands" },
+  { href: "/galeria", label: "Galería", icon: "gallery" },
   { href: "/equipo", label: "Equipo", icon: "team" },
   { href: "/contacto", label: "Contacto", icon: "mail" },
 ] as const;
@@ -66,8 +67,8 @@ export const hero = {
   eyebrow: "",
   // <em> recibe subrayado peach
   headlineHtml:
-    "Dignidad, respeto y <em>amor</em>.",
-  lede: "Desde hace más de cuarenta años, en APADMSI acompañamos a jóvenes y adultos con discapacidad intelectual y a sus familias.\n\nSomos un Centro de Día en San Isidro que ofrece un espacio de cuidado, desarrollo y pertenencia, sostenido por un equipo comprometido y por una convicción que nos guía desde el primer día: cada vida importa.",
+    "Amor, compromiso, <em>vocación</em>",
+  lede: "Desde hace más de cuarenta años, en APADMSI acompañamos a jóvenes y adultos con discapacidad intelectual y a sus familias.\n\nSomos un Centro de Día en San Isidro que ofrece un espacio de cuidado, desarrollo y pertenencia, sostenido por un equipo comprometido y por una convicción que nos guía desde el primer día: la vida de nuestros concurrentes depende en gran medida de la ayuda generosa de todos.",
   ctaPrimary: { label: "Quiero colaborar", href: "#donar" },
   ctaSecondary: { label: "Conocé APADMSI", href: "/nosotros" },
   badge: {
@@ -108,7 +109,7 @@ export const credentials = {
 
 export const stats = {
   eyebrow: "Más de cuatro décadas creando oportunidades y acompañando familias",
-  heading: "El Centro, en números.",
+  heading: "El Centro, en números",
   items: [
     {
       number: "40",
@@ -131,7 +132,7 @@ export const stats = {
 export const about = {
   eyebrow: "",
   // <em> recibe highlight peach
-  headlineHtml: "Una <em>casa</em>, no una institución.",
+  headlineHtml: "Una <em>casa</em>, un hogar, una familia",
   paragraphsHtml: [
     "Somos la <strong>Asociación de Padres y Amigos de Discapacitados Mentales de San Isidro</strong> — una Asociación Civil sin fines de lucro fundada el 14 de julio de 1982 por un grupo de padres y amigos de personas con discapacidad intelectual. En febrero de 1990, con un subsidio de la Municipalidad de San Isidro, adquirimos nuestra propia sede en Billinghurst 1260, donde seguimos funcionando.",
     "El Centro de Día surge como respuesta a la necesidad de ofrecer un espacio integral destinado a personas jóvenes y adultas con discapacidad intelectual que finalizaron su trayecto en la Educación Especial y que no se insertan en el ámbito laboral protegido. Es una alternativa a la institucionalización, promoviendo la permanencia en sus entornos familiares y comunitarios.",
@@ -142,8 +143,7 @@ export const about = {
   mission: {
     label: "Nuestra misión",
     statements: [
-      "Brindar un espacio de acompañamiento integral que promueva el desarrollo personal, emocional y social de las personas con discapacidad intelectual.",
-      "Fomentar la participación activa, la inclusión social y el ejercicio pleno de los derechos de los concurrentes.",
+      "Brindar un espacio de acompañamiento que promueva el desarrollo personal, emocional y social de las personas con discapacidad intelectual.",
       "Contribuir a la mejora de la calidad de vida de los concurrentes y sus familias mediante propuestas terapéuticas, recreativas y educativas adecuadas a sus necesidades.",
     ],
   },
@@ -152,26 +152,26 @@ export const about = {
 
 export const objectives = {
   eyebrow: "Nuestros objetivos",
-  heading: "Tres compromisos que no negociamos.",
+  heading: "Tres compromisos que no negociamos",
   intro:
     "Estos son los pilares fundacionales de la Institución. Cada actividad, cada decisión, cada persona que se suma al equipo se mide por su contribución a estos compromisos.",
   items: [
     {
       number: "01",
       title: "Desarrollo personal",
-      headline: "Promover el desarrollo personal, emocional y social.",
+      headline: "Promover el desarrollo personal, emocional y social",
       desc: "Estimulamos las capacidades cognitivas, motrices, comunicacionales y socioemocionales a través de actividades planificadas e interdisciplinarias.",
     },
     {
       number: "02",
       title: "Autonomía",
-      headline: "Fortalecer habilidades de la vida diaria y autonomía personal.",
+      headline: "Fortalecer habilidades de la vida diaria y autonomía personal",
       desc: "Trabajamos con cada concurrente para que pueda realizar las acciones del día a día con la mayor independencia posible.",
     },
     {
       number: "03",
       title: "Inclusión",
-      headline: "Fomentar la participación activa y la inclusión en la comunidad.",
+      headline: "Fomentar la participación activa y la inclusión en la comunidad",
       desc: "Salidas, talleres compartidos e integración con otras instituciones. La participación activa en la comunidad es parte central del programa.",
     },
   ],
@@ -181,7 +181,7 @@ export const objectives = {
 
 export const activities = {
   eyebrow: "",
-  heading: "Un programa completo. Una sola intención: cuidar.",
+  heading: "Un programa completo. Una sola intención: cuidar",
   intro:
     "Desarrollamos un programa amplio de actividades terapéuticas, recreativas y ocupacionales con el objetivo de enriquecer las diversas habilidades de cada concurrente.",
   // Frase institucional declarada en la web vigente.
@@ -248,7 +248,7 @@ export const activities = {
 export const vision = {
   eyebrow: "Nuestro próximo paso",
   // <em> recibe highlight peach
-  headlineHtml: "Que el <em>cuidado</em> no se termine.",
+  headlineHtml: "Que el <em>cuidado</em> no se termine",
   paragraphsHtml: [
     "El Centro de Día acompaña a los concurrentes durante la jornada — entran a la mañana, almuerzan, hacen actividades, vuelven a sus hogares al final del día. Pero hay una pregunta que no descansa: <strong>¿qué pasa cuando los padres ya no están?</strong>",
     "Para muchas de las familias que conocemos, esa pregunta es el peso silencioso que cargan todos los días. El proyecto institucional a largo plazo es construir un Hogar que continúe la tarea del Centro — un espacio donde quienes hoy concurren puedan seguir siendo cuidados con la misma calidad cuando sus familias ya no puedan hacerlo.",
@@ -281,34 +281,34 @@ export const quote = {
 
 export const history = {
   eyebrow: "",
-  heading: "Más de cuatro décadas construyendo un lugar donde cada persona importa.",
+  heading: "Más de cuatro décadas acompañando a nuestros concurrentes y a sus familias",
   intro:
     "APADMSI nació el 14 de julio de 1982, impulsada por un grupo de padres y amigos que decidió transformar una necesidad en un proyecto concreto: crear un espacio de acompañamiento para jóvenes y adultos con discapacidad intelectual que no encontraban un lugar donde continuar desarrollándose.\n\nMás de cuatro décadas después, esa misma casa sigue abierta en Billinghurst 1260, Béccar. Creció, se fortaleció y se renovó, pero conserva intacto el espíritu que le dio origen.",
   timeline: [
     {
       year: "1982",
-      title: "Fundación.",
+      title: "Fundación",
       desc: "Un grupo de padres y amigos del partido de San Isidro crea la Asociación el 14 de julio de 1982, con el objetivo de brindar un espacio integral para jóvenes y adultos con discapacidad intelectual que finalizaron la Educación Especial y no se insertan en el ámbito laboral protegido.",
     },
     {
       year: "Década del '90",
-      title: "Nueva comisión, nuevo impulso.",
+      title: "Nueva comisión, nuevo impulso",
       desc: "Llegan padres nuevos y se renueva la Comisión de trabajo. Se amplía el programa de actividades y APADMSI comienza a recibir concurrentes a través de PAMI, Incluir Salud y PNC. En esta década, Nélida Sastre de Ehrhardt — conocida como Lala — ingresa a la Institución después de haber fundado la primera escuela especial para personas con discapacidad intelectual de San Fernando. Desde entonces lidera la Comisión Directiva con una premisa firme: trabajar para los que menos tienen.",
     },
     {
       year: "Años 2000",
-      title: "Crecimiento y visibilidad.",
-      desc: "El Centro recibe en estos años visitas institucionales de figuras nacionales — funcionarios de Desarrollo Social, autoridades municipales, donantes privados. La Municipalidad de San Isidro consolida su acompañamiento permanente, una relación que ya lleva más de cuatro décadas.",
+      title: "Crecimiento y visibilidad",
+      desc: "El Centro recibe en estos años visitas institucionales de figuras nacionales — funcionarios de Desarrollo Social, autoridades municipales, quienes además de las auditorías correspondientes, verifican la calidad del servicio brindado, otorgándose a APADMSI la mejor categoría de prestaciones ante el ente regulador (ANDIS). La Municipalidad de San Isidro consolida su acompañamiento permanente, una relación que ya lleva más de cuatro décadas.",
     },
     {
       year: "2016",
-      title: "Bailando por un Sueño.",
-      desc: "Por iniciativa de la Municipalidad de San Isidro, la Institución participa en el programa de televisión Bailando por un Sueño. La experiencia le da una visibilidad sin precedentes al Centro, atrae nuevos donantes y fortalece el vínculo con la comunidad.",
+      title: "Bailando por un Sueño",
+      desc: "Por iniciativa de la Municipalidad de San Isidro, la Institución participa en el programa de televisión Bailando por un Sueño. La experiencia le da una visibilidad sin precedentes al Centro, atrae donaciones y fortalece el vínculo con la comunidad.",
     },
     {
       year: "Hoy",
-      title: "Una casa con cuarenta años en pie.",
-      desc: "Más de 30 jóvenes y adultos asisten diariamente al Centro. La Fundación Banco Provincia visitó la Institución y la reconoció como referencia por la alegría y el amor del equipo de trabajo. El proyecto continúa: sostener lo construido y abrir, algún día, un hogar permanente para quienes ya no tengan familia que los cuide.",
+      title: "Una casa con cuarenta años en pie",
+      desc: "Más de 35 jóvenes y adultos asisten diariamente al Centro. Sorteando dificultades económicas, la institución conserva sin embargo el ambiente de alegría y amor que toda persona que se acerca a nuestra casa admira inmediatamente. El proyecto continúa con un nuevo objetivo: abrir un hogar permanente para quienes ya no tengan familia que los cuide.",
     },
   ],
   pendingNote: "Más hitos institucionales en proceso de carga.",
@@ -317,9 +317,9 @@ export const history = {
 export const team = {
   eyebrow: "",
   // <em> recibe highlight peach
-  headlineHtml: "Un equipo profesional con <em>vocación</em> que hace la diferencia.",
+  headlineHtml: "Un equipo profesional con <em>vocación</em> que hace la diferencia",
   intro:
-    "Detrás de cada jornada hay personas que eligen acompañar. Un equipo interdisciplinario que trabaja de manera coordinada para respetar la historia, las necesidades y las posibilidades de desarrollo de cada concurrente.\n\nEste trabajo cotidiano también es posible gracias al compromiso de una Comisión Directiva que desde hace más de cuatro décadas sostiene e impulsa la misión de APADMSI.",
+    "Detrás de cada jornada hay un equipo que con vocación y conocimiento crea las actividades según las necesidades y posibilidades de cada concurrente.\n\nEl reconocimiento a este equipo de parte de los familiares, visitantes y auditores es unánime: recrean de una manera muy especial las condiciones y el ambiente de un verdadero hogar.",
   // Autoridades y dirección actuales de la institución.
   // imageSlug: si existe `public/images/equipo/{slug}.jpg|png|webp` se usa
   // como avatar; si no, se muestra placeholder con iniciales.
@@ -368,7 +368,7 @@ export const team = {
 export const donate = {
   eyebrow: "Sumáte a APADMSI",
   // <em> recibe highlight gold sobre fondo dark
-  headlineHtml: "Tu aporte ayuda a que este proyecto <em>siga creciendo</em>.",
+  headlineHtml: "Tu aporte ayuda a que este proyecto <em>siga creciendo</em>",
   punch: "Tu colaboración = Nuevas oportunidades para APADMSI.",
   lede: "Desde hace más de cuarenta años, APADMSI acompaña a personas con discapacidad intelectual y a sus familias creando un espacio de pertenencia, desarrollo y cuidado.\n\nCada donación, sin importar su monto, contribuye a sostener ese trabajo cotidiano: mantener abierto el Centro, fortalecer las actividades, incorporar recursos y seguir ofreciendo un acompañamiento de calidad.\n\nTu aporte hace posibles las nuevas oportunidades.\n\n¡Gracias por sumarte!",
   ways: {
@@ -429,7 +429,7 @@ export const donate = {
 // del cliente (la Places API de Google requiere key paga para automatizar).
 export const reviews = {
   eyebrow: "Experiencias compartidas",
-  heading: "Las familias y la comunidad cuentan quiénes somos.",
+  heading: "Las familias y la comunidad cuentan quiénes somos",
   intro:
     "Hay aspectos del trabajo cotidiano que sólo pueden describir quienes los viven de cerca. Estas palabras pertenecen a familias, vecinos, profesionales y visitantes que conocieron APADMSI y quisieron compartir su experiencia. Son testimonios que hablan de confianza, compromiso y del valor de sentirse acompañados.",
   googleMapsUrl:
@@ -484,6 +484,21 @@ export const reviews = {
       date: "Hermana de una concurrente",
       text: "Quiero agradecer la existencia de APADMSI. Para Deborah es su segundo HOGAR, así con mayúscula, donde recibe cada día todo el amor, los cuidados y la atención que necesita. Es donde comparte lo cotidiano con sus pares, es el lugar donde puedo dejarla con la total tranquilidad de que va a estar tan bien atendida, o mejor, que en casa. Para mí significa descanso físico y mental y la seguridad de que no estoy sola con el cuidado de Deborah de cada día. Gracias.",
     },
+    // Testimonios aportados directamente por la institución (no son reseñas
+    // de Google Maps): por eso van sin puntaje de estrellas.
+    // TODO: confirmar con el cliente cómo presentar a cada autor (rol o vínculo).
+    {
+      author: "Federico Vilariño",
+      rating: 0,
+      date: "",
+      text: "Me impactó el equipo que trabaja con los concurrentes, la dedicación, la entrega. Uno como parte de la sociedad no puede dejar de ayudar a esta gente que tiene esta vocación increíble.",
+    },
+    {
+      author: "Marcelo de las Carreras",
+      rating: 0,
+      date: "",
+      text: "Hace 10 años empecé a ayudar en APADMSI; cada vez tengo más admiración por esta obra que ayuda tan cariñosamente a las familias más necesitadas, que además llevan el peso de la discapacidad.",
+    },
   ] as Array<{
     author: string;
     rating: number;
@@ -495,7 +510,7 @@ export const reviews = {
 export const press = {
   label: "Nuestra tarea, compartida",
   eyebrow: "Nuestra tarea, compartida",
-  heading: "Una historia que también fue contada por otros.",
+  heading: "Una historia que también fue contada por otros",
   intro:
     "A lo largo de los años, distintos medios de comunicación e instituciones se interesaron por el trabajo que realiza APADMSI. Estas publicaciones y registros reflejan el compromiso sostenido de la institución, acompañan su crecimiento y ayudan a dar visibilidad a una tarea que, desde hace más de cuatro décadas, transforma la vida de muchas personas y sus familias.\n\nLas notas y los registros que compartimos a continuación forman parte de ese recorrido.",
   outlets: [
@@ -537,7 +552,7 @@ export const press = {
 // y notas de prensa).
 export const recognition = {
   eyebrow: "El respaldo que nos acompaña",
-  heading: "Un compromiso sostenido, con reconocimiento oficial.",
+  heading: "Un compromiso sostenido, con reconocimiento oficial",
   intro:
     "Desde hace más de cuatro décadas, APADMSI desarrolla su tarea con la responsabilidad y el compromiso que requiere el acompañamiento de personas con discapacidad intelectual. Este trabajo cotidiano se sostiene con un equipo interdisciplinario, estándares de calidad y las habilitaciones oficiales que acreditan el funcionamiento del Centro.\n\nContamos con reconocimiento en los ámbitos nacional, provincial y municipal, y trabajamos junto a organismos e instituciones que acompañan y respaldan nuestra labor. Ese apoyo fortalece nuestra misión y nos permite seguir ofreciendo un espacio de confianza para los concurrentes y sus familias.",
   // logoSlug: si existe `public/images/orgs/{slug}.png|svg|jpg|webp` se
@@ -602,7 +617,7 @@ export const recognition = {
 // Mientras tanto, la sección muestra un placeholder con CTA para visitar.
 export const videoTour = {
   eyebrow: "Conocénos",
-  heading: "Una mirada cercana a APADMSI.",
+  heading: "Una mirada cercana a APADMSI",
   intro:
     "Este video te mostrará brevemente quiénes somos, cómo trabajamos y qué hace de APADMSI un lugar de pertenencia para muchos concurrentes y sus familias. Te invitamos a recorrer el Centro y descubrir su misión desde adentro.",
   // TODO: pegar acá la URL de embed cuando el video esté subido a YouTube/Vimeo.
@@ -619,7 +634,7 @@ export const videoTour = {
 
 export const gallery = {
   eyebrow: "Momentos compartidos… y ¡disfrutados!",
-  heading: "Imágenes que cuentan nuestra historia.",
+  heading: "Imágenes que cuentan nuestra historia",
   intro:
     "En cada foto verás mucho más que una actividad. Observarás vínculos, aprendizajes, encuentros y la vida cotidiana de un espacio construido con mucho compromiso y afecto. Te invitamos a conocer APADMSI desde adentro, a través de quienes le dan vida cada día.",
   items: [
@@ -645,9 +660,9 @@ export const gallery = {
 } as const;
 
 export const contact = {
-  eyebrow: "",
-  heading: "¿Querés conocernos?",
-  lede: "Nuestra institución está siempre abierta.",
+  eyebrow: "Estamos para ayudarte",
+  heading: "¡Queremos conocerte!",
+  lede: "Si querés conocer APADMSI, hacer una consulta, coordinar una visita o colaborar con nuestra misión, será un gusto recibir tu mensaje. Estamos a disposición para responder tus inquietudes y acompañarte en lo que necesites.",
 } as const;
 
 export const collaborators = {
@@ -741,7 +756,7 @@ export const arteTerapiaPage: ActivityDetail = {
   eyebrow: "Actividades · APADMSI",
   title: "Arte Terapia",
   headlineHtml:
-    "El efecto sanador de la <em>expresión artística</em>.",
+    "El efecto sanador de la <em>expresión artística</em>",
   paragraphsHtml: [
     "El concepto de Arte Terapia se sostiene entre dos espacios a priori distanciados entre sí. Por un lado el <strong>terapéutico</strong>, proveniente del desarrollo histórico del campo de la salud mental. Por otro, lo relacionado a la <strong>producción de las artes visuales</strong>.",
     "Es aplicable en todo ámbito de bienestar humano — tanto para prevenir, promover, desarrollar o fortalecer, sea a las personas como a las interacciones grupales. Esta disciplina busca rescatar el efecto sanador de la expresión artística en sí misma.",
@@ -760,7 +775,7 @@ export const recreativasPage: ActivityDetail = {
   eyebrow: "Actividades · APADMSI",
   title: "Actividades recreativas",
   headlineHtml:
-    "La recreación es <em>un derecho</em>, no un extra.",
+    "La recreación es <em>un derecho</em>, no un extra",
   paragraphsHtml: [
     "Las actividades recreativas no son un complemento del programa — son una parte central. Espectáculos en el Centro, salidas culturales, festejos, encuentros con la comunidad, mate compartido, jornadas de verano. Cada propuesta es una oportunidad para que los concurrentes salgan de la rutina, se vinculen entre sí y con personas de afuera, y vivan la experiencia de pertenecer.",
     "A lo largo del año recibimos visitas de artistas, payasos terapéuticos y compañías de teatro que vienen al Centro a trabajar con los concurrentes. También salimos: visitas a museos, paseos, encuentros con otras instituciones de zona norte. Y cada verano organizamos una serie de jornadas con pileta, música, baile y actividades al aire libre.",
@@ -779,7 +794,7 @@ export const musicoterapiaPage: ActivityDetail = {
   eyebrow: "Actividades · APADMSI",
   title: "Musicoterapia",
   headlineHtml:
-    "Cuando las palabras no alcanzan, <em>está la música</em>.",
+    "Cuando las palabras no alcanzan, <em>está la música</em>",
   paragraphsHtml: [
     "La Musicoterapia es una disciplina profesional que utiliza la música y los elementos sonoros — sonido, ritmo, melodía, armonía — para abrir canales de comunicación, estimular el desarrollo y favorecer el bienestar emocional. No requiere conocimientos previos ni habilidades musicales: cada concurrente participa desde donde puede.",
     "En APADMSI, la musicoterapia es uno de los espacios más esperados de la semana. Tocar la guitarra, hacer percusión con tambores, sacudir maracas, soplar instrumentos de viento, cantar canciones conocidas, improvisar melodías. Trabajamos en grupo, en ronda, escuchándonos.",
@@ -798,7 +813,7 @@ export const cocinaPage: ActivityDetail = {
   eyebrow: "Actividades · APADMSI",
   title: "Taller de Cocina",
   headlineHtml:
-    "La cocina como un acto de <em>autonomía</em>.",
+    "La cocina como un acto de <em>autonomía</em>",
   paragraphsHtml: [
     "El taller de cocina es uno de los espacios más concretos del programa. Manipular ingredientes, oler especias, mezclar harina y agua, esperar que la masa leve. Cada acción tiene un sentido y un resultado tangible — y eso, para una persona con discapacidad intelectual, es una conquista enorme.",
     "Trabajamos con todas las medidas de higiene: cofia, barbijo, delantal. No son solo medidas sanitarias — son un ritual que ordena la actividad y le da seriedad. Cada concurrente entiende que el taller de cocina es algo importante, y se prepara como tal.",
@@ -817,7 +832,7 @@ export const huertaPage: ActivityDetail = {
   eyebrow: "Actividades · APADMSI",
   title: "Taller de Huerta",
   headlineHtml:
-    "El contacto con la tierra <em>calma, ordena y conecta</em>.",
+    "El contacto con la tierra <em>calma, ordena y conecta</em>",
   paragraphsHtml: [
     "El taller de huerta es uno de los espacios más nobles del programa. Sembrar una semilla, regar todos los días, ver crecer la planta a lo largo de las semanas, cosechar un morrón, una albahaca, un tomate. Es un proceso largo, paciente, que tiene su propio ritmo — y eso, justamente, es parte del valor terapéutico.",
     "Trabajamos con plantas aromáticas (orégano, albahaca, romero, tomillo), hortalizas de estación (morrón, lechuga, tomate, cebolla de verdeo) y flores. Lo que se cosecha pasa después al taller de cocina o se reparte entre los concurrentes y sus familias. Cada cosecha es una pequeña fiesta colectiva.",
@@ -836,7 +851,7 @@ export const manualidadesPage: ActivityDetail = {
   eyebrow: "Actividades · APADMSI",
   title: "Taller de Manualidades",
   headlineHtml:
-    "Pintar, recortar, ensamblar — <em>transformar</em>.",
+    "Pintar, recortar, ensamblar — <em>transformar</em>",
   paragraphsHtml: [
     "El taller de manualidades es uno de los espacios donde más se libera la creatividad. Frascos pintados, marcos decorados, cuadros con témpera, collages con papel de revista, objetos hechos con materiales reciclados. Cada concurrente trabaja a su ritmo, con sus colores favoritos, en su propio proyecto.",
     "Lo importante en este taller no es la técnica — es el proceso. Mojar el pincel, sentir la pintura sobre el cartón, mezclar dos colores y descubrir el tercero. Equivocarse, corregir, volver a empezar. Cada producción es única, propia y profundamente valorada.",

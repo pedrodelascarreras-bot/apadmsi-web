@@ -24,17 +24,7 @@ export default function DonarPage() {
               textWrap: "balance",
             }}
           >
-            Tu aporte ayuda a que este proyecto{" "}
-            <em
-              style={{
-                fontStyle: "italic",
-                color: "var(--color-burgundy)",
-                background: "none",
-              }}
-            >
-              siga creciendo
-            </em>
-            .
+            Tu aporte ayuda a que este proyecto siga creciendo
           </h1>
           <p
             className="text-ink-muted"
