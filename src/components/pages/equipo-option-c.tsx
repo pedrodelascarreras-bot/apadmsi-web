@@ -6,38 +6,6 @@ import { Reveal } from "@/components/shared/reveal";
 import { team, reviews } from "@/lib/content";
 
 type Tab = "comision" | "staff" | "testimonios";
-type ReviewItem = (typeof reviews.items)[number];
-
-function ReviewModal({ review, onClose }: { review: ReviewItem; onClose: () => void }) {
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      className="fixed inset-0 z-[300] flex items-center justify-center px-4"
-      style={{ background: "rgba(15,10,8,0.85)" }}
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
-    >
-      <article
-        className="w-full max-w-[560px] rounded-[16px] bg-paper px-8 py-8 sm:px-10 sm:py-10"
-        style={{ boxShadow: "0 24px 80px rgba(31,22,17,0.3)" }}
-      >
-        {review.rating > 0 && (
-          <div className="mb-4 flex text-burgundy" style={{ gap: "2px" }}>
-            {Array.from({ length: 5 }).map((_, i) => (
-              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill={i < review.rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-            ))}
-          </div>
-        )}
-        <p style={{ fontSize: "1.15rem", lineHeight: 1.7, color: "var(--color-burgundy)" }}>&ldquo;{review.text}&rdquo;</p>
-        <div className="mt-6 flex items-baseline justify-between gap-3">
-          <span className="text-base font-semibold text-ink">{review.author}</span>
-          <span className="text-sm text-ink-soft">{review.date}</span>
-        </div>
-      </article>
-    </div>
-  );
-}
-
 const TABS: { key: Tab; label: string; icon: "people" | "briefcase" | "quote" }[] = [
   { key: "comision", label: "Comisión Directiva", icon: "people" },
   { key: "staff", label: "Staff Profesional", icon: "briefcase" },
@@ -85,12 +53,11 @@ function InitialsCircle({ name, index }: { name: string; index: number }) {
   );
 }
 
-const REVIEWS_PER_VIEW = 4;
+const REVIEWS_PER_VIEW = 3;
 const REVIEWS_INTERVAL_MS = 7000;
 
 export function EquipoOptionC() {
   const [tab, setTab] = useState<Tab>("comision");
-  const [selected, setSelected] = useState<number | null>(null);
   const [page, setPage] = useState(0);
   const [paused, setPaused] = useState(false);
   const items = reviews.items;
@@ -106,14 +73,16 @@ export function EquipoOptionC() {
   // Rotación automática — se detiene al pasar el mouse, al abrir un
   // testimonio o si el sistema pide menos animación.
   useEffect(() => {
-    if (tab !== "testimonios" || paused || selected !== null || pages < 2) return;
+    if (tab !== "testimonios" || paused || pages < 2) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(
       () => setPage((p) => (p + 1) % pages),
       REVIEWS_INTERVAL_MS,
     );
     return () => clearInterval(id);
-  }, [tab, paused, selected, pages]);
+    // `page` en las dependencias: navegar a mano reinicia la cuenta, para que
+    // el avance automático no pise la tarjeta que el visitante acaba de elegir.
+  }, [tab, paused, pages, page]);
 
   return (
     <section
@@ -303,7 +272,6 @@ export function EquipoOptionC() {
                 <div>
                   {/* Intro editorial */}
                   <div className="mx-auto mb-6 max-w-[720px] text-center">
-                    <p className="section-label">{reviews.eyebrow}</p>
                     <h3
                       style={{
                         fontSize: "clamp(1.4rem, 2.6vw, 1.9rem)",
@@ -384,17 +352,15 @@ export function EquipoOptionC() {
                   >
                   <div
                     key={page}
-                    className="fade-up grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+                    className="fade-up grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
                   >
                     {visible.map(({ review: r, index }, i) => (
-                      <button
+                      <article
                         key={index}
-                        type="button"
-                        onClick={() => setSelected(index)}
-                        className="group flex cursor-pointer flex-col rounded-[14px] bg-paper text-left transition-all hover:-translate-y-[2px] hover:shadow-[0_8px_28px_rgba(31,22,17,0.08)]"
+                        className="flex flex-col rounded-[14px] bg-paper text-left"
                         style={{
                           border: "1px solid var(--color-border)",
-                          padding: "1.5rem",
+                          padding: "1.75rem",
                           position: "relative",
                           overflow: "hidden",
                         }}
@@ -439,13 +405,9 @@ export function EquipoOptionC() {
                         <p
                           className="flex-1"
                           style={{
-                            fontSize: "0.95rem",
-                            lineHeight: 1.7,
+                            fontSize: "1rem",
+                            lineHeight: 1.75,
                             color: "var(--color-burgundy)",
-                            display: "-webkit-box",
-                            WebkitLineClamp: 4,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
                           }}
                         >
                           &ldquo;{r.text}&rdquo;
@@ -483,31 +445,65 @@ export function EquipoOptionC() {
                             )}
                           </div>
                         </div>
-                      </button>
+                      </article>
                     ))}
                   </div>
 
-                  {/* Indicadores */}
+                  {/* Navegación */}
                   {pages > 1 && (
-                    <div className="mt-6 flex items-center justify-center gap-2">
-                      {Array.from({ length: pages }).map((_, p) => (
-                        <button
-                          key={p}
-                          type="button"
-                          onClick={() => setPage(p)}
-                          aria-label={`Ver testimonios ${p + 1} de ${pages}`}
-                          aria-current={p === page}
-                          className="rounded-full transition-all"
-                          style={{
-                            width: p === page ? "24px" : "8px",
-                            height: "8px",
-                            background:
-                              p === page
-                                ? "var(--color-burgundy)"
-                                : "rgba(47,92,89,0.25)",
-                          }}
-                        />
-                      ))}
+                    <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+                      <button
+                        type="button"
+                        onClick={() => setPage((p) => (p - 1 + pages) % pages)}
+                        aria-label="Ver testimonios anteriores"
+                        className="grid place-items-center rounded-full transition-colors"
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          border: "1.5px solid var(--color-burgundy)",
+                          color: "var(--color-burgundy)",
+                        }}
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+                      </button>
+
+                      <div className="flex items-center gap-2">
+                        {Array.from({ length: pages }).map((_, p) => (
+                          <button
+                            key={p}
+                            type="button"
+                            onClick={() => setPage(p)}
+                            aria-label={`Ver testimonios ${p + 1} de ${pages}`}
+                            aria-current={p === page}
+                            className="rounded-full transition-all"
+                            style={{
+                              width: p === page ? "24px" : "8px",
+                              height: "8px",
+                              background:
+                                p === page
+                                  ? "var(--color-burgundy)"
+                                  : "rgba(47,92,89,0.25)",
+                            }}
+                          />
+                        ))}
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setPage((p) => (p + 1) % pages)}
+                        className="inline-flex items-center gap-2 rounded-full transition-colors"
+                        style={{
+                          border: "1.5px solid var(--color-burgundy)",
+                          background: "var(--color-burgundy)",
+                          color: "#FFFFFF",
+                          fontSize: "0.88rem",
+                          fontWeight: 600,
+                          padding: "0.6rem 1.4rem",
+                        }}
+                      >
+                        Ver más testimonios
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+                      </button>
                     </div>
                   )}
                   </div>
@@ -518,7 +514,6 @@ export function EquipoOptionC() {
         </Container>
       </div>
 
-      {selected !== null && <ReviewModal review={items[selected]} onClose={() => setSelected(null)} />}
     </section>
   );
 }
