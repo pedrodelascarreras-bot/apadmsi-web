@@ -26,8 +26,10 @@ export const site = {
   addressShort: "Billinghurst 1260, Beccar · San Isidro",
   geo: { lat: -34.4735, lng: -58.538446 },
   hours: "Lunes a viernes · 8:30 a 16:30 hs",
-  phone: "(011) 4723 8951",
-  phoneTel: "01147238951",
+  // TODO: confirmar con el cliente que es celular y tiene WhatsApp
+  phone: "11 5347-8595",
+  phoneTel: "+5491153478595",
+  whatsapp: "5491153478595",
   email: "apadmsisanisidro@gmail.com",
   facebook: {
     url: "https://www.facebook.com/apadmsi.sanisidro",
@@ -329,6 +331,7 @@ export const team = {
     { name: "", role: "Directoras" },
     { name: "", role: "Orientadoras" },
     { name: "", role: "Psicóloga" },
+    { name: "", role: "Trabajadora Social" },
     { name: "", role: "Auxiliares" },
     { name: "", role: "Médico Psiquiatra" },
     { name: "", role: "Terapista Ocupacional" },
@@ -724,7 +727,7 @@ export const footerNav = {
   seguinos: [
     { href: site.instagram.url, label: "Instagram" },
     { href: site.facebook.url, label: "Facebook" },
-    { href: `https://wa.me/${site.phoneTel}`, label: "WhatsApp" },
+    { href: `https://wa.me/${site.whatsapp}`, label: "WhatsApp" },
   ],
 } as const;
 

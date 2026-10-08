@@ -107,7 +107,10 @@ function collectAllImages(): ImageItem[] {
 
 export default function GaleriaPage() {
   const images = collectAllImages();
-  const categories = CATEGORIES.map((c) => ({ slug: c.slug, label: c.label }));
+  // Solo categorías con al menos una foto, para no mostrar filtros vacíos
+  const categories = CATEGORIES.filter((c) =>
+    images.some((img) => img.category === c.slug),
+  ).map((c) => ({ slug: c.slug, label: c.label }));
 
   return <GalleryPageClient images={images} categories={[...categories]} />;
 }
