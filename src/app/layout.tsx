@@ -8,6 +8,7 @@ import { StructuredData } from "@/components/shared/structured-data";
 
 import { ReadingMode } from "@/components/shared/reading-mode";
 import { ViewTransitions } from "@/components/shared/view-transitions";
+import { PhotoNumbers } from "@/components/shared/photo-numbers";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -118,6 +119,7 @@ export default function RootLayout({
 
         <ReadingMode />
         <ViewTransitions />
+        <PhotoNumbers />
       </body>
     </html>
   );
