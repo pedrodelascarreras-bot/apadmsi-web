@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 import { donate } from "@/lib/content";
 import { Heart } from "@/components/shared/heart";
 
@@ -56,12 +57,16 @@ function LoadingSpinner() {
   );
 }
 
-function MercadoPagoLogo({ size = 28 }: { size?: number }) {
+// Logo oficial (recortado al óvalo, proporción 448×312)
+function MercadoPagoLogo({ height = 20 }: { height?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-label="Mercado Pago">
-      <rect width="32" height="32" rx="8" fill="#00AEEF" />
-      <path d="M8.5 18.5C8.5 18.5 10 15 13 15C14.5 15 15.5 15.8 16 16.5C16.5 15.8 17.5 15 19 15C22 15 23.5 18.5 23.5 18.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <Image
+      src="/images/mercadopago-logo.png"
+      alt="Mercado Pago"
+      width={Math.round(height * (448 / 312))}
+      height={height}
+      className="shrink-0"
+    />
   );
 }
 
@@ -269,10 +274,10 @@ export function DonatePanel({ accounts: _accounts }: Props) {
 
         {/* Aclaración del procesador de pago */}
         <p
-          className="mt-3 flex items-center justify-center gap-2"
-          style={{ fontSize: "0.8rem", color: "#4A5A58" }}
+          className="flex items-center justify-center gap-2"
+          style={{ marginTop: "1.1rem", fontSize: "0.82rem", color: "#4A5A58" }}
         >
-          <MercadoPagoLogo size={20} />
+          <MercadoPagoLogo height={18} />
           <span>
             Pago seguro vía <strong style={{ fontWeight: 700, color: "#2F5C59" }}>Mercado Pago</strong>
           </span>
@@ -281,7 +286,7 @@ export function DonatePanel({ accounts: _accounts }: Props) {
         <p
           className="text-center"
           style={{
-            marginTop: "0.85rem",
+            marginTop: "1.5rem",
             fontSize: "0.9rem",
             fontWeight: 600,
             color: "var(--color-gold-warm)",
@@ -291,7 +296,13 @@ export function DonatePanel({ accounts: _accounts }: Props) {
         </p>
 
         {/* Trust bar */}
-        <div style={{ marginTop: "1.5rem" }}>
+        <div
+          style={{
+            marginTop: "1.75rem",
+            paddingTop: "1.25rem",
+            borderTop: "1px solid rgba(47,92,89,0.12)",
+          }}
+        >
           <p
             className="mb-2 text-ink-muted"
             style={{ fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" }}
@@ -300,7 +311,7 @@ export function DonatePanel({ accounts: _accounts }: Props) {
           </p>
           <div className="flex items-center gap-3">
             {/* MercadoPago */}
-            <MercadoPagoLogo />
+            <MercadoPagoLogo height={22} />
             {/* Visa */}
             <div
               className="flex items-center justify-center rounded-[5px]"
