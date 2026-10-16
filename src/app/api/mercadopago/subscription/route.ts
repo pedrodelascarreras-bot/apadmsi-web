@@ -1,13 +1,15 @@
 import { NextResponse } from "next/server";
-import { MercadoPagoConfig, PreApproval } from "mercadopago";
+import { MercadoPagoConfig, PreApprovalPlan } from "mercadopago";
 
 type SubscriptionBody = {
   amount: number;
-  email: string;
 };
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+/**
+ * Crea un plan de suscripción mensual por el monto elegido y devuelve su link.
+ * El donante entra a MercadoPago con su propia cuenta y autoriza el débito,
+ * así no hace falta pedirle el email en el sitio.
+ */
 export async function POST(request: Request) {
   const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN;
 
@@ -39,26 +41,16 @@ export async function POST(request: Request) {
     );
   }
 
-  // MercadoPago exige el email del pagador para crear la suscripción
-  const email = typeof body.email === "string" ? body.email.trim() : "";
-  if (!EMAIL_RE.test(email)) {
-    return NextResponse.json(
-      { error: "Ingresá un email válido." },
-      { status: 400 },
-    );
-  }
-
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
   const backUrl = `${siteUrl}/donar/gracias`;
 
   const client = new MercadoPagoConfig({ accessToken });
-  const preApproval = new PreApproval(client);
+  const plan = new PreApprovalPlan(client);
 
   try {
-    const result = await preApproval.create({
+    const result = await plan.create({
       body: {
         reason: "Donación mensual a APADMSI",
-        payer_email: email,
         auto_recurring: {
           frequency: 1,
           frequency_type: "months",
@@ -66,7 +58,6 @@ export async function POST(request: Request) {
           currency_id: "ARS",
         },
         back_url: backUrl,
-        status: "pending",
       },
     });
 
