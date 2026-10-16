@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { donate } from "@/lib/content";
+import { Heart } from "@/components/shared/heart";
 
 type Props = {
   accounts?: unknown[];
@@ -205,49 +206,51 @@ export function DonatePanel({ accounts: _accounts }: Props) {
           </div>
         )}
 
-        {/* Donate button */}
+        {/* Donate button — primario del sistema: dorado sólido, sombra-pop y sweep */}
         <button
           type="button"
           onClick={handleDonate}
           disabled={loading || numericAmount <= 0}
-          className="group w-full cursor-pointer overflow-hidden transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 disabled:pointer-events-none disabled:opacity-40"
+          className="donate-cta btn-burgundy group flex w-full cursor-pointer items-center justify-center gap-3 rounded-full border-[1.5px] border-burgundy bg-burgundy px-6 active:translate-y-px disabled:pointer-events-none disabled:opacity-50"
           style={{
-            background:
-              "linear-gradient(180deg, #D4BC82 0%, #C9AB6E 50%, #A8894D 100%)",
-            borderRadius: "999px",
-            height: "52px",
-            boxShadow:
-              "0 4px 14px rgba(168,137,77,0.3), inset 0 1px 0 rgba(255,255,255,0.15)",
+            height: "58px",
+            color: "#FFFFFF",
+            boxShadow: "0 3px 0 0 var(--color-burgundy-deep)",
           }}
         >
-          <span
-            className="flex items-center justify-center gap-2"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "1rem",
-              fontWeight: 600,
-            }}
-          >
-            {loading ? (
-              <>
-                <LoadingSpinner />
-                Conectando...
-              </>
-            ) : (
-              <>
-                Quiero colaborar
-                <svg
-                  width="17"
-                  height="17"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                </svg>
-              </>
-            )}
-          </span>
+          {loading ? (
+            <span className="flex items-center gap-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
+              <LoadingSpinner />
+              Conectando con Mercado Pago…
+            </span>
+          ) : (
+            <>
+              <span
+                className="donate-cta-heart grid shrink-0 place-items-center rounded-full"
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  background: "rgba(255,255,255,0.22)",
+                  border: "1px solid rgba(255,255,255,0.35)",
+                }}
+              >
+                <Heart size={16} />
+              </span>
+              <span style={{ fontSize: "1.02rem", fontWeight: 600, letterSpacing: "0.01em" }}>
+                {numericAmount > 0 ? (
+                  <>
+                    Colaborar con{" "}
+                    <span className="font-display" style={{ fontWeight: 700, fontSize: "1.1rem" }}>
+                      ${numericAmount.toLocaleString("es-AR")}
+                    </span>{" "}
+                    <span style={{ fontWeight: 500, opacity: 0.9 }}>por mes</span>
+                  </>
+                ) : (
+                  "Quiero colaborar"
+                )}
+              </span>
+            </>
+          )}
         </button>
 
         <p
@@ -318,6 +321,12 @@ export function DonatePanel({ accounts: _accounts }: Props) {
             }
             input[type="number"] {
               -moz-appearance: textfield;
+            }
+            .donate-cta-heart svg {
+              transition: transform 0.3s ease;
+            }
+            .donate-cta:hover .donate-cta-heart svg {
+              transform: scale(1.18);
             }
             input[type="number"]::placeholder {
               font-weight: 400;
