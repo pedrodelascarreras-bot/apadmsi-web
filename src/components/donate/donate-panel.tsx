@@ -211,10 +211,15 @@ export function DonatePanel({ accounts: _accounts }: Props) {
           type="button"
           onClick={handleDonate}
           disabled={loading || numericAmount <= 0}
-          className="donate-cta btn-burgundy group flex w-full cursor-pointer items-center justify-center gap-3 rounded-full border-[1.5px] border-burgundy bg-burgundy px-6 active:translate-y-px disabled:pointer-events-none disabled:opacity-50"
+          className="donate-cta btn-burgundy group flex w-full cursor-pointer items-center justify-center gap-3 rounded-full active:translate-y-px disabled:pointer-events-none disabled:opacity-50"
+          // Inline: la regla global `button { background: none; border: 0; padding: 0 }`
+          // de globals.css no está en un layer y le gana a las utilidades de Tailwind.
           style={{
             height: "58px",
+            padding: "0 1.5rem",
             color: "#FFFFFF",
+            background: "var(--color-burgundy)",
+            border: "1.5px solid var(--color-burgundy)",
             boxShadow: "0 3px 0 0 var(--color-burgundy-deep)",
           }}
         >
