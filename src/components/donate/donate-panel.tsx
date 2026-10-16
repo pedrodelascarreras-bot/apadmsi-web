@@ -62,18 +62,21 @@ export function DonatePanel({ accounts: _accounts }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [focused, setFocused] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailFocused, setEmailFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const numericAmount = Number(amount) || 0;
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
   async function handleDonate() {
-    if (numericAmount <= 0) return;
+    if (numericAmount <= 0 || !emailValid) return;
     setLoading(true);
     setError(null);
     try {
       const res = await fetch("/api/mercadopago/subscription", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: numericAmount }),
+        body: JSON.stringify({ amount: numericAmount, email: email.trim() }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -176,6 +179,42 @@ export function DonatePanel({ accounts: _accounts }: Props) {
           </div>
         </div>
 
+        {/* Email: MercadoPago lo exige para crear la suscripción */}
+        <div className="mb-5">
+          <label
+            htmlFor="donate-email"
+            className="mb-3 block text-ink"
+            style={{ fontSize: "0.88rem", fontWeight: 500 }}
+          >
+            Tu email
+          </label>
+          <input
+            id="donate-email"
+            type="email"
+            autoComplete="email"
+            placeholder="El mismo de tu cuenta de Mercado Pago"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setError(null);
+            }}
+            onFocus={() => setEmailFocused(true)}
+            onBlur={() => setEmailFocused(false)}
+            className="donate-email w-full rounded-[12px] bg-white px-5 outline-none transition-all duration-200"
+            style={{
+              height: "52px",
+              fontSize: "1rem",
+              color: "var(--color-ink)",
+              border: emailFocused
+                ? "1.5px solid var(--color-burgundy)"
+                : "1.5px solid var(--color-border)",
+              boxShadow: emailFocused
+                ? "0 0 0 3px rgba(201,171,110,0.15)"
+                : "0 1px 3px rgba(31,22,17,0.03)",
+            }}
+          />
+        </div>
+
         {/* Monthly info */}
         <div
           className="mb-4 flex items-start gap-2 rounded-[10px] px-4 py-3"
@@ -186,7 +225,7 @@ export function DonatePanel({ accounts: _accounts }: Props) {
         >
           <RecurringIcon />
           <p style={{ fontSize: "0.8rem", lineHeight: 1.5, color: "var(--color-ink-muted)" }}>
-            Se debitará automáticamente cada mes de tu tarjeta de crédito. Podés cancelar cuando quieras desde MercadoPago.
+            Se debitará automáticamente cada mes de tu tarjeta de crédito. Podés darte de baja cuando quieras desde la sección Suscripciones de tu cuenta de Mercado Pago.
           </p>
         </div>
 
@@ -209,7 +248,7 @@ export function DonatePanel({ accounts: _accounts }: Props) {
         <button
           type="button"
           onClick={handleDonate}
-          disabled={loading || numericAmount <= 0}
+          disabled={loading || numericAmount <= 0 || !emailValid}
           className="group w-full cursor-pointer overflow-hidden transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 disabled:pointer-events-none disabled:opacity-40"
           style={{
             background:
@@ -318,6 +357,10 @@ export function DonatePanel({ accounts: _accounts }: Props) {
             }
             input[type="number"] {
               -moz-appearance: textfield;
+            }
+            .donate-email::placeholder {
+              font-size: 0.88rem;
+              color: var(--color-ink-muted);
             }
             input[type="number"]::placeholder {
               font-weight: 400;

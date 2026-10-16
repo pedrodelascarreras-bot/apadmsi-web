@@ -57,6 +57,15 @@ export default function GraciasPage() {
           nuestros concurrentes.
         </p>
 
+        <p
+          className="mt-5 text-ink-muted"
+          style={{ fontSize: "0.95rem", lineHeight: 1.7 }}
+        >
+          Mercado Pago va a debitar tu aporte una vez por mes. Si en algún
+          momento querés darte de baja, lo hacés desde la sección
+          Suscripciones de tu cuenta de Mercado Pago.
+        </p>
+
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/"
