@@ -56,6 +56,15 @@ function LoadingSpinner() {
   );
 }
 
+function MercadoPagoLogo({ size = 28 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-label="Mercado Pago">
+      <rect width="32" height="32" rx="8" fill="#00AEEF" />
+      <path d="M8.5 18.5C8.5 18.5 10 15 13 15C14.5 15 15.5 15.8 16 16.5C16.5 15.8 17.5 15 19 15C22 15 23.5 18.5 23.5 18.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 /* ── Main component ── */
 
 export function DonatePanel({ accounts: _accounts }: Props) {
@@ -258,6 +267,17 @@ export function DonatePanel({ accounts: _accounts }: Props) {
           )}
         </button>
 
+        {/* Aclaración del procesador de pago */}
+        <p
+          className="mt-3 flex items-center justify-center gap-2"
+          style={{ fontSize: "0.8rem", color: "#4A5A58" }}
+        >
+          <MercadoPagoLogo size={20} />
+          <span>
+            Pago seguro vía <strong style={{ fontWeight: 700, color: "#2F5C59" }}>Mercado Pago</strong>
+          </span>
+        </p>
+
         <p
           className="text-center"
           style={{
@@ -280,10 +300,7 @@ export function DonatePanel({ accounts: _accounts }: Props) {
           </p>
           <div className="flex items-center gap-3">
             {/* MercadoPago */}
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-label="MercadoPago">
-              <rect width="32" height="32" rx="8" fill="#00AEEF" />
-              <path d="M8.5 18.5C8.5 18.5 10 15 13 15C14.5 15 15.5 15.8 16 16.5C16.5 15.8 17.5 15 19 15C22 15 23.5 18.5 23.5 18.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <MercadoPagoLogo />
             {/* Visa */}
             <div
               className="flex items-center justify-center rounded-[5px]"
